@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Accessible Zena workspace redesign prototype">
+  <title>Zena Workspace Redesign</title>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root{--bg:#FFFFFF;--surface:#fff;--soft:#eef4fa;--text:#10243e;--muted:#53677f;--border:#cfdae7;--primary:#0757c8;--primary-soft:#e7f0ff;--navy:#071b33;--focus:#ffbd2e;--shadow:0 18px 48px #1430521f}
+    [data-theme="dark"]{--bg:#07121f;--surface:#0d1c2c;--soft:#14273b;--text:#f4f8fc;--muted:#bbcad9;--border:#2a4056;--primary:#68a8ff;--primary-soft:#102e50;--navy:#040c15;--focus:#ffd26a;--shadow:0 18px 54px #0006;color-scheme:dark}
+    *{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:'Public Sans',Arial,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer;color:inherit}button,a,input,textarea{outline:0}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{box-shadow:0 0 0 3px var(--bg),0 0 0 6px var(--focus)}
+    .skip{position:fixed;z-index:100;left:16px;top:-70px;padding:12px 16px;border-radius:10px;background:var(--focus);color:#071b33;font-weight:800}.skip:focus{top:16px}
+    .sidebar{position:fixed;z-index:30;inset:0 auto 0 0;width:276px;padding:16px 14px;display:flex;flex-direction:column;background:var(--surface);color:var(--text);border-right:1px solid var(--border);transition:.2s}.sidebar.collapsed{width:76px}.row,.brand,.nav-item,.tool-link,.profile,.create,.topbar,.search,.welcome,.prompt-head,.prompt-foot,.actions,.section-head,.tool-card,.recent-row,.modal-head,.create-option,.history-item,.toast{display:flex;align-items:center}.sidebar svg{width:19px;height:19px;stroke-width:1.8;flex:0 0 19px}
+    .brand-row{display:flex;align-items:center;gap:8px;min-height:46px}.brand{border:0;background:transparent;color:var(--text);padding:5px 8px;gap:10px;border-radius:10px}.mark{width:34px;height:34px;flex:0 0 34px;border-radius:11px;display:grid;place-items:center;background:#0757c8;color:#fff;font-size:21px;font-weight:900;font-style:italic}.brand-name{font-size:21px;font-weight:800}.icon{width:40px;height:40px;border:1px solid var(--border);border-radius:11px;background:var(--surface);display:grid;place-items:center}.sidebar .icon{margin-left:auto;background:transparent;border-color:transparent;color:var(--muted)}.create{width:100%;margin:18px 0 8px;min-height:44px;border:0;border-radius:22px;padding:0 14px;gap:10px;background:var(--primary-soft);color:var(--primary);font-weight:800}.create kbd{margin-left:auto;padding:2px 7px;border-radius:6px;background:var(--surface);font-size:11px}.nav{display:grid;gap:3px}.nav-item,.tool-link{width:100%;min-height:42px;padding:0 12px;border:0;border-radius:21px;background:transparent;color:var(--text);gap:12px;text-decoration:none;font-weight:650;font-size:14px}.nav-item:hover,.tool-link:hover,.history-link:hover{background:var(--soft);color:var(--text)}.nav-item.active{background:var(--primary-soft);color:var(--primary)}.sidebar-section{margin-top:22px}.label{display:block;padding:0 10px 9px;color:var(--muted);font-size:12px;font-weight:700}.tool-link{min-height:38px}.history-section{min-height:0;display:flex;flex-direction:column;margin-top:20px;flex:1}.history-scroll{overflow-y:auto;padding-right:3px;scrollbar-width:thin}.history-link{width:100%;height:38px;padding:0 10px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border:0;border-radius:10px;background:transparent;color:var(--text);text-align:left;font-size:13px}.sidebar-foot{margin-top:12px;padding-top:10px;border-top:1px solid var(--border);display:grid;gap:7px}.profile{border:0;background:transparent;color:var(--text);min-height:52px;border-radius:13px;gap:10px;padding:7px;text-align:left}.avatar{width:38px;height:38px;flex:0 0 38px;border-radius:50%;display:grid;place-items:center;border:0;background:#c8e2ff;color:#063a86;font-weight:900}.profile-copy{display:grid;gap:2px;flex:1}.profile-copy small{color:var(--muted)}.collapsed .hide-collapsed{display:none}.collapsed .nav-item,.collapsed .create,.collapsed .profile{justify-content:center;padding:0}
+    .workspace{min-height:100vh;margin-left:276px;transition:.2s}.sidebar.collapsed~.workspace{margin-left:76px}.topbar{height:72px;padding:0 42px;border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--surface) 92%,transparent);position:sticky;top:0;z-index:15;backdrop-filter:blur(12px)}.search{width:min(540px,50vw);height:42px;margin:auto;padding:0 12px;gap:10px;border:1px solid var(--border);border-radius:12px;background:var(--soft);color:var(--muted)}.search input,.filter input{border:0;background:transparent;color:var(--text);width:100%}.search kbd{border:1px solid var(--border);border-radius:6px;padding:2px 6px;background:var(--surface);font-size:11px}.top-actions{display:flex;gap:9px}.main{width:min(1180px,calc(100% - 64px));margin:auto;padding:46px 0 80px}.welcome{align-items:flex-end;justify-content:space-between;gap:20px}.eyebrow{margin:0 0 8px;color:var(--primary);text-transform:uppercase;font-weight:850;letter-spacing:.08em;font-size:11px}.welcome h1{margin:0;font-size:clamp(31px,4vw,48px);letter-spacing:-.045em;line-height:1.05}.welcome p:last-child,.section-head p,.modal-head p{margin:8px 0 0;color:var(--muted)}.secondary{height:42px;padding:0 15px;border:1px solid var(--border);border-radius:11px;background:var(--surface);font-weight:750}
+    .prompt{margin-top:30px;padding:24px;border:1px solid #9fc4f2;border-radius:22px;background:var(--surface);box-shadow:0 12px 40px #245d971f}.prompt-head{gap:12px}.orb,.tool-icon,.file-icon{width:42px;height:42px;flex:0 0 42px;border-radius:12px;display:grid;place-items:center;background:var(--primary-soft);color:var(--primary)}.prompt-head div{display:grid;gap:2px}.prompt-head span{color:var(--muted);font-size:13px}.prompt textarea{width:100%;min-height:94px;padding:18px 0;resize:vertical;border:0;background:transparent;color:var(--text);font-size:18px}.prompt-foot{justify-content:space-between;gap:12px}.actions{gap:8px}.soft-button{height:38px;padding:0 12px;border:1px solid var(--border);border-radius:10px;background:var(--soft);font-weight:700;color:var(--muted)}.start{height:42px;padding:0 17px;border:0;border-radius:11px;background:var(--primary);color:#fff;font-weight:850}
+    .quick,.recents{margin-top:48px}.section-head{justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:18px}.section-head h2,.modal-head h2{margin:0;font-size:22px;letter-spacing:-.025em}.text-button{border:0;background:transparent;color:var(--primary);font-weight:800}.tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.tool-card,.create-option{min-height:104px;position:relative;padding:17px;align-items:flex-start;gap:13px;text-align:left;border:1px solid var(--border);border-radius:16px;background:var(--surface);box-shadow:0 4px 14px #1430520a}.tool-card:hover,.create-option:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 9px 24px #1430521a}.tool-card>span:nth-child(2),.create-option>span:nth-child(2){display:grid;gap:5px}.tool-card small,.create-option small{color:var(--muted);font-size:13px}.arrow{position:absolute;right:13px;top:13px}.blue{color:#0757c8;background:#e6f0ff}.violet{color:#6845c6;background:#eee9ff}.orange{color:#a94900;background:#fff0dd}.green{color:#157347;background:#e3f5eb}.pink{color:#a72a70;background:#ffe8f4}.teal{color:#007471;background:#dcf4f2}
+    .filter{margin:0 0 12px auto;width:260px;height:39px;padding:0 11px;display:flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--muted)}.recent-table{overflow:hidden;border:1px solid var(--border);border-radius:16px;background:var(--surface)}.recent-row{width:100%;min-height:72px;padding:12px 16px;display:grid;grid-template-columns:44px minmax(170px,1fr) 90px 145px 26px;gap:12px;border:0;border-bottom:1px solid var(--border);background:transparent;text-align:left}.recent-row:hover{background:var(--soft)}.recent-name{display:grid;gap:3px}.recent-name small,.recent-time,.recent-people{color:var(--muted);font-size:12px}.empty{padding:36px;text-align:center;color:var(--muted)}
+    /* Navigation is a blue utility zone; history is a separate readable surface. */
+    .sidebar{background:#173f96;color:#fff;border-right:0}.brand{color:#fff}.mark{background:#fff;color:#173f96}.sidebar .icon{color:#dbe7ff}.create{background:#fff;color:#174caf;border:2px solid #fff;border-radius:13px}.create:hover{background:#f2f6ff}.create.open-state{box-shadow:0 0 0 3px #7eacff}.create kbd{background:#e8f0ff;color:#174caf}.nav-item,.tool-link{color:#fff;border-radius:11px}.nav-item:hover,.tool-link:hover{background:#ffffff16;color:#fff}.nav-item.active{background:#ffffff26;color:#fff}.sidebar .label{color:#bcd0ff;text-transform:uppercase;letter-spacing:.12em;font-size:10px}.sidebar-section{padding:13px 8px;border-top:1px solid #ffffff1f}.history-section{margin:12px -4px 0;padding:14px 10px 10px;border-radius:16px 16px 0 0;background:#fff;color:#10243e;box-shadow:0 -5px 22px #0a22552e}.history-section .label{padding-left:4px;color:#53677f}.history-scroll{padding-right:2px}.history-link{color:#10243e;border-radius:9px}.history-link:hover{background:#edf3fb;color:#10243e}.sidebar-foot{margin:0 -4px;padding:8px 10px 0;background:#fff;border-top:1px solid #d8e1ed;color:#10243e}.sidebar-foot .nav-item,.sidebar-foot .profile{color:#10243e}.sidebar-foot .nav-item:hover,.sidebar-foot .profile:hover{background:#edf3fb;color:#10243e}.sidebar-foot .profile-copy small{color:#53677f}
+    .create-drawer{top:4px;bottom:4px;transform:none;width:400px;max-height:none;padding:20px;overflow:auto;border-radius:0 18px 18px 0;box-shadow:12px 8px 35px #09245224}.create-drawer .create-grid{grid-template-columns:1fr}.create-drawer .create-option{min-height:76px;border-radius:14px}.create-group{margin-top:20px}.create-group:first-of-type{margin-top:18px}.create-group-title{margin:0 0 8px;color:var(--muted);font-size:10px;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.create-group-list{display:grid;gap:8px}.create-drawer .create-option{width:100%}.create-drawer .create-option:hover{transform:none;background:var(--soft)}.scrim{background:transparent;backdrop-filter:none}
+    [data-theme="dark"] .history-section,[data-theme="dark"] .sidebar-foot{background:#0d1c2c;color:#f4f8fc;border-color:#2a4056}[data-theme="dark"] .history-link,[data-theme="dark"] .sidebar-foot .nav-item,[data-theme="dark"] .sidebar-foot .profile{color:#f4f8fc}[data-theme="dark"] .history-link:hover,[data-theme="dark"] .sidebar-foot .nav-item:hover,[data-theme="dark"] .sidebar-foot .profile:hover{background:#14273b;color:#f4f8fc}
+    /* Compact navigation density */
+    .sidebar{width:224px;padding:12px 10px;overflow:hidden}.sidebar.collapsed{width:64px}.workspace{margin-left:224px}.sidebar.collapsed~.workspace{margin-left:64px}.brand-row{min-height:38px;flex:0 0 auto}.brand{padding:3px 6px}.mark{width:30px;height:30px;flex-basis:30px;border-radius:9px;font-size:18px}.brand-name{font-size:18px}.sidebar .icon{width:34px;height:34px}.create{min-height:40px;margin:13px 0 6px;padding:0 11px;font-size:13px;flex:0 0 auto}.nav{gap:1px;flex:0 0 auto}.nav-item{min-height:36px;padding:0 10px;font-size:13px}.tool-link{min-height:34px;padding:0 10px;font-size:12px}.sidebar-section{margin-top:13px;padding:10px 5px;flex:0 0 auto}.sidebar .label{padding:0 7px 6px;font-size:9px}.history-section,[data-theme="dark"] .history-section{margin:10px 0 0;padding:8px 4px 4px;border-radius:0;background:transparent;color:#fff;box-shadow:none;min-height:0;overflow:hidden}.history-section .label,[data-theme="dark"] .history-section .label{padding-left:6px;color:#bcd0ff;flex:0 0 auto}.history-scroll{padding:0;flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#ffffff42 transparent;scrollbar-width:thin}.history-scroll::-webkit-scrollbar{width:6px}.history-scroll::-webkit-scrollbar-track{background:transparent}.history-scroll::-webkit-scrollbar-thumb{background:#ffffff42;border-radius:6px}.history-link,[data-theme="dark"] .history-link{height:32px;padding:0 7px;color:#fff;font-size:12px}.history-link:hover,[data-theme="dark"] .history-link:hover{background:#ffffff16;color:#fff}.sidebar-foot,[data-theme="dark"] .sidebar-foot{margin:6px 0 0;padding:7px 0 0;background:transparent;border-color:#ffffff26;color:#fff;flex:0 0 auto}.sidebar-foot .nav-item,.sidebar-foot .profile,[data-theme="dark"] .sidebar-foot .nav-item,[data-theme="dark"] .sidebar-foot .profile{color:#fff}.sidebar-foot .nav-item:hover,.sidebar-foot .profile:hover,[data-theme="dark"] .sidebar-foot .nav-item:hover,[data-theme="dark"] .sidebar-foot .profile:hover{background:#ffffff16;color:#fff}.profile{min-height:44px;padding:4px 6px}.avatar{width:32px;height:32px;flex-basis:32px;font-size:12px}.profile-copy strong{font-size:12px}.profile-copy small{font-size:10px;color:#c9d8fa!important}.create-drawer{width:360px}
+    .sidebar-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-color:#ffffff42 transparent;scrollbar-width:thin}.sidebar-scroll::-webkit-scrollbar{width:6px}.sidebar-scroll::-webkit-scrollbar-track{background:transparent}.sidebar-scroll::-webkit-scrollbar-thumb{background:#ffffff42;border-radius:6px}.sidebar-scroll .history-section{display:block;overflow:visible;min-height:auto;flex:none}.sidebar-scroll .history-scroll{display:block;overflow:visible;min-height:auto;flex:none}.sidebar-scroll .sidebar-foot{margin-top:12px;margin-bottom:4px}
+    .main.chat-page{width:min(1040px,calc(100% - 64px));padding-top:84px}.chat-hero{text-align:center;margin:0 auto 30px}.chat-hero h1{font-family:'Public Sans',Arial,sans-serif;font-weight:600;margin:0;color:var(--primary);font-size:clamp(36px,5vw,56px);letter-spacing:-.05em}.chat-hero p{margin:10px 0 0;color:var(--muted);font-size:15px}.chat-page .prompt{width:min(900px,100%);margin:0 auto}.chat-page .quick{width:min(980px,100%);margin:54px auto 0}.chat-page .section-head{justify-content:center;text-align:center}.chat-page .tool-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .mobile-nav-trigger{position:fixed;z-index:20;left:14px;top:14px;box-shadow:var(--shadow)}
+    .brand-logo-wide{display:block;width:150px;height:34px;object-fit:contain;object-position:left center}.brand-logo-icon{display:none;width:32px;height:32px;object-fit:contain}.brand{flex:1;min-width:0}.collapsed .brand-logo-wide{display:none}.collapsed .brand-logo-icon{display:block}.collapsed .brand{justify-content:center;padding:0}.collapsed .brand-row{justify-content:center}.collapsed #collapse{display:none!important}.collapsed #theme{display:none}.collapsed .sidebar-scroll{display:flex;flex-direction:column;overflow:hidden}.sidebar.collapsed .sidebar-section,.sidebar.collapsed .history-section{display:none!important}.collapsed .nav-item span,.collapsed .tool-link span{display:none!important}.collapsed .sidebar-foot{margin-top:auto;border-top:0}.collapsed .profile{width:100%}.collapsed .nav{gap:6px}.collapsed .nav-item,.collapsed .create{width:40px;min-height:40px;margin-left:auto;margin-right:auto;border-radius:10px;justify-content:center;padding:0}.collapsed .create{background:transparent;color:#fff;border:0}.collapsed .create:hover,.collapsed .nav-item:hover{background:#ffffff17}.collapsed .create kbd{display:none}
+    .search-page{width:min(760px,100%);margin:0 auto;padding-top:26px}.search-page h1{margin:0 0 24px;font-size:30px;letter-spacing:-.035em}.search-page-input{height:58px;padding:0 18px;display:flex;align-items:center;gap:12px;border:1px solid var(--border);border-radius:18px;background:var(--surface);box-shadow:0 8px 28px #14305212}.search-page-input svg{color:var(--muted)}.search-page-input input{width:100%;border:0;background:transparent;color:var(--text);font-size:16px}.search-results-title{margin:30px 8px 12px;color:var(--muted);font-size:13px;font-weight:750}.search-results{display:grid}.search-result{width:100%;min-height:49px;padding:9px 10px;display:grid;grid-template-columns:minmax(0,1fr) 92px;gap:18px;align-items:center;border:0;border-radius:10px;background:transparent;text-align:left}.search-result:hover{background:var(--soft)}.search-result strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;font-weight:600}.search-result time{color:var(--muted);font-size:12px;text-align:right}.search-empty{padding:42px 12px;text-align:center;color:var(--muted)}
+    .sidebar:not(.collapsed){width:244px}.sidebar:not(.collapsed)~.workspace{margin-left:244px}.brand-logo-wide{width:166px}
+    .nav-item .side-arrow{width:15px;height:15px;margin-left:auto;transition:transform .18s ease}.nav-item.drawer-open{background:#ffffff26;color:#fff}.nav-item.drawer-open .side-arrow{transform:rotate(90deg)}.apps-drawer-title{display:flex;align-items:center;gap:10px}.apps-drawer-title .tool-icon{width:38px;height:38px;flex-basis:38px}.apps-drawer-title h2{margin:0}.apps-drawer-title p{margin:3px 0 0;color:var(--muted);font-size:12px}
+    .scrim{position:fixed;z-index:39;inset:0;border:0;background:#010c188c;backdrop-filter:blur(3px)}.modal{position:fixed;z-index:40;left:50%;top:50%;width:min(760px,calc(100% - 32px));max-height:calc(100vh - 42px);overflow:auto;transform:translate(-50%,-50%);padding:26px;border:1px solid var(--border);border-radius:22px;background:var(--surface);box-shadow:var(--shadow)}.modal-head{justify-content:space-between;align-items:flex-start}.modal-head h2{font-size:26px}.create-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.create-option{min-height:88px;align-items:center}.create-option b:last-child{margin-left:auto}.divider{display:flex;align-items:center;gap:12px;margin:24px 0 9px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:850}.divider:after{content:'';height:1px;background:var(--border);flex:1}.history-item{width:100%;min-height:55px;gap:12px;padding:8px;border:0;border-radius:10px;background:transparent;text-align:left}.history-item:hover{background:var(--soft)}.history-item span{display:grid;gap:2px;flex:1}.history-item small{color:var(--muted)}.note{padding:12px;border-radius:10px;background:var(--primary-soft);color:var(--primary);font-size:12px;font-weight:750}.toast{position:fixed;z-index:60;right:24px;bottom:24px;padding:13px 17px;gap:9px;border-radius:12px;background:#0b6e47;color:#fff;box-shadow:var(--shadow);font-weight:750}.hidden,.mobile-only{display:none!important}
+    @media(max-width:900px){.sidebar{transform:translateX(-110%);width:min(236px,88vw)!important}.sidebar.open{transform:translateX(0)}.desktop-only{display:none!important}.mobile-only{display:grid!important}.workspace,.sidebar.collapsed~.workspace{margin-left:0}.topbar{padding:0 18px;gap:12px}.search{width:auto;flex:1}.main{width:min(100% - 32px,760px);padding-top:30px}.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:620px){.search input::placeholder{color:transparent}.search kbd,.welcome .secondary{display:none}.prompt{padding:18px}.prompt-head span{display:none}.tool-grid,.create-grid{grid-template-columns:1fr}.tool-card{min-height:86px;align-items:center}.filter{width:100%}.recent-row{grid-template-columns:44px minmax(0,1fr) 28px}.recent-time,.recent-people{display:none}.modal{width:calc(100% - 24px);max-height:88vh;left:12px!important;right:12px;top:auto;bottom:0;transform:none;border-radius:22px 22px 0 0}}
+    @media(max-width:900px){.chat-page .tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.main.chat-page{padding-top:72px}}
+    @media(max-width:620px){.chat-page .tool-grid{grid-template-columns:1fr}.chat-hero h1{font-family:'Public Sans',Arial,sans-serif;font-weight:600;font-size:34px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+    /* ZenaTools is a navigation-adjacent drawer, not a centered modal. Keep
+       these overrides after the shared modal rules so they cannot be reset. */
+    .scrim{background:transparent;backdrop-filter:none}
+    @media(min-width:621px){.modal.create-drawer{top:4px;right:auto;bottom:4px;width:400px;max-height:none;transform:none;padding:20px;overflow-y:auto;border-radius:0 18px 18px 0;box-shadow:12px 8px 35px #09245224}}
+
+    /* Compact ZenaTools dropdown */
+    @media(min-width:621px){
+      .modal.create-drawer{width:300px;max-height:520px;top:70px;bottom:auto;padding:14px;border-radius:14px;box-shadow:0 10px 30px #09245224}
+      .create-drawer .modal-head h2{font-size:20px}
+      .create-drawer .modal-head p{font-size:11px}
+      .create-drawer .apps-drawer-title .tool-icon{width:32px;height:32px;flex-basis:32px}
+      .create-drawer .create-group{margin-top:13px}
+      .create-drawer .create-group-title{margin-bottom:5px;font-size:9px}
+      .create-drawer .create-group-list{gap:5px}
+      .create-drawer .create-option{min-height:58px;padding:10px 11px;border-radius:10px}
+      .create-drawer .create-option .tool-icon{width:34px;height:34px;flex-basis:34px;border-radius:9px}
+      .create-drawer .create-option strong{font-size:13px}
+      .create-drawer .create-option small{font-size:11px}
+      .create-drawer .create-option>i{width:16px;height:16px}
+    }
+
+    /* ZenaTools centered app picker */
+    .apps-modal{width:min(680px,calc(100% - 32px));max-height:calc(100vh - 64px);padding:22px;border-radius:20px;left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%)}
+    .apps-modal .modal-head{margin-bottom:16px}
+    .apps-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .apps-modal .create-option{min-height:78px;padding:14px;border-radius:14px}
+    .apps-modal .create-option:hover{transform:none;background:var(--soft)}
+    .apps-modal .tool-icon{width:40px;height:40px;flex-basis:40px}
+    .apps-modal .create-option small{font-size:12px}
+    .apps-modal .create-option strong{font-size:14px}
+    @media(max-width:620px){.apps-modal{width:calc(100% - 24px);max-height:82vh;left:12px!important;right:12px;top:50%;bottom:auto;transform:translateY(-50%);border-radius:18px}.apps-grid{grid-template-columns:1fr}}
+
+    /* ZenaTools compact centered popup */
+    #modalRoot .scrim{background:rgba(3,10,24,.68)!important;backdrop-filter:blur(1.5px)!important}
+    .apps-modal{width:min(560px,calc(100% - 32px));max-height:calc(100vh - 72px);padding:18px;border-radius:16px;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+    .apps-modal .modal-head{margin-bottom:12px;align-items:center}
+    .apps-modal .apps-drawer-title{gap:9px}
+    .apps-modal .apps-drawer-title .tool-icon{width:32px;height:32px;flex-basis:32px;border-radius:9px}
+    .apps-modal .apps-drawer-title h2{font-size:19px}
+    .apps-modal .apps-drawer-title p{font-size:11px;margin-top:1px}
+    .apps-modal .modal-head>.icon{width:34px;height:34px;border-radius:9px}
+    .apps-grid{grid-template-columns:1fr 1fr;gap:7px}
+    .apps-modal .create-option{min-height:54px;padding:8px 10px;gap:9px;border-radius:10px;box-shadow:none}
+    .apps-modal .create-option .tool-icon{width:31px;height:31px;flex-basis:31px;border-radius:8px}
+    .apps-modal .create-option strong{font-size:12px;line-height:1.15}
+    .apps-modal .create-option small{font-size:10px;line-height:1.2;margin-top:1px}
+    .apps-modal .create-option>i{width:15px;height:15px;margin-left:auto}
+    @media(max-width:620px){.apps-modal{width:calc(100% - 24px);padding:16px}.apps-grid{grid-template-columns:1fr}.apps-modal .create-option{min-height:52px}}
+  
+    /* Refined ZenaTools modal header */
+    .apps-modal{padding:0;overflow:hidden}
+    .apps-modal .apps-modal-head{min-height:96px;margin:0;padding:22px 28px 20px;align-items:flex-start;border-bottom:1px solid var(--border);background:var(--surface)}
+    .apps-title-copy{display:block}
+    .apps-modal .apps-title-copy h2{margin:0;font-size:24px;line-height:1.2;letter-spacing:-.025em;font-weight:750;color:var(--text)}
+    .apps-modal .apps-title-copy p{margin:5px 0 0;font-size:13px;line-height:1.4;color:var(--muted)}
+    .apps-close{width:32px;height:32px;margin:1px -3px 0 20px;padding:0;display:grid;place-items:center;flex:0 0 32px;border:0;border-radius:8px;background:transparent;color:var(--text)}
+    .apps-close:hover{background:var(--soft)}
+    .apps-close svg{width:20px;height:20px;stroke-width:2.2}
+    .apps-modal .apps-grid{padding:16px 20px 20px}
+    @media(max-width:620px){.apps-modal .apps-modal-head{min-height:88px;padding:19px 20px 17px}.apps-modal .apps-title-copy h2{font-size:21px}.apps-modal .apps-grid{padding:14px 16px 18px}}
+    /* Balanced ZenaTools spacing */
+    .apps-modal{width:min(600px,calc(100% - 40px))}
+    .apps-modal .apps-modal-head{min-height:auto;padding:22px 26px 18px}
+    .apps-modal .apps-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px;padding:22px 26px 26px}
+    .apps-modal .create-option{min-height:62px;padding:10px 12px;gap:11px}
+    .apps-modal .create-option .tool-icon{width:34px;height:34px;flex-basis:34px}
+    .apps-modal .create-option strong{font-size:12.5px}
+    .apps-modal .create-option small{font-size:10.5px}
+    .apps-modal .create-option:last-child{grid-column:1 / -1}
+    @media(max-width:620px){.apps-modal{width:calc(100% - 24px)}.apps-modal .apps-grid{grid-template-columns:1fr;gap:10px;padding:18px}.apps-modal .create-option:last-child{grid-column:auto}}
+
+    /* ZenaTools footer row: ZooNotes + Marketplace */
+    .apps-modal .create-option:last-child{grid-column:auto}
+    .apps-bottom-row{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:2px}
+    .apps-bottom-row .create-option{min-height:66px}
+    .marketplace-card{min-height:66px;padding:9px 10px 9px 12px;display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:11px;background:#fff;}
+    .marketplace-logo{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border-radius:9px;background:var(--primary);color:#fff}
+    .marketplace-logo svg{width:19px;height:19px}
+    .marketplace-copy{min-width:0;display:grid;gap:2px;flex:1}
+    .marketplace-copy strong{font-size:12.5px;line-height:1.15}
+    .marketplace-copy small{color:var(--muted);font-size:10px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .marketplace-button{height:32px;padding:0 11px;flex:0 0 auto;border:0;border-radius:8px;background:var(--primary);color:#fff;font-size:10.5px;font-weight:800;white-space:nowrap}
+    .marketplace-button:hover{filter:brightness(.96)}
+    @media(max-width:620px){.apps-bottom-row{grid-template-columns:1fr}.marketplace-card{min-height:62px}.marketplace-copy small{white-space:normal}}
+
+
+    /* Home dashboard layout */
+    .main.chat-page{width:min(1040px,calc(100% - 64px));padding:72px 0 80px}
+    .chat-hero{text-align:center;margin:0 auto 34px}
+    .chat-hero h1{font-family:'Public Sans',Arial,sans-serif;font-weight:600;margin:0;color:#315cc9;font-size:clamp(42px,5vw,58px);line-height:1.05;letter-spacing:-.04em;font-weight:650}
+    .chat-hero p{margin:12px 0 0;color:var(--muted);font-size:15px;line-height:1.5}
+
+    .home-composer{width:min(940px,100%);min-height:130px;margin:0 auto;padding:16px 18px 14px;border:1px solid #d8e2f2;border-radius:20px;background:var(--surface);box-shadow:0 8px 28px rgba(36,93,151,.08);display:flex;flex-direction:column}
+    .home-composer textarea{width:100%;min-height:66px;padding:0;border:0;resize:none;background:transparent;color:var(--text);font-size:16px;line-height:1.45}
+    .home-composer textarea::placeholder{color:#8a98aa}
+    .composer-foot,.composer-left,.composer-right{display:flex;align-items:center}
+    .composer-foot{justify-content:space-between;gap:12px;margin-top:auto}
+    .composer-left,.composer-right{gap:8px}
+    .composer-plus,.mic-button{width:36px;height:36px;padding:0;display:grid;place-items:center;border:1px solid #d5e0ef;border-radius:50%;background:#fff;color:#173f96}
+    .composer-plus svg,.mic-button svg{width:17px;height:17px}
+    .mode-select{height:36px;padding:0 11px;display:flex;align-items:center;gap:7px;border:1px solid #d8e0eb;border-radius:18px;background:#fff;color:#1a2a42;font-size:13px}
+    .mode-select svg{width:15px;height:15px}
+    .home-start{height:36px;padding:0 14px;display:flex;align-items:center;gap:7px;border:0;border-radius:18px;background:#315cc9;color:#fff;font-weight:750;font-size:13px}
+    .home-start svg{width:16px;height:16px}
+
+    .app-launch-grid{width:min(940px,100%);margin:48px auto 0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px;align-items:start}
+    .app-group{min-width:0;display:contents}
+    .app-group-title{display:none!important}
+    .app-group-grid{display:contents}
+    .launch-wrap{min-width:0;width:100%;height:150px}
+    .launch-card{width:100%;height:150px;min-height:150px;padding:16px 10px 14px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:10px;border:1px solid #dfe5ee;border-radius:16px;background:#fff;box-shadow:0 5px 16px rgba(20,48,82,.06);text-align:center;transition:.16s ease}
+    .launch-card:hover{transform:translateY(-2px);border-color:#c7d5e8;box-shadow:0 9px 22px rgba(20,48,82,.10)}
+    .launch-card .tool-icon{width:46px;height:46px;flex:0 0 46px;border-radius:12px}
+    .launch-card .tool-icon svg{width:22px;height:22px}
+    .launch-card strong{display:block;color:var(--text);font-size:13px;line-height:1.25}
+    .launch-card small{display:block;color:#7b889d;font-size:11px;line-height:1.35;max-width:130px}
+
+    .your-apps{width:min(940px,100%);margin:42px auto 0}
+    .your-apps-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+    .your-apps-head h2{margin:0;color:#728098;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:800}
+    .installed-pill{padding:3px 8px;border:1px solid #dce3ed;border-radius:999px;background:#fff;color:#7b8798;font-size:10px}
+    .installed-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:min(620px,100%)}
+    .installed-card{min-height:160px;padding:12px;border:1px solid #e0e5ee;border-radius:14px;background:var(--surface);box-shadow:0 5px 16px rgba(20,48,82,.06)}
+    .installed-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .installed-logo{width:34px;height:34px;display:grid;place-items:center;border:1px solid #e0e5ee;border-radius:9px;background:#fff;color:#315cc9}
+    .installed-logo svg{width:18px;height:18px}
+    .installed-tag{padding:3px 7px;border:1px solid #e1e6ee;border-radius:999px;color:#8894a6;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+    .installed-card h3{margin:10px 0 5px;font-size:12px;color:var(--text)}
+    .installed-card p{height:40px;margin:0 0 10px;overflow:hidden;color:#6f7f94;font-size:9.5px;line-height:1.4}
+    .installed-card button{width:100%;height:28px;border:1px solid #7ca4dc;border-radius:7px;background:#fff;color:#31518f;font-size:9.5px;font-weight:750}
+
+    [data-theme="dark"] .home-composer,[data-theme="dark"] .installed-card,[data-theme="dark"] .composer-plus,[data-theme="dark"] .mic-button,[data-theme="dark"] .mode-select,[data-theme="dark"] .installed-pill,[data-theme="dark"] .installed-logo,[data-theme="dark"] .installed-card button{background:var(--surface);border-color:var(--border)}
+
+    @media(max-width:1050px){
+      .app-launch-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    }
+    @media(max-width:760px){
+      .main.chat-page{width:min(100% - 32px,680px);padding-top:56px}
+      .app-launch-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:40px}
+    }
+    @media(max-width:480px){
+      .app-launch-grid{grid-template-columns:1fr}
+      .launch-wrap,.launch-card{height:132px;min-height:132px}
+    }
+
+</style>
+
+<style>
+.app-category-label,.apps-category,.category-label,.apps-group-title{display:none!important;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+
+<style>
+/* Center home content within the available workspace canvas */
+.main.chat-page{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding-left:32px;
+  padding-right:32px;
+}
+.chat-page .chat-hero,
+.chat-page .home-composer,
+.chat-page .app-launch-grid,
+.chat-page .prompt,
+.chat-page .quick{
+  margin-left:auto;
+  margin-right:auto;
+}
+.chat-page .chat-hero{
+  width:min(940px,100%);
+}
+.chat-page .home-composer,
+.chat-page .prompt,
+.chat-page .app-launch-grid{
+  width:min(940px,100%);
+}
+</style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to workspace</a>
+  <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+    <div class="brand-row"><button class="brand" id="brandButton" aria-label="Zoo Office home"><img class="brand-logo-wide" src="Zoo_Office_Logo_Horizontal_Chalk.png" alt="Zoo Office"><img class="brand-logo-icon" src="Zoo_Office_Logo_Icon_Chalk.png" alt="Zoo Office"></button><button class="icon desktop-only" id="collapse" aria-label="Collapse navigation"><i data-lucide="panel-left-close"></i></button><button class="icon mobile-only" id="closeNav" aria-label="Close navigation"><i data-lucide="x"></i></button></div>
+    <button class="create" id="create"><i data-lucide="square-pen"></i><span class="hide-collapsed">New</span><kbd class="hide-collapsed">N</kbd></button>
+    <div class="sidebar-scroll">
+    <nav class="nav"><button class="nav-item" id="searchHistory"><i data-lucide="search"></i><span>Search history</span></button><button class="nav-item" id="zooDrive"><i data-lucide="upload-cloud"></i><span>ZooDrive</span></button><button class="nav-item" id="zenaApps"><i data-lucide="blocks"></i><span>ZenaTools</span><i class="side-arrow hide-collapsed" data-lucide="chevron-right"></i></button></nav>
+    <div class="history-section hide-collapsed"><span class="label">Recents</span><div class="history-scroll" id="sidebarHistory"></div></div>
+    </div>
+    <div class="sidebar-foot"><button class="nav-item" id="theme"><i data-lucide="moon"></i><span>Dark mode</span></button><button class="profile"><span class="avatar">RY</span><span class="profile-copy hide-collapsed"><strong>Riya Yallabandi</strong><small>34,441 credits</small></span><i class="hide-collapsed" data-lucide="settings"></i></button></div>
+  </aside>
+  <div class="workspace">
+    <button class="icon mobile-only mobile-nav-trigger" id="openNav" aria-label="Open navigation"><i data-lucide="menu"></i></button>
+    <main class="main chat-page" id="main">
+      <section class="chat-hero"><h1>Zoo Office AI</h1><p>Your intelligent workspace for creating, collaborating and achieving more.</p></section>
+      <section class="home-composer" aria-label="Ask Zoo Office AI">
+        <textarea aria-label="Prompt" placeholder="Ask anything, create anything"></textarea>
+        <div class="composer-foot"><div class="composer-left"><button class="composer-plus" aria-label="Add context"><i data-lucide="plus"></i></button><button class="mode-select"><i data-lucide="share-2"></i><span>Standard</span><i data-lucide="chevron-down"></i></button></div><div class="composer-right"><button class="mic-button" aria-label="Voice input"><i data-lucide="mic"></i></button><button class="home-start action" data-name="Zoo Office AI"><i data-lucide="audio-lines"></i>Start</button></div></div>
+      </section>
+      <section class="app-launch-grid" id="homeApps" aria-label="Zoo Office apps"></section>
+</main>
+  </div>
+  <div id="modalRoot"></div><div id="toastRoot"></div>
+  <script>
+    const tools=[['Ask Zena','Think, research, and write','sparkles','blue'],['Document','Draft from a prompt or template','file-text','violet'],['Presentation','Build a polished slide deck','presentation','orange'],['Spreadsheet','Analyze and organize data','sheet','green'],['Image','Generate and edit visuals','image','pink'],['Meeting note','Capture or import a meeting','mic','teal']];
+    const apps=[['ZooSlides','Smart presentations made simple','presentation','orange'],['ZooSheets','Smart spreadsheets with AI','sheet','green'],['ZooDocs','Collaborative docs that flow','file-text','blue'],['ZooDesign','Create stunning designs with AI','palette','violet'],['ZooImage','Generate images with AI','image','pink'],['ZooChat','Chat with AI, get answers','message-circle','blue'],['ZooNotes','Smart notes for better meetings','notebook-pen','teal']];
+    const recents=[['Q3 launch strategy','Slides','Edited 18 min ago','RY + 3','presentation','orange'],['Retail forecast model','Sheets','Edited yesterday','RY','sheet','green'],['Partner kickoff notes','Notes','Edited yesterday','RY + 5','mic','teal'],['Campaign concept board','Image','Edited Aug 28','RY + 1','image','pink']];
+    const conversations=['Design a minimal bakery loyalty card','Create a summer festival poster','Build a mobile app onboarding concept','Make a conference badge system','Design packaging for herbal tea','Create a quarterly planning deck','Turn research notes into five slides','Build an investor update presentation','Create a workshop training deck','Summarize our launch plan as slides','Forecast monthly subscription revenue','Create a household expense tracker','Compare regional sales performance','Build an inventory reorder sheet','Calculate project staffing costs','Draft a friendly client proposal','Write an employee onboarding guide','Create a product requirements document','Rewrite this policy in plain language','Draft a partnership announcement','Generate a surreal underwater library','Create a studio product photograph','Make an editorial travel illustration','Generate icons for a weather app','Create a cozy reading-room scene','Brainstorm names for a meal-planning app','Explain carbon credits simply','Plan a three-day team retreat','Compare two customer support strategies','Suggest interview questions for a designer','Summarize the weekly product meeting','Turn this transcript into action items','Create notes for a project kickoff','Organize usability-test observations','Draft follow-ups from the budget review','Create a decision log for the launch'];
+    const $=s=>document.querySelector(s), root=document.documentElement, sidebar=$('#sidebar'), newChatMarkup=$('#main').innerHTML;
+    function icons(){if(window.lucide)lucide.createIcons({attrs:{'aria-hidden':'true'}})}
+    function start(name){$('#modalRoot').innerHTML='';$('#toastRoot').innerHTML=`<div class="toast" role="status"><i data-lucide="check"></i>${name} workspace opened</div>`;icons();setTimeout(()=>$('#toastRoot').innerHTML='',2400)}
+    function renderHistory(q=''){const rows=conversations.filter(x=>x.toLowerCase().includes(q.toLowerCase()));$('#sidebarHistory').innerHTML=rows.map(x=>`<button class="history-link" title="${x}" data-name="${x}">${x}</button>`).join('');document.querySelectorAll('.history-link').forEach(b=>b.onclick=()=>start(b.dataset.name))}
+    function showNewChat(){
+      $('#main').className='main chat-page';$('#main').innerHTML=newChatMarkup;$('#searchHistory').classList.remove('active');renderTools();icons()
+    }
+    function showSearchPage(){
+      $('#searchHistory').classList.add('active');$('#main').className='main';
+      $('#main').innerHTML=`<section class="search-page"><h1>Search chats</h1><label class="search-page-input"><i data-lucide="search"></i><span class="sr-only">Search chats</span><input id="chatSearchInput" type="search" placeholder="Search chats" autocomplete="off"></label><p class="search-results-title">Recent</p><div class="search-results" id="chatSearchResults"></div></section>`;
+      const dates=['Today','Today','Yesterday','Yesterday','Aug 28','Aug 27','Aug 25','Aug 22','Aug 20','Aug 18','Aug 14','Aug 10'];
+      const draw=q=>{const rows=conversations.filter(x=>x.toLowerCase().includes(q.toLowerCase()));$('#chatSearchResults').innerHTML=rows.length?rows.map((x,i)=>`<button class="search-result" data-name="${x}"><strong>${x}</strong><time>${dates[i%dates.length]}</time></button>`).join(''):'<div class="search-empty">No chats match your search.</div>';document.querySelectorAll('.search-result').forEach(b=>b.onclick=()=>start(b.dataset.name))};
+      draw('');$('#chatSearchInput').oninput=e=>draw(e.target.value);icons();$('#chatSearchInput').focus()
+    }
+    function renderTools(){
+      const home=$('#homeApps');
+      if(home){
+        const groups=[
+          ['Office Suite',[apps[2],apps[1],apps[0]],3],
+          ['Design & Create',[apps[3],apps[4]],2],
+          ['AI & Productivity',[apps[5],apps[6]],2]
+        ];
+        const card=a=>`<div class="launch-wrap"><button class="launch-card action" data-name="${a[0]}"><span class="tool-icon ${a[3]}"><i data-lucide="${a[2]}"></i></span><strong>${a[0]}</strong><small>${a[1]}</small></button></div>`;
+        home.innerHTML=groups.map(g=>`<section class="app-group"><h2 class="app-group-title">${g[0]}</h2><div class="app-group-grid" style="--cols:${g[2]}">${g[1].map(card).join('')}</div></section>`).join('');
+      }
+      document.querySelectorAll('.action').forEach(b=>b.onclick=()=>start(b.dataset.name));icons()
+    }
+    function renderRecents(q=''){const rows=recents.filter(r=>r[0].toLowerCase().includes(q.toLowerCase()));$('#recentTable').innerHTML=rows.length?rows.map(r=>`<button class="recent-row action" data-name="${r[0]}"><span class="file-icon ${r[5]}"><i data-lucide="${r[4]}"></i></span><span class="recent-name"><strong>${r[0]}</strong><small>${r[1]}</small></span><span class="recent-people">${r[3]}</span><span class="recent-time">${r[2]}</span><i data-lucide="more-horizontal"></i></button>`).join(''):'<div class="empty"><b>No matching work</b><p>Try a different search.</p></div>';document.querySelectorAll('.recent-row').forEach(b=>b.onclick=()=>start(b.dataset.name));icons()}
+    function openCreate(){
+      const option=t=>`<button class="create-option" data-name="${t[0]}"><span class="tool-icon ${t[3]}"><i data-lucide="${t[2]}"></i></span><span><strong>${t[0]}</strong><small>${t[1]}</small></span><i data-lucide="chevron-right"></i></button>`;
+      const groups=[['Office suite',tools.slice(1,4)],['Design & create',[tools[4]]],['Content creation',[tools[0]]],['Tools',[tools[5]]]];
+      const content=groups.map(g=>`<section class="create-group"><h3 class="create-group-title">${g[0]}</h3><div class="create-group-list">${g[1].map(option).join('')}</div></section>`).join('');
+      const drawerLeft=window.matchMedia('(max-width:620px)').matches?12:Math.max(0,sidebar.getBoundingClientRect().right);
+      $('#create').classList.add('open-state');
+      $('#modalRoot').innerHTML=`<button class="scrim" aria-label="Close create panel"></button><aside class="modal create-drawer" style="left:${drawerLeft}px" role="dialog" aria-modal="true" aria-labelledby="createTitle"><div class="modal-head"><div><p class="eyebrow">Create new</p><h2 id="createTitle">Choose what to create</h2><p>Open the right Zena tool directly.</p></div><button class="icon close-modal" aria-label="Close"><i data-lucide="x"></i></button></div>${content}</aside>`;
+      const close=()=>{$('#modalRoot').innerHTML='';$('#create').classList.remove('open-state')};
+      $('.scrim').onclick=$('.close-modal').onclick=close;
+      document.querySelectorAll('.create-option').forEach(b=>b.onclick=()=>{close();start(b.dataset.name)});icons()
+    }
+    function openZenaTools(){
+      const option=a=>`<button class="create-option" data-name="${a[0]}"><span class="tool-icon ${a[3]}"><i data-lucide="${a[2]}"></i></span><span><strong>${a[0]}</strong><small>${a[1]}</small></span><i data-lucide="chevron-right"></i></button>`;
+      const mainApps=apps.slice(0,6), notes=apps[6];
+      $('#zenaApps').classList.add('drawer-open');
+      $('#modalRoot').innerHTML=`<button class="scrim" aria-label="Close ZenaTools"></button><section class="modal apps-modal" role="dialog" aria-modal="true" aria-labelledby="appsTitle"><div class="modal-head apps-modal-head"><div class="apps-title-copy"><h2 id="appsTitle">ZenaTools</h2><p>Choose a tool or explore more products.</p></div><button class="apps-close close-modal" aria-label="Close"><i data-lucide="x"></i></button></div><div class="apps-grid">${mainApps.map(option).join('')}<div class="apps-bottom-row">${option(notes)}<div class="marketplace-card"><span class="marketplace-logo" aria-hidden="true"><i data-lucide="store"></i></span><span class="marketplace-copy"><strong>Marketplace</strong><small>Discover more Zoo Office products</small></span><button class="marketplace-button" id="openMarketplace">Open</button></div></div></div></section>`;
+      const close=()=>{$('#modalRoot').innerHTML='';$('#zenaApps').classList.remove('drawer-open')};
+      $('.scrim').onclick=$('.close-modal').onclick=close;
+      document.querySelectorAll('.create-option').forEach(b=>b.onclick=()=>{close();start(b.dataset.name)});
+      $('#openMarketplace').onclick=e=>{e.stopPropagation();close();start('Marketplace')};
+      icons()
+    }
+    $('#collapse').onclick=()=>{sidebar.classList.add('collapsed');icons()};$('#brandButton').onclick=()=>{if(sidebar.classList.contains('collapsed'))sidebar.classList.remove('collapsed');else showNewChat()};$('#create').onclick=showNewChat;$('#theme').onclick=()=>{const dark=root.dataset.theme!=='dark';root.dataset.theme=dark?'dark':'light';$('#theme').innerHTML=`<i data-lucide="${dark?'sun':'moon'}"></i><span>${dark?'Light':'Dark'} mode</span>`;icons()};$('#searchHistory').onclick=showSearchPage;$('#zenaApps').onclick=openZenaTools;$('#openNav').onclick=()=>sidebar.classList.add('open');$('#closeNav').onclick=()=>sidebar.classList.remove('open');document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='n'&&!/input|textarea/i.test(e.target.tagName)){e.preventDefault();showNewChat()}if(e.key==='Escape'){$('#modalRoot').innerHTML='';$('#zenaApps').classList.remove('drawer-open');sidebar.classList.remove('open')}});renderHistory();renderTools();icons();
+  </script>
+</body>
+</html>
+
