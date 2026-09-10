@@ -2330,6 +2330,573 @@ body{font-size:12px;}
 }
 </style>
 
+  <style id="zena-brand-guidelines">
+    /* Zoo Office UI guideline alignment — final token and component layer */
+    :root{
+      --bg:#F6F7F8;
+      --surface:#FFFFFF;
+      --soft:#F1F3F5;
+      --text:#111820;
+      --muted:#66717D;
+      --border:#D9DEE3;
+      --primary:#002B49;
+      --primary-soft:#E8EEF2;
+      --navy:#002B49;
+      --focus:#FFF200;
+      --brand-yellow:#FFF200;
+      --state-blue:#2589E8;
+      --state-green:#22A66A;
+      --state-orange:#EBAF25;
+      --state-red:#E94B4B;
+      --shadow:0 8px 24px rgba(0,43,73,.10);
+    }
+    [data-theme="dark"]{
+      --bg:#101820;--surface:#17222B;--soft:#202D36;--text:#FFFFFF;
+      --muted:#C1C8CE;--border:#3A464F;--primary:#FFF200;
+      --primary-soft:#313522;--navy:#002B49;--focus:#FFF200;
+    }
+    html,body{background:var(--bg)}
+    body,button,input,textarea,select{
+      font-family:"Objektiv Mk3","Objektiv",Arial,sans-serif;
+    }
+    *,*::before,*::after{background-image:none!important}
+    h1,h2,h3,h4,strong,b{color:var(--text)}
+    .sidebar{
+      background:#002B49!important;
+      border-right:0!important;
+      box-shadow:none!important;
+    }
+    .sidebar .nav-item,.sidebar .tool-link,.sidebar .create,
+    .sidebar .profile,.sidebar .history-link{color:#FFF!important}
+    .sidebar .label,.sidebar .profile-copy small{color:#C7D5DE!important}
+    .sidebar .nav-item:hover,.sidebar .tool-link:hover,
+    .sidebar .history-link:hover,.sidebar .profile:hover{background:#FFFFFF14!important}
+    .sidebar .nav-item.active,.sidebar .create.active,
+    .sidebar .create.home-active,.sidebar .nav-item.drawer-open{
+      background:#FFFFFF!important;color:#002B49!important;
+    }
+    .sidebar .nav-item.active svg,.sidebar .create.active svg,
+    .sidebar .create.home-active svg,.sidebar .nav-item.drawer-open svg{color:#002B49!important}
+    .sidebar .create kbd{background:#FFF200!important;color:#002B49!important;border:0}
+    .sidebar-scroll,.history-section,.sidebar-foot{background:transparent!important;box-shadow:none!important}
+    .workspace,.main{background:var(--bg)}
+    .chat-hero h1,.eyebrow,.text-button{color:#002B49!important}
+    [data-theme="dark"] .chat-hero h1,[data-theme="dark"] .eyebrow,
+    [data-theme="dark"] .text-button{color:#FFF200!important}
+    .prompt,.home-composer,.tool-card,.launch-card,.installed-card,
+    .recent-table,.search-page-input,.modal,.settings-modal,.upgrade-panel,
+    .profile-popover,.history-context-menu{
+      background:var(--surface)!important;
+      border:1px solid var(--border)!important;
+      box-shadow:var(--shadow)!important;
+    }
+    .prompt,.home-composer{border-color:#9FB3C2!important;border-radius:8px!important}
+    .tool-card,.launch-card,.installed-card,.create-option,
+    .recent-table,.search-page-input{border-radius:6px!important}
+    .tool-card:hover,.launch-card:hover,.installed-card:hover,.create-option:hover{
+      border-color:#002B49!important;transform:none!important;
+    }
+    button,.soft-button,.secondary,.start,.home-start,.marketplace-button,
+    .settings-save-btn,.usage-upgrade-btn,.plan-action{
+      border-radius:3px!important;
+    }
+    .start,.home-start,.marketplace-button,.settings-save-btn,
+    .usage-upgrade-btn,.plan-action:not(.current){background:#002B49!important;color:#FFF!important}
+    .start:hover,.home-start:hover,.marketplace-button:hover,
+    .settings-save-btn:hover,.usage-upgrade-btn:hover{background:#0A3D5E!important}
+    .soft-button,.secondary,.mode-select,.settings-secondary{
+      background:#FFF!important;color:#002B49!important;border:1px solid #002B49!important;
+    }
+    button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
+      box-shadow:0 0 0 3px #FFF200!important;
+    }
+    input,textarea,select,.settings-field input,.settings-field textarea{
+      border-radius:3px!important;background:#FFF!important;border-color:#AEB8C0!important;
+    }
+    input:focus,textarea:focus,select:focus,.settings-field input:focus,.settings-field textarea:focus{
+      border-color:#002B49!important;box-shadow:0 0 0 2px rgba(0,43,73,.14)!important;
+    }
+    .tool-icon,.orb,.file-icon,.installed-logo{border-radius:4px!important}
+    .blue{color:#176EB5!important;background:#E8F3FC!important}
+    .green{color:#157347!important;background:#E5F4EC!important}
+    .orange{color:#A96500!important;background:#FFF3D9!important}
+    .pink,.violet{color:#7B3FA1!important;background:#F2EAF7!important}
+    .teal{color:#087B79!important;background:#E1F3F1!important}
+    .scrim,.upgrade-scrim,.settings-scrim{backdrop-filter:none!important}
+    .modal.create-drawer{border-radius:0 6px 6px 0!important}
+    .billing-toggle-btn.active,.settings-nav-item.active,.trait-chip.selected{
+      background:#002B49!important;color:#FFF!important;border-color:#002B49!important;
+    }
+    .save-pill,.installed-pill,.usage-plan-pill{border-radius:3px!important}
+    .save-pill{background:#FFF200!important;color:#002B49!important}
+    .toast{background:#22A66A!important;border-radius:3px!important}
+    /* One consistent 12px shape language for the new experience. */
+    .sidebar .create,.sidebar .nav-item,.sidebar .tool-link,.sidebar .profile,
+    .sidebar .history-link,.sidebar .nav-item.active,.sidebar .create.active,
+    .sidebar .create.home-active,.sidebar .nav-item.drawer-open,
+    .prompt,.home-composer,.tool-card,.launch-card,.installed-card,.create-option,
+    .recent-table,.recent-row,.search,.search-page-input,.filter,.settings-search,
+    .settings-field input,.settings-field textarea,.settings-value,
+    .settings-nav-item,.trait-chip,.plan-card,.credits-strip,.profile-popover,
+    .history-context-menu,.modal,.settings-modal,.upgrade-panel{
+      border-radius:12px!important;
+    }
+    .chat-page{padding-top:clamp(72px,10vh,110px)!important}
+    .chat-page .chat-hero{margin-bottom:24px!important}
+    .chat-page .chat-hero h1{position:relative;display:inline-block;font-size:clamp(34px,4vw,48px)!important}
+    .chat-page .chat-hero h1::after{
+      content:"";position:absolute;left:0;right:0;bottom:-5px;height:3px;
+      border-radius:3px;background:#2589E8;
+    }
+    .chat-page .home-composer{min-height:116px!important;padding:14px 16px 12px!important}
+    .chat-page .app-launch-grid{margin-top:42px!important}
+    .chat-page .launch-card{height:142px!important;min-height:142px!important;padding:14px 9px!important}
+    /* App identity colors from the reference UI. */
+    .launch-card .tool-icon{color:#FFF!important;border:0!important}
+    .launch-card .tool-icon.design{background:#7B4DDB!important}
+    .launch-card .tool-icon.slides{background:#E4BD28!important;color:#FFFFFF!important}
+    .launch-card .tool-icon.sheets{background:#36AE68!important}
+    .launch-card .tool-icon.docs{background:#347BE5!important}
+    .launch-card .tool-icon.image-app{background:#E65B5B!important}
+    .launch-card .tool-icon.chat-app{background:#002B49!important}
+    .launch-card .tool-icon.notes{background:#E85AA4!important}
+    .create-option .tool-icon.design{background:#7B4DDB!important;color:#FFF!important}
+    .create-option .tool-icon.slides{background:#E4BD28!important;color:#FFF!important}
+    .create-option .tool-icon.sheets{background:#36AE68!important;color:#FFF!important}
+    .create-option .tool-icon.docs{background:#347BE5!important;color:#FFF!important}
+    .create-option .tool-icon.image-app{background:#E65B5B!important;color:#FFF!important}
+    .create-option .tool-icon.chat-app{background:#091E3C!important;color:#FFF!important}
+    .create-option .tool-icon.notes{background:#E85AA4!important;color:#FFF!important}
+    .chat-page .app-launch-grid{display:flex!important;gap:14px!important;align-items:flex-start}
+    .chat-page .app-group{display:flex!important;flex:1 1 0;min-width:0;flex-direction:column}
+    .chat-page .app-group:nth-child(1),.chat-page .app-group:nth-child(4){flex-grow:1}
+    .chat-page .app-group:nth-child(2){flex-grow:3}
+    .chat-page .app-group:nth-child(3){flex-grow:2}
+    .chat-page .app-group-title{
+      display:block!important;margin:0 0 8px 3px;color:#002B49!important;
+      font-size:9px;line-height:1.2;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    }
+    .chat-page .app-group-grid{display:grid!important;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:10px}
+    @media(max-width:800px){
+      .chat-page .app-launch-grid{display:grid!important;grid-template-columns:1fr 1fr!important}
+      .chat-page .app-group{display:flex!important}
+    }
+    @media(max-width:520px){.chat-page .app-launch-grid{grid-template-columns:1fr!important}}
+    /* Requested flat canvas and tighter control radii. */
+    :root{--bg:#FFFFFF}
+    html,body,.workspace,.main{background:#FFFFFF!important}
+    .prompt,.home-composer,.tool-card,.launch-card,.installed-card,
+    .recent-table,.search-page-input,.modal,.settings-modal,.upgrade-panel,
+    .profile-popover,.history-context-menu,.create-option,.plan-card{
+      box-shadow:none!important;
+    }
+    .search,.search-page-input,.search-page-tab,.filter,.settings-search,
+    .search-result,.bookmark-filter{border-radius:8px!important}
+    .sidebar .nav-item.active,.sidebar .create.active,
+    .sidebar .create.home-active,.sidebar .nav-item.drawer-open{
+      border-radius:8px!important;
+    }
+    .sidebar .profile-copy strong{color:#FFFFFF!important}
+
+    /* Canvas adapted from the supplied preview; navigation and app chrome stay intact. */
+    .main.chat-page{width:100%!important;max-width:none!important;margin:0!important;padding:0 32px 64px!important;background:#FFF!important}
+    .canvas-topbar{height:92px;display:flex;align-items:center;justify-content:flex-end}
+    .canvas-plan{height:50px;min-width:340px;padding:7px 9px 7px 11px;display:flex;align-items:center;gap:11px;border:0;border-radius:12px!important;background:#002B49!important;color:#FFF!important}
+    .canvas-plan strong{display:block;color:#FFF;font-size:12px;text-align:left}.canvas-plan small{display:block;color:#B9C7D1;font-size:9px;text-align:left}
+    .canvas-crown{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#347BE5}.canvas-crown svg{width:17px;height:17px}
+    .canvas-plan-copy{min-width:118px}.canvas-price{margin-left:auto;padding-left:13px;border-left:1px solid #FFFFFF35;font-size:22px;font-weight:700}
+    .canvas-off{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:#347BE5;font-size:9px;font-weight:700;line-height:.8}
+    .canvas-arrow{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#FFF;color:#002B49;font-size:20px;font-weight:700}
+    .canvas-inner{width:min(100%,1130px);margin:clamp(64px,9vh,112px) auto 0;padding:0 40px}
+    .chat-page .chat-hero{width:100%!important;margin:0 auto 28px!important;text-align:center}
+    .chat-page .chat-hero h1{font-size:clamp(38px,3.3vw,53px)!important;line-height:1!important;letter-spacing:-2.2px!important;color:#002B49!important}
+    .chat-page .chat-hero h1::after{bottom:-8px;height:4px;background:#2F80ED}
+    .chat-page .chat-hero p{margin:22px 0 0!important;color:#4F4F4F;font-size:15px}
+    .chat-page .home-composer{width:min(100%,900px)!important;height:138px!important;min-height:138px!important;margin:0 auto!important;padding:17px 19px 12px!important;border:1px solid #D9DFE5!important;border-radius:12px!important;box-shadow:0 5px 18px rgba(9,30,60,.055)!important}
+    .chat-page .home-composer textarea{min-height:70px!important;font-size:16px}
+    .composer-plus{width:38px!important;height:38px!important;border:1px solid #002B49!important;border-radius:50%!important;background:#FFF!important;color:#002B49!important}
+    .mic-button{width:38px!important;height:38px!important;border:0!important;border-radius:50%!important;background:transparent!important;color:#66717D!important}
+    .composer-plus:hover,.mic-button:hover{background:#E8EEF2!important;border-color:#002B49!important;color:#002B49!important}
+    .mode-select{height:38px!important;border:1px solid #002B49!important;color:#002B49!important;border-radius:999px!important}
+    .home-start{height:38px!important;padding:0 19px!important;border-radius:999px!important;background:#002B49!important}
+    .chat-page .app-launch-grid{width:min(100%,900px)!important;margin:72px auto 0!important;gap:14px!important}
+    .chat-page .app-group-title{margin:0 0 9px 4px!important;font-size:9px!important;color:#002B49!important}
+    .chat-page .app-group-grid{gap:9px!important}
+    .chat-page .launch-wrap,.chat-page .launch-card{height:139px!important;min-height:139px!important}
+    .chat-page .launch-card{padding:13px 8px 10px!important;border:1px solid #E0E0E0!important;border-radius:12px!important;box-shadow:0 4px 14px rgba(9,30,60,.05)!important}
+    .chat-page .launch-card:hover,.tool-card:hover,.installed-card:hover,.create-option:hover,.plan-card:hover{
+      transform:translateY(-4px)!important;
+      border-color:#D5DADF!important;
+      background:#FFFFFF!important;
+      box-shadow:0 12px 24px rgba(9,30,60,.14)!important;
+    }
+    .chat-page .launch-card .tool-icon{width:42px;height:42px;flex:0 0 42px;border-radius:10px!important}
+    .chat-page .launch-card strong{font-size:12px}.chat-page .launch-card small{font-size:10px}
+    @media(max-width:820px){.canvas-topbar{height:78px}.canvas-plan{min-width:0;width:min(100%,340px)}.canvas-inner{margin-top:42px;padding:0 4px}.main.chat-page{padding:0 20px 50px!important}.chat-page .app-launch-grid{margin-top:52px!important}}
+    /* Canonical primary blue */
+    :root{--primary:#091E3C;--navy:#091E3C}
+    .sidebar,.canvas-plan,.home-start,.marketplace-button,.settings-save-btn,
+    .usage-upgrade-btn,.plan-action:not(.current),.billing-toggle-btn.active,
+    .settings-nav-item.active,.trait-chip.selected,.launch-card .tool-icon.chat-app{
+      background:#091E3C!important;
+    }
+    .chat-hero h1,.eyebrow,.text-button,.canvas-arrow,.composer-plus,
+    .mode-select,.sidebar .nav-item.active,.sidebar .create.active,
+    .sidebar .create.home-active,.sidebar .nav-item.drawer-open{
+      color:#091E3C!important;
+    }
+    .composer-plus,.mode-select,.soft-button,.secondary,.settings-secondary{
+      border-color:#091E3C!important;
+    }
+    .sidebar .nav-item.active svg,.sidebar .create.active svg,
+    .sidebar .create.home-active svg,.sidebar .nav-item.drawer-open svg{color:#091E3C!important}
+    .sidebar .nav-item.active,.sidebar .create.active,
+    .sidebar .create.home-active,.sidebar .nav-item.drawer-open{
+      background:#FFFFFF!important;
+    }
+    .apps-modal .create-option:hover{
+      transform:translateY(-1px)!important;
+      border-color:#D7DDE2!important;
+      background:#FFFFFF!important;
+      box-shadow:0 4px 12px rgba(9,30,60,.06)!important;
+    }
+    .apps-modal{width:min(760px,calc(100% - 40px))!important}
+    .apps-modal .create-option>span:nth-child(2){min-width:0}
+    .apps-modal .create-option small{white-space:nowrap!important}
+    .chat-page .home-composer{
+      height:auto!important;min-height:158px!important;padding:16px 18px 13px!important;
+      gap:10px;
+    }
+    .composer-intro{display:flex;align-items:center;gap:10px}
+    .composer-intro-icon{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border-radius:10px;background:#E9F1FC;color:#2F80ED}
+    .composer-intro-icon svg{width:18px;height:18px}
+    .composer-intro>span:last-child{display:grid;gap:2px}
+    .composer-intro strong{font-size:14px;color:#091E3C}
+    .composer-intro small{font-size:11px;color:#66717D}
+    .chat-page .home-composer textarea{min-height:42px!important;padding:2px 0!important;font-size:15px!important}
+    .chat-page .composer-foot{padding-top:10px;border-top:1px solid #EDF0F2}
+    @media(max-width:700px){
+      .apps-modal{width:calc(100% - 24px)!important}
+      .apps-modal .create-option small{white-space:normal!important}
+    }
+    /* Compact Gemini-style composer with an interactive Zena mode picker. */
+    .chat-page .home-composer{
+      position:relative;display:flex!important;flex-direction:row!important;align-items:center;
+      gap:12px;width:min(100%,900px)!important;height:76px!important;min-height:76px!important;
+      padding:10px 14px!important;border-radius:38px!important;
+    }
+    .chat-page .home-composer textarea{
+      flex:1 1 auto;width:auto!important;min-width:80px;min-height:36px!important;height:36px!important;
+      padding:7px 2px!important;resize:none;overflow:hidden;font-size:16px;line-height:22px;
+    }
+    .composer-plus{flex:0 0 40px;width:40px!important;height:40px!important}
+    .composer-mode-wrap{position:relative;flex:0 0 auto}
+    .mode-select{height:40px!important;padding:0 13px!important;gap:7px;background:transparent!important;border:0!important;border-radius:20px!important;font-weight:600}
+    .mode-select:hover,.mode-select[aria-expanded="true"]{background:#EEF1F4!important}
+    .mode-select svg{width:17px;height:17px}
+    .mic-button{flex:0 0 40px;width:40px!important;height:40px!important;color:#091E3C!important}
+    .mic-button:hover{background:#EEF1F4!important}
+    .composer-send{position:relative;flex:0 0 40px;width:40px;height:40px;padding:0;place-items:center;border:0;border-radius:50%!important;background:#091E3C;color:#FFF}
+    .composer-send:not(.hidden){display:grid!important}.composer-send:hover{background:#173653}
+    .composer-send svg{width:19px;height:19px}
+    .composer-send::after{content:attr(data-tooltip);position:absolute;right:0;bottom:calc(100% + 9px);width:max-content;padding:6px 9px;border-radius:6px;background:#091E3C;color:#FFF;font-size:11px;font-weight:600;line-height:1;opacity:0;visibility:hidden;transform:translateY(3px);transition:.15s;pointer-events:none}
+    .composer-send:hover::after,.composer-send:focus-visible::after{opacity:1;visibility:visible;transform:translateY(0)}
+    .mode-menu{position:absolute;z-index:55;right:0;top:calc(100% + 16px);width:440px;padding:12px;border:1px solid #E0E3E7;border-radius:18px;background:#FFF;box-shadow:0 14px 36px rgba(9,30,60,.14);display:none}
+    .mode-menu.open{display:block}
+    .mode-menu-head{padding:4px 10px 12px;border-bottom:1px solid #E5E7EA}.mode-menu-head strong{display:block;font-size:17px}.mode-menu-head small{display:block;margin-top:7px;color:#707A89;font-size:13px;line-height:1.45}
+    .mode-menu>button{width:100%;min-height:78px;padding:12px;display:grid;grid-template-columns:24px minmax(0,1fr) 20px;gap:10px;align-items:start;border:0;border-radius:12px;background:#FFF;text-align:left}
+    .mode-menu>button:hover{background:#F5F6F7}.mode-menu>button.selected{background:#ECEDEF}
+    .mode-menu>button>svg{width:18px;height:18px;margin-top:3px}.mode-menu>button span{display:grid;gap:5px}.mode-menu>button strong{font-size:15px}.mode-menu>button small{color:#707A89;font-size:13px;line-height:1.4}
+    .mode-menu em{display:inline-block;margin-left:6px;padding:3px 7px;border-radius:999px;background:#DCE6FF;color:#3867EA;font-size:10px;font-style:normal;vertical-align:middle}
+    .chat-page .home-composer textarea,.chat-page .home-composer textarea:focus,.chat-page .home-composer textarea:focus-visible{
+      border:0!important;border-radius:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;
+    }
+    @media(max-width:620px){.mode-menu{position:fixed;left:12px;right:12px;top:auto;bottom:16px;width:auto}.mode-select{padding:0 8px!important}}
+    /* Upgrade plan alignment and control styling. */
+    .upgrade-modal,.upgrade-modal body:has(.sidebar.collapsed){
+      inset:0!important;left:0!important;top:0!important;width:100%!important;height:100vh!important;
+      max-width:none!important;max-height:none!important;transform:none!important;border:0!important;border-radius:0!important;
+    }
+    .upgrade-scroll{display:flex;flex-direction:column;justify-content:center}
+    .upgrade-head,.upgrade-scroll .plan-grid{width:min(1080px,100%);margin-left:auto;margin-right:auto}
+    .billing-toggle,.billing-toggle-btn,.credits-strip,.plan-action,.save-pill{border-radius:8px!important}
+    .save-pill{background:#2F80ED!important;color:#FFFFFF!important}
+    .billing-toggle-btn.active{background:#091E3C!important;color:#FFFFFF!important}
+    .plan-card:first-child::before{content:"";display:block;height:22px;flex:0 0 22px;margin-bottom:10px}
+    .plan-card:hover{
+      transform:translateY(-1px)!important;
+      border-color:#D7DDE2!important;
+      background:#FFFFFF!important;
+      box-shadow:0 4px 12px rgba(9,30,60,.06)!important;
+    }
+    .plan-card{
+      background:#FFFFFF!important;
+      border-color:#E0E0E0!important;
+      box-shadow:0 4px 14px rgba(9,30,60,.05)!important;
+    }
+    .plan-features svg{color:#2F80ED!important}
+    /* Pricing comparison layout based on the supplied reference. */
+    .upgrade-scroll .plan-grid{gap:18px;align-items:stretch}
+    .plan-card{min-height:440px!important;padding:22px 18px!important;border-radius:12px!important}
+    .plan-card:first-child::before{display:none!important}
+    .plan-card>.save-pill{position:absolute;top:18px;right:18px;margin:0}
+    .plan-card .credits-strip{display:none!important}
+    .plan-card-top{min-height:138px!important}
+    .plan-audience{min-height:31px;margin:0 0 14px;color:#6F7A8B;font-size:11px;line-height:1.4}
+    .plan-action{margin:0 0 16px!important}
+    .plan-features::before{content:"Included";display:block;margin-bottom:3px;color:var(--text);font-size:12px;font-weight:700}
+    .plan-features li{align-items:flex-start!important;line-height:1.4}
+    .plan-card:nth-child(3){background:#091E3C!important;border-color:#091E3C!important;color:#FFF!important;transform:translateY(-5px)}
+    .plan-card:nth-child(3) h3,.plan-card:nth-child(3) .plan-price,
+    .plan-card:nth-child(3) .plan-period,.plan-card:nth-child(3) .plan-subtext,
+    .plan-card:nth-child(3) .plan-audience,
+    .plan-card:nth-child(3) .plan-features,.plan-card:nth-child(3) .plan-features::before,
+    .plan-card:nth-child(3) .plan-features li{color:#FFF!important}
+    .plan-card:nth-child(3) .old-price{color:#B7C2CC!important}
+    .plan-card:nth-child(3) .plan-features svg{color:#FFF!important}
+    .plan-card:nth-child(3) .plan-action{background:#2F80ED!important;border-color:#2F80ED!important;color:#FFF!important}
+    .plan-card:nth-child(3) .popular-pill{background:#FFF!important;color:#2F80ED!important}
+    .plan-card:nth-child(3):hover{background:#091E3C!important;border-color:#173653!important;transform:translateY(-6px)!important;box-shadow:0 6px 16px rgba(9,30,60,.12)!important}
+    .upgrade-guarantee{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);width:min(1080px,calc(100% - 40px));margin:0;display:flex;align-items:center;justify-content:center;gap:8px;color:#526276;font-size:12px;text-align:center}
+    .upgrade-guarantee svg{width:17px;height:17px;color:#091E3C}
+    .account-manage-btn,.billing-manage-btn{
+      min-width:88px!important;height:38px!important;padding:0 16px!important;
+      border:1px solid #091E3C!important;border-radius:12px!important;
+      background:#FFFFFF!important;color:#091E3C!important;
+      font-size:12px!important;font-weight:600!important;line-height:1!important;
+    }
+    .account-manage-btn:hover,.billing-manage-btn:hover{background:#F3F6F8!important}
+    .settings-modal .billing-manage-btn{
+      min-width:88px!important;height:38px!important;padding:0 16px!important;
+      border:1px solid #091E3C!important;border-radius:12px!important;
+      background:#FFFFFF!important;color:#091E3C!important;
+      font-size:12px!important;font-weight:600!important;line-height:1!important;box-shadow:none!important;
+    }
+    .settings-modal .billing-manage-btn::after{display:none!important}
+    .settings-modal .billing-manage-btn:hover{background:#F4F6F8!important;border-color:#091E3C!important;color:#091E3C!important}
+    @media(max-width:900px){.upgrade-modal,body:has(.sidebar.collapsed) .upgrade-modal{inset:0!important;left:0!important;width:100%!important}.upgrade-scroll{justify-content:flex-start}}
+    @media(max-height:760px){.upgrade-scroll{justify-content:flex-start}}
+    @media(max-width:620px){.modal.create-drawer{border-radius:12px 12px 0 0!important}}
+  </style>
+
+<style>
+/* Nav hover corner radius */
+.sidebar .nav-item,
+.sidebar .tool-link,
+.sidebar .create,
+.sidebar .profile,
+.sidebar .history-row,
+.sidebar .history-link,
+.sidebar .bookmark-filter,
+.sidebar .icon {
+  border-radius:10px !important;
+}
+</style>
+
+
+<style>
+/* Recents navigation hover radius */
+.history-row,
+.history-link,
+.history-row:hover,
+.history-link:hover {
+  border-radius: 10px !important;
+}
+</style>
+
+<style>
+/* Account security and destructive action */
+.account-security-section,.account-delete-section{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;border-top:1px solid #e1e6ee}
+.account-security-copy,.account-delete-copy{display:grid;gap:5px;min-width:0}
+.account-security-copy strong,.account-delete-copy strong{font-size:14px;font-weight:650;color:#10243e}
+.account-security-copy small,.account-delete-copy small{font-size:12px;line-height:1.5;color:#66788f;max-width:430px}
+.account-password-btn{flex:0 0 auto;border-radius:10px!important;font-size:12px!important}
+.account-delete-section{align-items:flex-start}
+.account-delete-link{flex:0 0 auto;padding:2px 0;border:0;background:transparent;color:#dc2626;font-size:12px;font-weight:650;text-decoration:none}
+.account-delete-link:hover{text-decoration:underline}
+.delete-account-scrim{position:fixed;inset:0;z-index:1300;border:0;background:rgba(8,18,38,.54);backdrop-filter:blur(2px)}
+.delete-account-modal{position:fixed;z-index:1301;left:50%;top:50%;transform:translate(-50%,-50%);width:min(730px,calc(100% - 32px));overflow:hidden;border:1px solid #e0e5ed;border-radius:20px;background:#fff;box-shadow:0 28px 80px rgba(16,36,66,.28);color:#10243e}
+.delete-account-head{display:flex;align-items:flex-start;gap:22px;padding:34px 40px 30px}
+.delete-account-icon{width:50px;height:50px;flex:0 0 50px;display:grid;place-items:center;border-radius:11px;background:#fde7e9;color:#dc2626}
+.delete-account-icon svg{width:24px;height:24px}
+.delete-account-copy{min-width:0;flex:1}.delete-account-copy h3{margin:4px 0 10px;font-size:25px;line-height:1.2;color:#172a60}.delete-account-copy p{margin:0;color:#66748a;font-size:14px;line-height:1.5}
+.delete-account-close{width:36px;height:36px;display:grid;place-items:center;flex:0 0 36px;padding:0;border:0;border-radius:10px;background:transparent;color:#66748a}.delete-account-close:hover{background:#f3f6fa}
+.delete-account-actions{display:flex;justify-content:flex-end;gap:12px;padding:22px 40px;border-top:1px solid #e1e6ee}
+.delete-account-actions button{height:52px;padding:0 34px;border-radius:10px;font-size:14px;font-weight:700}
+.delete-account-cancel{border:1px solid #d3dce8;background:#fff;color:#26354d}.delete-account-confirm{border:1px solid #dc3038;background:#dc3038;color:#fff}
+@media(max-width:620px){.account-security-section,.account-delete-section{align-items:flex-start;flex-direction:column}.delete-account-head{padding:24px}.delete-account-actions{padding:18px 24px}.delete-account-actions button{height:46px;padding:0 20px}}
+</style>
+
+<style>
+/* Personalization: AI data retention */
+.ai-retention-setting{display:flex;align-items:flex-start;justify-content:space-between;gap:28px;padding:22px 0 2px;border-top:1px solid #e1e6ee}
+.ai-retention-copy{min-width:0;max-width:620px}
+.ai-retention-copy p{margin:9px 0 0;color:#6f7a8b;font-size:13px;line-height:1.65}
+.settings-switch{position:relative;display:inline-flex;flex:0 0 auto;margin-top:1px;cursor:pointer}
+.settings-switch input{position:absolute;opacity:0;pointer-events:none}
+.settings-switch-track{position:relative;width:48px;height:28px;border-radius:999px;background:#c7d0dd;transition:.18s ease}
+.settings-switch-track:after{content:'';position:absolute;width:22px;height:22px;left:3px;top:3px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(16,36,66,.2);transition:.18s ease}
+.settings-switch input:checked + .settings-switch-track{background:#1E3B8A}
+.settings-switch input:checked + .settings-switch-track:after{transform:translateX(20px)}
+.settings-switch input:focus-visible + .settings-switch-track{box-shadow:0 0 0 3px rgba(30,59,138,.16)}
+</style>
+
+<style>
+/* Username edit state: input + Save + Cancel in one row */
+.username-edit-row{display:flex;align-items:center;gap:10px;width:100%;margin-top:2px}
+.username-edit-row.hidden{display:none!important}
+.username-edit-row .account-inline-input{width:225px!important;max-width:100%;height:42px!important;border-radius:10px!important;font-size:12px!important}
+.username-save-btn,.username-cancel-btn{height:42px!important;padding:0 16px!important;border-radius:10px!important;font-size:12px!important;font-weight:650!important;white-space:nowrap}
+.username-save-btn{border:0!important;background:#1E3B8A!important;color:#fff!important}
+.username-save-btn:hover{background:#173577!important}
+.username-cancel-btn{border:1px solid #cbd6e4!important;background:#fff!important;color:#718096!important}
+.username-cancel-btn:hover{background:#f7f9fc!important}
+/* Password fields consistently use 10px corners */
+.settings-panel[data-settings-panel="security"] input[type="password"],
+.password-clean-fields input,
+.password-inline-fields input{border-radius:10px!important}
+@media(max-width:640px){.username-edit-row{flex-wrap:wrap}.username-edit-row .account-inline-input{width:100%!important}}
+</style>
+
+<style id="help-final-refinements">
+/* Requested Help UI refinements */
+.help-nav-item,
+.help-back,
+.help-support-card button,
+.help-top-search { border-radius:8px !important; }
+
+.help-top-search{
+  background:#f8fafc !important;
+  border:1px solid #d5deea !important;
+  box-shadow:none !important;
+}
+.help-top-search:focus-within{
+  background:#f8fafc !important;
+  border-color:#1E3B8A !important;
+  box-shadow:0 0 0 3px #e7f0ff !important;
+}
+.help-top-search input,
+.help-top-search input:hover,
+.help-top-search input:focus,
+.help-top-search input:focus-visible{
+  background:transparent !important;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  appearance:none;
+  -webkit-appearance:none;
+}
+
+/* Match the exact ZenaTools product icon palette */
+.help-product-card[data-product="ZooSlides"] .help-product-icon,
+.help-offer-row[data-product="ZooSlides"]>span{background:#E4BD28 !important;color:#fff !important;}
+.help-product-card[data-product="ZooDocs"] .help-product-icon,
+.help-offer-row[data-product="ZooDocs"]>span{background:#347BE5 !important;color:#fff !important;}
+.help-product-card[data-product="ZooSheets"] .help-product-icon,
+.help-offer-row[data-product="ZooSheets"]>span{background:#36AE68 !important;color:#fff !important;}
+.help-product-card[data-product="ZooDesign"] .help-product-icon,
+.help-offer-row[data-product="ZooDesign"]>span{background:#7B4DDB !important;color:#fff !important;}
+.help-product-card[data-product="ZooImage"] .help-product-icon,
+.help-offer-row[data-product="ZooImage"]>span{background:#E65B5B !important;color:#fff !important;}
+.help-product-card[data-product="ZooChat"] .help-product-icon,
+.help-offer-row[data-product="ZooChat"]>span{background:#091E3C !important;color:#fff !important;}
+.help-product-card[data-product="ZooNotes"] .help-product-icon,
+.help-offer-row[data-product="ZooNotes"]>span{background:#E85AA4 !important;color:#fff !important;}
+.help-product-card[data-product="ZooDrive"] .help-product-icon,
+.help-offer-row[data-product="ZooDrive"]>span{background:#7B8797 !important;color:#fff !important;}
+
+.help-product-icon, .help-offer-row>span{border-radius:8px !important;}
+</style>
+
+<style id="help-full-page-overrides">
+/* Help resources are standalone full-page views. Hide the workspace navigation and the Help side navigation. */
+body.help-fullscreen .sidebar{display:none!important;}
+body.help-fullscreen .workspace{margin-left:0!important;width:100%!important;}
+body.help-fullscreen .mobile-nav-trigger{display:none!important;}
+body.help-fullscreen #main.help-page{margin:0!important;width:100%!important;max-width:none!important;}
+body.help-fullscreen .help-app{width:100%;min-height:100vh;background:#f7f9fc;}
+body.help-fullscreen .help-app-body{display:block!important;min-height:calc(100vh - 68px);}
+body.help-fullscreen .help-nav{display:none!important;}
+body.help-fullscreen .help-content{width:100%;padding:34px clamp(28px,5vw,76px) 80px!important;}
+body.help-fullscreen .help-content-inner{width:min(1180px,100%)!important;margin:0 auto!important;}
+body.help-fullscreen .help-app-topbar{padding-left:clamp(24px,4vw,56px)!important;padding-right:clamp(24px,4vw,56px)!important;}
+@media(max-width:760px){
+  body.help-fullscreen .help-app-topbar{height:auto;min-height:68px;padding:12px 16px!important;align-items:flex-start;flex-wrap:wrap;}
+  body.help-fullscreen .help-app-actions{width:100%;}
+  body.help-fullscreen .help-top-search{flex:1;width:auto!important;}
+  body.help-fullscreen .help-content{padding:22px 16px 54px!important;}
+}
+</style>
+
+<style id="help-full-page-with-resource-nav-final">
+/* Full Help pages keep their own resource navigation while the ZooOffice workspace nav stays hidden. */
+body.help-fullscreen .help-app-body{display:grid!important;grid-template-columns:230px minmax(0,1fr)!important;min-height:calc(100vh - 68px)!important;}
+body.help-fullscreen .help-nav{display:block!important;position:sticky!important;top:68px!important;height:calc(100vh - 68px)!important;padding:22px 14px!important;border-right:1px solid #e1e6ee!important;background:#fff!important;overflow-y:auto!important;}
+body.help-fullscreen .help-content{width:100%!important;min-width:0!important;padding:32px clamp(24px,4vw,56px) 70px!important;}
+body.help-fullscreen .help-content-inner{width:min(1080px,100%)!important;margin:0 auto!important;}
+body.help-fullscreen .help-nav-item,
+body.help-fullscreen .help-support-card button,
+body.help-fullscreen .help-back,
+body.help-fullscreen .help-top-search{border-radius:8px!important;}
+body.help-fullscreen .help-top-search input{background:transparent!important;border:0!important;box-shadow:none!important;}
+@media(max-width:760px){
+ body.help-fullscreen .help-app-body{grid-template-columns:1fr!important;}
+ body.help-fullscreen .help-nav{position:relative!important;top:auto!important;height:auto!important;border-right:0!important;border-bottom:1px solid #e1e6ee!important;}
+ body.help-fullscreen .help-nav-group{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+ body.help-fullscreen .help-support-card{display:none!important;}
+ body.help-fullscreen .help-content{padding:22px 16px 54px!important;}
+}
+</style>
+
+<style id="help-final-card-radius-white-hero">
+/* Help pages: white hero surface and consistent 8px card corners */
+.help-hero{background:#fff!important;border-radius:8px!important;}
+.help-product-card,.help-info-card,.help-faq,.help-doc-card,.help-contact-card,.help-support-card,.help-legal-card,.help-toc,.help-callout,.help-step-card,.help-tip-card{border-radius:8px!important;}
+.help-hero-icon,.help-product-icon,.help-info-card-head span{border-radius:8px!important;}
+.help-eyebrow{border-radius:8px!important;}
+.help-sidebar-card{border-radius:8px!important;}
+</style>
+
+<style id="help-on-page-sidebar-fix">
+.help-on-page{padding:0 2px}
+.help-on-page nav{display:grid;gap:2px}
+.help-on-page-link{display:block;padding:7px 10px;border-radius:8px;color:#64748b;text-decoration:none;font-size:12px;line-height:1.35}
+.help-on-page-link:hover{background:#f4f7fb;color:#1E3B8A}
+.help-doc{grid-template-columns:minmax(0,1fr)!important}
+.help-doc>.help-toc{display:none!important}
+.help-on-page-link:focus-visible{outline:2px solid #1E3B8A;outline-offset:1px}
+@media(max-width:760px){.help-on-page{display:none}}
+</style>
+
+<style id="product-feature-brand-colors-final">
+/* Product feature icons use the same app colors as ZenaTools everywhere in Help. */
+.product-guide-product-icon{
+  width:28px;height:28px;flex:0 0 28px;display:grid;place-items:center;
+  border-radius:8px;color:#fff;
+}
+.product-guide-product-icon svg{width:15px!important;height:15px!important;stroke:currentColor!important;}
+.product-guide-nav button[data-product="ZooSlides"] .product-guide-product-icon{background:#E4BD28!important;color:#fff!important;}
+.product-guide-nav button[data-product="ZooDocs"] .product-guide-product-icon{background:#347BE5!important;color:#fff!important;}
+.product-guide-nav button[data-product="ZooSheets"] .product-guide-product-icon{background:#36AE68!important;color:#fff!important;}
+.product-guide-nav button[data-product="ZooDesign"] .product-guide-product-icon{background:#7B4DDB!important;color:#fff!important;}
+.product-guide-nav button[data-product="ZooChat"] .product-guide-product-icon{background:#091E3C!important;color:#fff!important;}
+.product-guide-nav button[data-product="ZooNotes"] .product-guide-product-icon{background:#E85AA4!important;color:#fff!important;}
+
+/* Keep each product's color visible on Help Center product cards. */
+.help-product-card[data-product="ZooSlides"] .help-product-icon{background:#E4BD28!important;color:#fff!important;}
+.help-product-card[data-product="ZooDocs"] .help-product-icon{background:#347BE5!important;color:#fff!important;}
+.help-product-card[data-product="ZooSheets"] .help-product-icon{background:#36AE68!important;color:#fff!important;}
+.help-product-card[data-product="ZooDesign"] .help-product-icon{background:#7B4DDB!important;color:#fff!important;}
+.help-product-card[data-product="ZooChat"] .help-product-icon{background:#091E3C!important;color:#fff!important;}
+.help-product-card[data-product="ZooNotes"] .help-product-icon{background:#E85AA4!important;color:#fff!important;}
+.help-product-card[data-product="ZooImage"] .help-product-icon{background:#B64DFF!important;color:#fff!important;}
+.help-product-card[data-product="ZooDrive"] .help-product-icon{background:#7B8797!important;color:#fff!important;}
+
+/* ZooSlides guide uses the ZooSlides yellow for its product identity and feature glyphs. */
+.pg-hero-icon{background:#E4BD28!important;border-color:#E4BD28!important;color:#fff!important;}
+.pg-feature-icon{background:#FFF8D8!important;color:#9A7800!important;}
+.product-guide-nav button.active{background:#EEF1F8!important;color:#1E3B8A!important;}
+</style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to workspace</a>
@@ -2340,7 +2907,7 @@ body{font-size:12px;}
     </button><button class="icon desktop-only" id="collapse" aria-label="Collapse navigation"><i data-lucide="panel-left-close"></i></button><button class="icon mobile-only" id="closeNav" aria-label="Close navigation"><i data-lucide="x"></i></button></div>
     <button class="create home-active" id="create"><i data-lucide="square-pen"></i><span class="hide-collapsed">New</span></button>
     <div class="sidebar-scroll">
-    <nav class="nav"><button class="nav-item" id="zooDrive"><i data-lucide="upload-cloud"></i><span>ZooDrive</span></button><button class="nav-item" id="zenaApps"><i data-lucide="blocks"></i><span>ZenaTools</span></button><button class="nav-item" id="marketplace" aria-label="Marketplace">
+    <nav class="nav"><button class="nav-item" id="zooDrive"><img class="zoodrive-brand-icon" src="assets/Zoo_Office_ZooDrive-01.png" alt=""><span>ZooDrive</span></button><button class="nav-item" id="zenaApps"><i data-lucide="blocks"></i><span>ZenaTools</span></button><button class="nav-item" id="marketplace" aria-label="Marketplace">
   <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M3 9l2-5h14l2 5"/>
     <path d="M5 13v7h14v-7"/>
@@ -2367,24 +2934,30 @@ body{font-size:12px;}
   <div class="workspace">
     <button class="icon mobile-only mobile-nav-trigger" id="openNav" aria-label="Open navigation"><i data-lucide="menu"></i></button>
     <main class="main chat-page" id="main">
-      <section class="chat-hero"><h1>Zoo Office AI</h1><p>Your intelligent workspace for creating, collaborating and achieving more.</p></section>
-      <section class="home-composer" aria-label="Ask Zoo Office AI">
-        <textarea aria-label="Prompt" placeholder="Ask anything, create anything"></textarea>
-        <div class="composer-foot"><div class="composer-left"><button class="composer-plus" aria-label="Add context"><i data-lucide="plus"></i></button><button class="mode-select"><i data-lucide="share-2"></i><span>Standard</span><i data-lucide="chevron-down"></i></button></div><div class="composer-right"><button class="mic-button" aria-label="Voice input"><i data-lucide="mic"></i></button><button class="home-start action" data-name="Zoo Office AI"><i data-lucide="audio-lines"></i>Start</button></div></div>
-      </section>
-      <section class="app-launch-grid" id="homeApps" aria-label="Zoo Office apps"></section>
+      <div class="canvas-inner">
+        <section class="chat-hero"><h1>ZooOffice AI</h1><p>Your intelligent workspace for creating, collaborating and achieving more.</p></section>
+        <section class="home-composer" aria-label="Ask ZooOffice AI">
+          <button class="composer-plus" aria-label="Add context"><i data-lucide="plus"></i></button>
+          <textarea aria-label="Prompt" placeholder="Ask anything, create anything" rows="1"></textarea>
+          <div class="composer-mode-wrap"><button class="mode-select" type="button" aria-haspopup="menu" aria-expanded="false"><span>Standard</span><i data-lucide="chevron-down"></i></button><div class="mode-menu" role="menu"><div class="mode-menu-head"><strong>Mode</strong><small>Set your AI mode. Faster modes cost fewer credits; smarter modes deliver higher quality.</small></div><button type="button" role="menuitem" data-mode="Lite"><i data-lucide="zap"></i><span><strong>Lite</strong><small>Fast, budget-friendly mode. Same tasks, fewer credits per use.</small></span></button><button type="button" role="menuitem" class="selected" data-mode="Standard"><i data-lucide="share-2"></i><span><strong>Standard <em>Recommended</em></strong><small>Balanced quality and speed for most tasks.</small></span><i class="mode-check" data-lucide="check"></i></button><button type="button" role="menuitem" data-mode="Ultra"><i data-lucide="sparkles"></i><span><strong>Ultra</strong><small>Highest accuracy for complex work. Uses more credits.</small></span></button></div></div>
+          <button class="mic-button" aria-label="Voice input"><i data-lucide="mic"></i></button>
+          <button class="composer-send hidden" type="button" aria-label="Create prompt" data-tooltip="Create prompt"><i data-lucide="arrow-up"></i></button>
+        </section>
+        <section class="app-launch-grid" id="homeApps" aria-label="ZooOffice apps"></section>
+      </div>
 </main>
   </div>
   <div id="modalRoot"></div><div id="toastRoot"></div>
   <script>
     const tools=[['Ask Zena','Think, research, and write','sparkles','blue'],['Document','Draft from a prompt or template','file-text','violet'],['Presentation','Build a polished slide deck','presentation','orange'],['Spreadsheet','Analyze and organize data','sheet','green'],['Image','Generate and edit visuals','image','pink'],['Meeting note','Capture or import a meeting','mic','teal']];
-    const apps=[['ZooSlides','Smart presentations made simple','presentation','orange'],['ZooSheets','Smart spreadsheets with AI','sheet','green'],['ZooDocs','Collaborative docs that flow','file-text','blue'],['ZooDesign','Create stunning designs with AI','palette','violet'],['ZooImage','Generate images with AI','image','pink'],['ZooChat','Chat with AI, get answers','message-circle','blue'],['ZooNotes','Smart notes for better meetings','notebook-pen','teal']];
+    const apps=[['ZooSlides','Decks that build themselves','presentation','slides'],['ZooSheets','Data & formulas, powered by AI','sheet','sheets'],['ZooDocs','Write & collaborate with AI','file-text','docs'],['ZooDesign','Logos, decks & brand assets','palette','design'],['ZooImage','Generate & edit images fast','image','image-app'],['ZooChat','Ask anything, get answers','message-circle','chat-app'],['ZooNotes','Capture ideas that organize','notebook-pen','notes'],['ZooDrive','Store, search & share files','folder-up','drive']];
     const recents=[['Q3 launch strategy','Slides','Edited 18 min ago','RY + 3','presentation','orange'],['Retail forecast model','Sheets','Edited yesterday','RY','sheet','green'],['Partner kickoff notes','Notes','Edited yesterday','RY + 5','mic','teal'],['Campaign concept board','Image','Edited Aug 28','RY + 1','image','pink']];
     const conversations=['Design a minimal bakery loyalty card','Create a summer festival poster','Build a mobile app onboarding concept','Make a conference badge system','Design packaging for herbal tea','Create a quarterly planning deck','Turn research notes into five slides','Build an investor update presentation','Create a workshop training deck','Summarize our launch plan as slides','Forecast monthly subscription revenue','Create a household expense tracker','Compare regional sales performance','Build an inventory reorder sheet','Calculate project staffing costs','Draft a friendly client proposal','Write an employee onboarding guide','Create a product requirements document','Rewrite this policy in plain language','Draft a partnership announcement','Generate a surreal underwater library','Create a studio product photograph','Make an editorial travel illustration','Generate icons for a weather app','Create a cozy reading-room scene','Brainstorm names for a meal-planning app','Explain carbon credits simply','Plan a three-day team retreat','Compare two customer support strategies','Suggest interview questions for a designer','Summarize the weekly product meeting','Turn this transcript into action items','Create notes for a project kickoff','Organize usability-test observations','Draft follow-ups from the budget review','Create a decision log for the launch'];
     const $=s=>document.querySelector(s), root=document.documentElement, sidebar=$('#sidebar'), newChatMarkup=$('#main').innerHTML;
     function icons(){if(window.lucide)lucide.createIcons({attrs:{'aria-hidden':'true'}})}
     function start(name){$('#modalRoot').innerHTML='';$('#toastRoot').innerHTML=`<div class="toast" role="status"><i data-lucide="check"></i>${name} workspace opened</div>`;icons();setTimeout(()=>$('#toastRoot').innerHTML='',2400)}
     const bookmarkedRecents=new Set();
+    let accountPhotoData='';
     let bookmarksOnly=false;
     function renderHistory(q=''){
       let rows=conversations.filter(x=>x.toLowerCase().includes(q.toLowerCase()));
@@ -2494,10 +3067,10 @@ body{font-size:12px;}
       if(!e.target.closest('.history-context-menu')&&!e.target.closest('.history-more'))closeHistoryMenu();
     });
 
-    function showNewChat(){ $('#create').classList.add('home-active');
+    function showNewChat(){ document.body.classList.remove('help-fullscreen'); $('#create').classList.add('home-active');
       $('#main').className='main chat-page';$('#main').innerHTML=newChatMarkup;$('#searchHistory').classList.remove('active');renderTools();icons()
     }
-    function showSearchPage(){ $('#create').classList.remove('home-active');
+    function showSearchPage(){ document.body.classList.remove('help-fullscreen'); $('#create').classList.remove('home-active');
       $('#searchHistory').classList.add('active');$('#main').className='main';
       $('#main').innerHTML=`<section class="search-page"><h1>Search recents</h1><label class="search-page-input"><i data-lucide="search"></i><span class="sr-only">Search chats</span><input id="chatSearchInput" type="search" placeholder="Search chats" autocomplete="off"></label><div class="search-page-tabs" role="tablist" aria-label="History filters"><button class="search-page-tab active" data-search-tab="recents" role="tab" aria-selected="true">Recents</button><button class="search-page-tab" data-search-tab="bookmarks" role="tab" aria-selected="false">Bookmarks</button></div><div class="search-results" id="chatSearchResults"></div></section>`;
       const dates=['Today','Today','Yesterday','Yesterday','Aug 28','Aug 27','Aug 25','Aug 22','Aug 20','Aug 18','Aug 14','Aug 10'];
@@ -2520,13 +3093,30 @@ body{font-size:12px;}
     }
     function renderTools(){
       const home=$('#homeApps');
+      const canvasPlan=$('#canvasPlan');
+      if(canvasPlan)canvasPlan.onclick=openUpgradePlan;
+      const composer=$('.home-composer');
+      if(composer){
+        const prompt=composer.querySelector('textarea');
+        const modeButton=composer.querySelector('.mode-select');
+        const modeMenu=composer.querySelector('.mode-menu');
+        const mic=composer.querySelector('.mic-button');
+        const send=composer.querySelector('.composer-send');
+        const syncSend=()=>{const hasText=Boolean(prompt.value.trim());mic.classList.remove('hidden');send.classList.toggle('hidden',!hasText)};
+        prompt.oninput=syncSend;
+        modeButton.onclick=e=>{e.stopPropagation();const open=!modeMenu.classList.contains('open');modeMenu.classList.toggle('open',open);modeButton.setAttribute('aria-expanded',String(open))};
+        modeMenu.querySelectorAll('[data-mode]').forEach(option=>option.onclick=e=>{e.stopPropagation();modeMenu.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('selected',x===option));modeMenu.querySelectorAll('.mode-check').forEach(x=>x.remove());option.insertAdjacentHTML('beforeend','<i class="mode-check" data-lucide="check"></i>');modeButton.querySelector('span').textContent=option.dataset.mode;modeMenu.classList.remove('open');modeButton.setAttribute('aria-expanded','false');icons()});
+        send.onclick=()=>{if(!prompt.value.trim())return;start('Prompt');prompt.value='';syncSend()};
+        syncSend();
+      }
       if(home){
         const groups=[
-          ['Office Suite',[apps[2],apps[1],apps[0]],3],
-          ['Design & Create',[apps[3],apps[4]],2],
-          ['AI & Productivity',[apps[5],apps[6]],2]
+          ['Design & Create',[apps[3],apps[0]],2],
+          ['Office Suite',[apps[2],apps[1]],2],
+          ['Content & AI',[apps[4],apps[5]],2],
+          ['Tools',[apps[6],apps[7]],2]
         ];
-        const card=a=>`<div class="launch-wrap"><button class="launch-card action" data-name="${a[0]}"><span class="tool-icon ${a[3]}"><i data-lucide="${a[2]}"></i></span><strong>${a[0]}</strong><small>${a[1]}</small></button></div>`;
+        const card=a=>`<div class="launch-wrap"><button class="launch-card action" data-name="${a[0]}"><span class="tool-icon ${a[3]}">${a[0]==='ZooDrive'?'<img class="zoodrive-brand-icon" src="assets/Zoo_Office_ZooDrive-01.png" alt="">':`<i data-lucide="${a[2]}"></i>`}</span><strong>${a[0]}</strong><small>${a[1]}</small></button></div>`;
         home.innerHTML=groups.map(g=>`<section class="app-group"><h2 class="app-group-title">${g[0]}</h2><div class="app-group-grid" style="--cols:${g[2]}">${g[1].map(card).join('')}</div></section>`).join('');
       }
       document.querySelectorAll('.action').forEach(b=>b.onclick=()=>start(b.dataset.name));icons()
@@ -2544,10 +3134,10 @@ body{font-size:12px;}
       document.querySelectorAll('.create-option').forEach(b=>b.onclick=()=>{close();start(b.dataset.name)});icons()
     }
     function openZenaTools(){
-      const option=a=>`<button class="create-option" data-name="${a[0]}"><span class="tool-icon ${a[3]}"><i data-lucide="${a[2]}"></i></span><span><strong>${a[0]}</strong><small>${a[1]}</small></span><i data-lucide="chevron-right"></i></button>`;
-      const mainApps=apps.slice(0,6), notes=apps[6];
+      const option=a=>`<button class="create-option" data-name="${a[0]}"><span class="tool-icon ${a[3]}">${a[0]==='ZooDrive'?'<img class="zoodrive-brand-icon" src="assets/Zoo_Office_ZooDrive-01.png" alt="">':`<i data-lucide="${a[2]}"></i>`}</span><span><strong>${a[0]}</strong><small>${a[1]}</small></span><i data-lucide="chevron-right"></i></button>`;
+      const mainApps=apps.slice(0,6), notes=apps[6], drive=apps[7];
       $('#zenaApps').classList.add('drawer-open');
-      $('#modalRoot').innerHTML=`<button class="scrim" aria-label="Close ZenaTools"></button><section class="modal apps-modal" role="dialog" aria-modal="true" aria-labelledby="appsTitle"><div class="modal-head apps-modal-head"><div class="apps-title-copy"><h2 id="appsTitle">ZenaTools</h2><p>Choose a tool or explore more products.</p></div><button class="apps-close close-modal" aria-label="Close"><i data-lucide="x"></i></button></div><div class="apps-grid">${mainApps.map(option).join('')}<div class="apps-bottom-row">${option(notes)}<div class="marketplace-card"><span class="marketplace-logo" aria-hidden="true"><i data-lucide="store"></i></span><span class="marketplace-copy"><strong>Marketplace</strong><small>Discover more Zoo Office products</small></span><button class="marketplace-button" id="openMarketplace">Open</button></div></div></div></section>`;
+      $('#modalRoot').innerHTML=`<button class="scrim" aria-label="Close ZenaTools"></button><section class="modal apps-modal" role="dialog" aria-modal="true" aria-labelledby="appsTitle"><div class="modal-head apps-modal-head"><div class="apps-title-copy"><h2 id="appsTitle">ZenaTools</h2><p>Choose a tool or explore more products.</p></div><button class="apps-close close-modal" aria-label="Close"><i data-lucide="x"></i></button></div><div class="apps-grid">${mainApps.map(option).join('')}<div class="apps-bottom-row">${option(notes)}${option(drive)}<div class="marketplace-card"><span class="marketplace-logo" aria-hidden="true"><i data-lucide="store"></i></span><span class="marketplace-copy"><strong>Marketplace</strong><small>Discover more Zoo Office products</small></span><button class="marketplace-button" id="openMarketplace">Open</button></div></div></div></section>`;
       const close=()=>{$('#modalRoot').innerHTML='';$('#zenaApps').classList.remove('drawer-open')};
       $('.scrim').onclick=$('.close-modal').onclick=close;
       document.querySelectorAll('.create-option').forEach(b=>b.onclick=()=>{close();start(b.dataset.name)});
@@ -2598,9 +3188,9 @@ body{font-size:12px;}
               <article class="plan-card current-plan">
                 <div class="plan-card-top">
                   <h3>Free</h3>
+                  <p class="plan-audience">For individuals exploring the essentials.</p>
                   <div class="plan-price" data-monthly="$0" data-annual="$0">$0</div>
                   <div class="plan-period">/month</div>
-                  <p class="plan-subtext">Free forever</p>
                 </div>
 
                 <div class="credits-strip">
@@ -2622,11 +3212,12 @@ body{font-size:12px;}
                 <span class="save-pill">Save $60</span>
                 <div class="plan-card-top">
                   <h3>Starter</h3>
+                  <p class="plan-audience">For individuals creating and working more often.</p>
                   <div class="plan-price-wrap">
-                    <span class="old-price annual-only">$24.99</span>
                     <div class="plan-price" data-monthly="$24.99" data-annual="$19.99">$24.99</div>
+                    <span class="old-price annual-only">$24.99</span>
+                    <span class="plan-period">/month</span>
                   </div>
-                  <div class="plan-period">/month</div>
                   <p class="plan-subtext annual-copy hidden-copy">$239.99/year, billed annually</p>
                 </div>
 
@@ -2647,14 +3238,15 @@ body{font-size:12px;}
               </article>
 
               <article class="plan-card">
-                <span class="save-pill">Save $120</span>
+                <span class="save-pill popular-pill">Most Popular</span>
                 <div class="plan-card-top">
                   <h3>Plus</h3>
+                  <p class="plan-audience">For professionals who need more power and flexibility.</p>
                   <div class="plan-price-wrap">
-                    <span class="old-price annual-only">$49.99</span>
                     <div class="plan-price" data-monthly="$49.99" data-annual="$39.99">$49.99</div>
+                    <span class="old-price annual-only">$49.99</span>
+                    <span class="plan-period">/month</span>
                   </div>
-                  <div class="plan-period">/month</div>
                   <p class="plan-subtext annual-copy hidden-copy">$479.99/year, billed annually</p>
                 </div>
 
@@ -2678,11 +3270,12 @@ body{font-size:12px;}
                 <span class="save-pill">Save $600</span>
                 <div class="plan-card-top">
                   <h3>Pro</h3>
+                  <p class="plan-audience">For advanced teams with high-volume workflows.</p>
                   <div class="plan-price-wrap">
-                    <span class="old-price annual-only">$249.99</span>
                     <div class="plan-price" data-monthly="$249.99" data-annual="$199.99">$249.99</div>
+                    <span class="old-price annual-only">$249.99</span>
+                    <span class="plan-period">/month</span>
                   </div>
-                  <div class="plan-period">/month</div>
                   <p class="plan-subtext annual-copy hidden-copy">$2399.99/year, billed annually</p>
                 </div>
 
@@ -2702,6 +3295,7 @@ body{font-size:12px;}
                 </ul>
               </article>
             </div>
+            <p class="upgrade-guarantee"><i data-lucide="shield-check"></i><span>All benefits are guaranteed until December 31, 2026</span></p>
           </div>
         </section>`;
 
@@ -2758,6 +3352,9 @@ body{font-size:12px;}
               </button>
               <button class="settings-nav-item" data-settings-tab="account">
                 <i data-lucide="circle-user-round"></i><span>Account</span>
+              </button>
+              <button class="settings-nav-item" data-settings-tab="security">
+                <i data-lucide="shield-check"></i><span>Security</span>
               </button>
               <button class="settings-nav-item" data-settings-tab="usage">
                 <i data-lucide="activity"></i><span>Usage</span>
@@ -2826,31 +3423,72 @@ body{font-size:12px;}
                   <span class="settings-field-label">Custom instructions for Zoo Office</span>
                   <textarea rows="6" placeholder="Custom instructions for Zoo Office"></textarea>
                 </label>
+                <div class="ai-retention-setting">
+                  <div class="ai-retention-copy">
+                    <span class="settings-field-label">AI Data Retention</span>
+                    <p>AI Data Retention allows ZooOffice AI to use your searches to improve AI models for everyone. Turn this setting off if you wish to exclude your data from this process.</p>
+                  </div>
+                  <label class="settings-switch" aria-label="AI Data Retention">
+                    <input type="checkbox" checked>
+                    <span class="settings-switch-track"></span>
+                  </label>
+                </div>
               </div>
             </div>
 
             <div class="settings-panel" data-settings-panel="account">
-              <div class="settings-content-head"><h3>Account</h3></div>
-              <div class="account-edit-section">
-                <div class="account-edit-head">
-                  <div>
-                    <strong>Account information</strong>
-                    <small>Manage your name and email address.</small>
-                  </div>
-                  <button type="button" class="settings-secondary account-manage-btn">Manage</button>
+              <div class="settings-content-head"><div><h3>Account</h3></div></div>
+
+              <div class="account-clean-row account-photo-row">
+                <div class="account-profile-picture" id="accountAvatar">RY</div>
+                <div class="account-clean-copy">
+                  <strong>Profile photo</strong>
+                  <small>JPG, PNG or GIF · Max 5MB</small>
+                  <input id="accountPhotoInput" class="account-file-input" type="file" accept="image/png,image/jpeg,image/gif" hidden>
                 </div>
+                <div class="account-photo-actions">
+                  <button type="button" class="settings-secondary account-action-btn" id="changeProfilePicture"><i data-lucide="upload"></i><span>Upload photo</span></button>
+                  <button type="button" class="account-photo-remove hidden" id="removeProfilePicture"><i data-lucide="trash-2"></i><span>Remove photo</span></button>
+                </div>
+              </div>
 
-                <label class="settings-field">
-                  <span class="settings-field-label">Name</span>
-                  <input class="account-edit-input" type="text" value="Riya Yallabandi" disabled>
-                </label>
+              <div class="account-clean-row account-email-row">
+                <div class="account-clean-copy">
+                  <span class="account-clean-label">Email address</span>
+                  <strong>riya@example.com</strong>
+                </div>
+                <span class="account-verified">Verified</span>
+              </div>
 
-                <label class="settings-field">
-                  <span class="settings-field-label">Email</span>
-                  <input class="account-edit-input" type="email" value="riya@example.com" disabled>
-                </label>
+              <div class="account-clean-row account-username-row">
+                <div class="account-clean-copy account-username-copy">
+                  <span class="account-clean-label">Username</span>
+                  <input id="accountUsernameInput" class="account-inline-input account-username-direct-input" type="text" value="Riya Yallabandi" aria-label="Username">
+                </div>
+              </div>
+
+              <div class="account-clean-row account-delete-row">
+                <div class="account-clean-copy">
+                  <strong>Delete account</strong>
+                  <small>Permanently remove your account and all associated data.</small>
+                </div>
+                <button type="button" class="account-delete-button" id="deleteAccountTrigger"><i data-lucide="trash-2"></i><span>Delete account</span></button>
               </div>
             </div>
+
+            <div class="settings-panel" data-settings-panel="security">
+              <div class="settings-content-head"><div><h3>Security</h3></div></div>
+
+              <div class="security-clean-section">
+                <h4>Change password</h4>
+                <div id="passwordFields" class="password-clean-fields">
+                  <label>Current password<input id="currentPassword" type="password" autocomplete="current-password" placeholder="Enter current password"></label>
+                  <label>New password<input id="newPassword" type="password" autocomplete="new-password" placeholder="Enter new password"></label>
+                  <label>Confirm new password<input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Confirm new password"></label>
+                </div>
+              </div>
+            </div>
+
           <div class="settings-panel" data-settings-panel="usage">
               <div class="settings-content-head">
                 <h3>Usage</h3>
@@ -2912,7 +3550,7 @@ body{font-size:12px;}
                     <strong>Zoo Office Starter</strong>
                     <small>Your plan auto-renews on Oct 3, 2026</small>
                   </div>
-                  <button type="button" class="billing-manage-btn">Manage</button>
+                  <button type="button" class="billing-manage-btn"><i data-lucide="settings-2"></i><span>Manage</span></button>
                 </div>
 
                 <div class="billing-divider"></div>
@@ -2922,7 +3560,7 @@ body{font-size:12px;}
                     <strong>Cancel plan</strong>
                     <small>If you cancel, you'll keep full access to your Zoo Office plan features until the end of your billing period.</small>
                   </div>
-                  <button type="button" class="billing-cancel-btn">Cancel</button>
+                  <button type="button" class="billing-cancel-btn"><i data-lucide="circle-x"></i><span>Cancel</span></button>
                 </div>
               </div>
             </div>
@@ -2932,16 +3570,61 @@ body{font-size:12px;}
           </div>
         </section>`;
 
+      const accountAvatar=$('#accountAvatar');
+      const removePhoto=$('#removeProfilePicture');
+      if(accountPhotoData && accountAvatar){
+        accountAvatar.innerHTML='<img src="'+accountPhotoData+'" alt="Profile picture">';
+        removePhoto?.classList.remove('hidden');
+      }else{
+        removePhoto?.classList.add('hidden');
+      }
+
       const close=()=>{$('#modalRoot').innerHTML=''};
       $('.settings-scrim').onclick=close;
       $('.settings-close').onclick=close;
+      const settingsSaveButton=$('.settings-save-btn');
+      const syncSettingsSaveLabel=tab=>{
+        if(settingsSaveButton) settingsSaveButton.textContent=tab==='security'?'Update password':'Save';
+      };
       document.querySelectorAll('.settings-nav-item').forEach(btn=>{
         btn.onclick=()=>{
           const tab=btn.dataset.settingsTab;
           document.querySelectorAll('.settings-nav-item').forEach(x=>x.classList.toggle('active',x===btn));
           document.querySelectorAll('.settings-panel').forEach(p=>p.classList.toggle('active',p.dataset.settingsPanel===tab));
+          syncSettingsSaveLabel(tab);
         };
       });
+      if(settingsSaveButton){
+        settingsSaveButton.onclick=()=>{
+          const securityActive=document.querySelector('.settings-panel[data-settings-panel="security"]')?.classList.contains('active');
+          if(!securityActive){
+            settingsSaveButton.textContent='Saved';
+            setTimeout(()=>syncSettingsSaveLabel(document.querySelector('.settings-nav-item.active')?.dataset.settingsTab),1200);
+            return;
+          }
+          const currentPw=$('#currentPassword');
+          const newPw=$('#newPassword');
+          const confirmPw=$('#confirmPassword');
+          const firstEmpty=[currentPw,newPw,confirmPw].find(input=>!input?.value);
+          if(firstEmpty){
+            firstEmpty.focus();
+            firstEmpty.setCustomValidity('Please complete this field');
+            firstEmpty.reportValidity();
+            setTimeout(()=>firstEmpty.setCustomValidity(''),0);
+            return;
+          }
+          if(newPw.value!==confirmPw.value){
+            confirmPw.setCustomValidity('Passwords do not match');
+            confirmPw.reportValidity();
+            confirmPw.focus();
+            return;
+          }
+          confirmPw.setCustomValidity('');
+          [currentPw,newPw,confirmPw].forEach(input=>input.value='');
+          settingsSaveButton.textContent='Password updated';
+          setTimeout(()=>syncSettingsSaveLabel('security'),1200);
+        };
+      }
       const appearanceTrigger=$('.appearance-trigger');
       const appearanceMenu=$('.appearance-menu');
       if(appearanceTrigger && appearanceMenu){
@@ -3058,7 +3741,14 @@ body{font-size:12px;}
             'about':'About Us'
           };
           closeProfileMenu();
-          start(labels[btn.dataset.helpAction] || 'Help');
+          if(btn.dataset.helpAction==='bug'){
+            openReportBugModal();
+          } else {
+            const helpUrl = new URL(window.location.href);
+            helpUrl.searchParams.set('help', btn.dataset.helpAction);
+            helpUrl.hash = '';
+            window.open(helpUrl.href, '_blank', 'noopener');
+          }
         };
       });
 
@@ -3122,5 +3812,848 @@ document.addEventListener('click', function(event) {
 }, true);
 </script>
 
+
+<div id="deleteAccountRoot" class="hidden">
+  <button class="delete-account-scrim" type="button" aria-label="Close delete account dialog"></button>
+  <section class="delete-account-modal delete-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="deleteAccountTitle">
+    <div class="delete-confirm-head">
+      <span class="delete-confirm-icon" aria-hidden="true"><i data-lucide="trash-2"></i></span>
+      <div class="delete-confirm-copy">
+        <h3 id="deleteAccountTitle">Delete your account?</h3>
+        <p>This action is <strong>permanent and irreversible.</strong> All your data, history, and settings will be erased immediately.</p>
+      </div>
+      <button class="delete-account-close" type="button" aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="delete-confirm-body">
+      <div class="delete-confirm-warning">To confirm, type <strong>"delete my account"</strong> below:</div>
+      <input id="deleteConfirmInput" class="delete-confirm-input" type="text" placeholder="delete my account" autocomplete="off">
+    </div>
+    <div class="delete-account-actions">
+      <button class="delete-account-cancel" type="button"><i data-lucide="x"></i><span>Cancel</span></button>
+      <button class="delete-account-confirm" type="button" disabled>Delete account</button>
+    </div>
+  </section>
+</div>
+<script>
+(function(){
+  const root=document.getElementById('deleteAccountRoot');
+  const input=document.getElementById('deleteConfirmInput');
+  const confirmBtn=root?.querySelector('.delete-account-confirm');
+  function sync(){ if(confirmBtn) confirmBtn.disabled=(input?.value.trim().toLowerCase()!=='delete my account'); }
+  function openDeleteAccount(){
+    root.classList.remove('hidden');
+    if(input){ input.value=''; sync(); setTimeout(()=>input.focus(),0); }
+    if(window.lucide) lucide.createIcons();
+  }
+  function closeDeleteAccount(){ root.classList.add('hidden'); if(input) input.value=''; sync(); }
+  input?.addEventListener('input',sync);
+  document.addEventListener('click',function(e){
+    if(e.target.closest('#deleteAccountTrigger')) openDeleteAccount();
+    if(e.target.closest('.delete-account-close,.delete-account-cancel,.delete-account-scrim')) closeDeleteAccount();
+    if(e.target.closest('.delete-account-confirm') && !confirmBtn?.disabled){ closeDeleteAccount(); }
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !root.classList.contains('hidden')) closeDeleteAccount(); });
+})();
+</script>
+
+<script>
+/* Account/Security controls use event delegation because Settings is rendered dynamically. */
+document.addEventListener('click', function(event){
+  const photoBtn=event.target.closest('#changeProfilePicture');
+  if(photoBtn){
+    event.preventDefault();
+    const photoInput=document.getElementById('accountPhotoInput');
+    if(photoInput) photoInput.click();
+    return;
+  }
+
+  const removePhotoBtn=event.target.closest('#removeProfilePicture');
+  if(removePhotoBtn){
+    event.preventDefault();
+    const avatar=document.getElementById('accountAvatar');
+    const photoInput=document.getElementById('accountPhotoInput');
+    if(avatar) avatar.textContent='RY';
+    if(photoInput) photoInput.value='';
+    accountPhotoData='';
+    removePhotoBtn.classList.add('hidden');
+    return;
+  }
+
+  const usernameBtn=event.target.closest('#changeUsername');
+  if(usernameBtn){
+    event.preventDefault();
+    const display=document.getElementById('accountUsernameDisplay');
+    const row=document.getElementById('usernameEditRow');
+    const input=document.getElementById('accountUsernameInput');
+    if(!row || !input) return;
+    input.value=display?.textContent?.trim()||input.value;
+    display?.classList.add('hidden');
+    row.classList.remove('hidden');
+    usernameBtn.classList.add('hidden');
+    input.focus(); input.select();
+    return;
+  }
+  const saveUsernameBtn=event.target.closest('#saveUsername');
+  if(saveUsernameBtn){
+    event.preventDefault();
+    const display=document.getElementById('accountUsernameDisplay');
+    const row=document.getElementById('usernameEditRow');
+    const input=document.getElementById('accountUsernameInput');
+    const edit=document.getElementById('changeUsername');
+    const value=input?.value.trim();
+    if(value && display) display.textContent=value;
+    row?.classList.add('hidden'); display?.classList.remove('hidden'); edit?.classList.remove('hidden');
+    return;
+  }
+  const cancelUsernameBtn=event.target.closest('#cancelUsername');
+  if(cancelUsernameBtn){
+    event.preventDefault();
+    const display=document.getElementById('accountUsernameDisplay');
+    const row=document.getElementById('usernameEditRow');
+    const input=document.getElementById('accountUsernameInput');
+    const edit=document.getElementById('changeUsername');
+    if(input && display) input.value=display.textContent.trim();
+    row?.classList.add('hidden'); display?.classList.remove('hidden'); edit?.classList.remove('hidden');
+    return;
+  }
+  const passwordBtn=event.target.closest('#changePassword');
+  if(passwordBtn){
+    event.preventDefault();
+    const currentPw=document.getElementById('currentPassword');
+    const newPw=document.getElementById('newPassword');
+    const confirmPw=document.getElementById('confirmPassword');
+    if(!currentPw || !newPw || !confirmPw) return;
+    if(!currentPw.value || !newPw.value || !confirmPw.value){
+      const firstEmpty=[currentPw,newPw,confirmPw].find(i=>!i.value);
+      firstEmpty?.focus();
+      firstEmpty?.setCustomValidity('Please complete this field');
+      firstEmpty?.reportValidity();
+      setTimeout(()=>firstEmpty?.setCustomValidity(''),0);
+      return;
+    }
+    if(newPw.value !== confirmPw.value){
+      confirmPw.setCustomValidity('Passwords do not match');
+      confirmPw.reportValidity();
+      confirmPw.focus();
+      return;
+    }
+    confirmPw.setCustomValidity('');
+    [currentPw,newPw,confirmPw].forEach(input=>input.value='');
+    passwordBtn.classList.add('saved-state');
+    const label=passwordBtn.querySelector('.password-action-label');
+    if(label) label.textContent='Password updated';
+    setTimeout(()=>{ if(label) label.textContent='Update password'; passwordBtn.classList.remove('saved-state'); },1200);
+  }});
+
+document.addEventListener('change', function(event){
+  const photoInput=event.target.closest('#accountPhotoInput');
+  if(!photoInput) return;
+  const file=photoInput.files?.[0];
+  if(!file) return;
+  const avatar=document.getElementById('accountAvatar');
+  const reader=new FileReader();
+  reader.onload=function(e){
+    accountPhotoData=e.target.result;
+    if(avatar) avatar.innerHTML='<img src="'+e.target.result+'" alt="Profile picture">';
+    document.getElementById('removeProfilePicture')?.classList.remove('hidden');
+  };
+  reader.readAsDataURL(file);
+});
+</script>
+
+<style>
+/* Account + Security order and presentation aligned to the approved reference, using Zoo Office UI */
+.settings-panel[data-settings-panel="account"],
+.settings-panel[data-settings-panel="security"]{padding-bottom:32px!important}
+.settings-panel[data-settings-panel="account"] .settings-content-head,
+.settings-panel[data-settings-panel="security"] .settings-content-head{margin-bottom:6px!important}
+.account-clean-row{min-height:108px;padding:22px 0;display:flex;align-items:center;gap:18px;border-bottom:1px solid #e1e6ee}
+.account-clean-copy{min-width:0;display:grid;gap:6px;flex:1}
+.account-clean-copy>strong{color:#10243e;font-size:14px;font-weight:650}
+.account-clean-copy>small,.account-clean-label{color:#718096;font-size:12px;line-height:1.45}
+.account-photo-row{align-items:center}
+.account-photo-row .account-profile-picture{width:64px;height:64px;flex:0 0 64px;border-radius:50%;font-size:18px}
+.account-photo-row .account-action-btn{width:max-content;margin-top:3px}
+.account-email-row,.account-username-row,.account-delete-row{min-height:108px}
+.account-verified{padding:5px 10px;border:1px solid #a7e8bd;border-radius:999px;background:#f0fff5;color:#159447;font-size:12px;font-weight:650}
+.account-username-copy{max-width:430px}
+.account-inline-input{width:min(360px,100%)!important;height:42px!important;margin:0!important;padding:0 12px!important;border:1px solid #cbd6e4!important;border-radius:10px!important;background:#fff!important;font-size:12px!important}
+.account-inline-input:focus{border-color:#1E3B8A!important;box-shadow:0 0 0 3px #e7f0ff!important}
+.account-delete-button{height:40px;padding:0 15px;border:1px solid #f2b8bd;border-radius:10px;background:#fff5f5;color:#d92d36;font-size:12px;font-weight:650}
+.account-delete-button:hover{background:#ffecec}
+.security-clean-section{padding:24px 0 0}
+.security-clean-section h4{margin:0 0 22px;color:#10243e;font-size:15px;font-weight:650}
+.password-clean-fields{display:grid;gap:18px}
+.password-clean-fields label{display:grid;gap:8px;color:#33445d;font-size:12px;font-weight:500}
+.password-clean-fields input{width:100%;height:44px;padding:0 12px;border:1px solid #cbd6e4;border-radius:10px;background:#f9fbfd;color:#10243e;font-size:12px}
+.password-clean-fields input:focus{background:#fff;border-color:#1E3B8A;box-shadow:0 0 0 3px #e7f0ff}
+.security-actions{display:flex;justify-content:flex-end;margin-top:24px;padding-top:22px;border-top:1px solid #e1e6ee}
+.security-update-password{height:40px!important;padding:0 18px!important;border-radius:10px!important;background:#1E3B8A!important;color:#fff!important;border:0!important;font-size:12px!important;font-weight:650!important}
+.security-update-password:hover{background:#173577!important}
+.security-update-password.saved-state{background:#1E3B8A!important}
+.delete-confirm-modal{width:min(560px,calc(100% - 32px))!important;padding:0!important;overflow:hidden!important}
+.delete-confirm-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:24px 24px 18px}
+.delete-confirm-head h3{margin:0;color:#10243e;font-size:20px;font-weight:700}
+.delete-confirm-head p{margin:8px 0 0;color:#66788f;font-size:13px;line-height:1.55}
+.delete-confirm-warning{margin:0 24px 16px;padding:14px 16px;border:1px solid #f3c0c4;border-radius:10px;background:#fff4f4;color:#d92d36;font-size:12px;line-height:1.45}
+.delete-confirm-input{width:calc(100% - 48px);height:44px;margin:0 24px 20px;padding:0 12px;border:1px solid #cbd6e4;border-radius:10px;background:#fff;color:#10243e;font-size:12px}
+.delete-confirm-input:focus{border-color:#1E3B8A;box-shadow:0 0 0 3px #e7f0ff}
+.delete-account-actions{padding:16px 24px!important;border-top:1px solid #e1e6ee!important}
+.delete-account-confirm:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:640px){.account-clean-row{align-items:flex-start;flex-direction:column}.account-email-row,.account-username-row,.account-delete-row{min-height:auto}.account-verified,.account-action-btn,.account-delete-button{align-self:flex-start}.security-actions{justify-content:stretch}.security-update-password{width:100%}}
+</style>
+
+<style id="help-center-redesign">
+/* In-app Help Center redesign, aligned with ZooOffice branding */
+#main.help-page{width:100%;max-width:none;margin:0;padding:0!important;background:#f7f9fc;min-height:100vh}
+.help-app{min-height:100vh;color:#10243e;font-family:'Public Sans',Arial,sans-serif}
+.help-app-topbar{position:sticky;top:0;z-index:12;height:68px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid #e1e6ee;background:#fff}
+.help-app-title{display:flex;align-items:center;gap:11px;min-width:0}
+.help-app-title-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#eef1f8;color:#1E3B8A}
+.help-app-title-icon svg{width:18px;height:18px}
+.help-app-title strong{font-size:17px;font-weight:700;color:#10243e}.help-app-title small{display:block;margin-top:2px;font-size:12px;color:#718096}
+.help-app-actions{display:flex;align-items:center;gap:10px}
+.help-top-search{width:min(360px,32vw);height:40px;padding:0 12px;display:flex;align-items:center;gap:9px;border:1px solid #d5deea;border-radius:10px;background:#f8fafc;color:#718096}
+.help-top-search:focus-within{border-color:#1E3B8A;box-shadow:0 0 0 3px #e7f0ff;background:#fff}.help-top-search svg{width:17px;height:17px;flex:0 0 17px}.help-top-search input{width:100%;border:0;outline:0;background:transparent;color:#10243e;font-size:12px;box-shadow:none!important}
+.help-back{height:40px;padding:0 14px;display:inline-flex;align-items:center;gap:8px;border:1px solid #cbd6e4;border-radius:10px;background:#fff;color:#10243e;font-size:12px;font-weight:650}.help-back:hover{background:#f4f7fb}.help-back svg{width:16px;height:16px}
+.help-app-body{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:calc(100vh - 68px)}
+.help-nav{position:sticky;top:68px;height:calc(100vh - 68px);padding:22px 14px;border-right:1px solid #e1e6ee;background:#fff;overflow-y:auto}
+.help-nav-label{padding:0 10px 8px;color:#8190a6;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.help-nav-group{display:grid;gap:4px}.help-nav-item{width:100%;height:42px;padding:0 11px;display:flex;align-items:center;gap:10px;border:0;border-radius:10px;background:transparent;color:#34455d;text-align:left;font-size:13px;font-weight:550}.help-nav-item svg{width:17px;height:17px;flex:0 0 17px;color:#64748b}.help-nav-item:hover{background:#f4f7fb}.help-nav-item.active{background:#eef1f8;color:#1E3B8A;font-weight:700}.help-nav-item.active svg{color:#1E3B8A}.help-nav-divider{height:1px;margin:16px 8px;background:#e5e9f0}
+.help-support-card{margin:14px 4px 0;padding:14px;border:1px solid #dfe5ee;border-radius:14px;background:#f8fafc}.help-support-card strong{display:block;font-size:13px}.help-support-card p{margin:6px 0 12px;color:#718096;font-size:12px;line-height:1.5}.help-support-card button{width:100%;height:36px;border:0;border-radius:10px;background:#1E3B8A;color:#fff;font-size:12px;font-weight:650}
+.help-content{padding:32px clamp(24px,4vw,56px) 70px;min-width:0}.help-content-inner{width:min(1080px,100%);margin:0 auto}
+.help-hero{padding:30px 34px;border:1px solid #dfe5ee;border-radius:18px;background:linear-gradient(135deg,#f7f9fc 0%,#eef1f8 100%);display:flex;align-items:center;justify-content:space-between;gap:28px}.help-hero-copy{max-width:680px}.help-eyebrow{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 10px;border-radius:10px;background:#fff;color:#1E3B8A;border:1px solid #d7dfeb;font-size:12px;font-weight:700}.help-eyebrow svg{width:14px;height:14px}.help-hero h1{margin:14px 0 8px;color:#10243e;font-size:34px;line-height:1.1;letter-spacing:-.035em}.help-hero p{margin:0;color:#64748b;font-size:14px;line-height:1.6}.help-hero-icon{width:72px;height:72px;flex:0 0 72px;border-radius:18px;display:grid;place-items:center;background:#1E3B8A;color:#fff;box-shadow:0 10px 26px rgba(30,59,138,.16)}.help-hero-icon svg{width:31px;height:31px}
+.help-section{margin-top:26px}.help-section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:13px}.help-section h2{margin:0;font-size:20px;letter-spacing:-.02em}.help-section-head p{margin:4px 0 0;color:#718096;font-size:12px}.help-link-btn{height:36px;padding:0 11px;border:0;border-radius:10px;background:transparent;color:#1E3B8A;font-size:12px;font-weight:700}.help-link-btn:hover{background:#eef1f8}
+.help-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.help-product-card{min-height:126px;padding:16px;border:1px solid #dfe5ee;border-radius:14px;background:#fff;text-align:left;display:flex;flex-direction:column;gap:9px;transition:.15s}.help-product-card:hover{border-color:#b9c8dd;box-shadow:0 7px 18px rgba(16,36,62,.07);transform:translateY(-1px)}.help-product-icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:#eef1f8;color:#1E3B8A}.help-product-icon svg{width:18px;height:18px}.help-product-card strong{font-size:13px}.help-product-card small{color:#718096;font-size:12px;line-height:1.45}.help-product-card .help-card-arrow{margin-top:auto;color:#1E3B8A;font-size:12px;font-weight:700}
+.help-two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}.help-info-card{padding:18px;border:1px solid #dfe5ee;border-radius:14px;background:#fff}.help-info-card-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}.help-info-card-head span{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#eef1f8;color:#1E3B8A}.help-info-card-head svg{width:17px;height:17px}.help-info-card h3{margin:0;font-size:14px}.help-info-card p{margin:0;color:#718096;font-size:12px;line-height:1.55}.help-info-card a,.help-info-card button{margin-top:12px;border:0;background:transparent;padding:0;color:#1E3B8A;font-size:12px;font-weight:700;text-decoration:none}
+.help-faq{border:1px solid #dfe5ee;border-radius:14px;background:#fff;overflow:hidden}.help-faq-item+.help-faq-item{border-top:1px solid #e5e9f0}.help-faq-btn{width:100%;min-height:52px;padding:0 16px;border:0;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;color:#10243e;font-size:13px;font-weight:650}.help-faq-btn:hover{background:#f8fafc}.help-faq-btn svg{width:16px;height:16px;transition:.15s}.help-faq-item.open .help-faq-btn svg{transform:rotate(180deg)}.help-faq-answer{display:none;padding:0 16px 16px;color:#64748b;font-size:12px;line-height:1.6}.help-faq-item.open .help-faq-answer{display:block}
+.help-doc{margin-top:22px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:24px;align-items:start}.help-doc-main{min-width:0}.help-doc-card{padding:22px 24px;border:1px solid #dfe5ee;border-radius:14px;background:#fff}.help-doc-card+.help-doc-card{margin-top:14px}.help-doc-card h2{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:18px}.help-doc-num{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#1E3B8A;color:#fff;font-size:12px;font-weight:700}.help-doc-card h3{margin:18px 0 7px;font-size:14px}.help-doc-card p,.help-doc-card li{color:#5f6f85;font-size:12px;line-height:1.7}.help-doc-card p{margin:7px 0}.help-doc-card ul{margin:8px 0 0;padding-left:18px}.help-doc-note{margin-top:14px;padding:13px 14px;border-radius:10px;background:#eef1f8;color:#34455d;font-size:12px;line-height:1.55}.help-doc-note strong{color:#10243e}.help-toc{position:sticky;top:90px;padding:14px;border:1px solid #dfe5ee;border-radius:14px;background:#fff}.help-toc strong{display:block;margin:2px 6px 9px;font-size:12px;color:#10243e}.help-toc a{display:block;padding:8px 9px;border-radius:9px;color:#64748b;text-decoration:none;font-size:12px}.help-toc a:hover{background:#f4f7fb;color:#1E3B8A}
+.help-values-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.help-value{padding:18px;border:1px solid #dfe5ee;border-radius:14px;background:#fff}.help-value span{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#eef1f8;color:#1E3B8A;margin-bottom:12px}.help-value svg{width:17px;height:17px}.help-value h3{margin:0 0 6px;font-size:14px}.help-value p{margin:0;color:#718096;font-size:12px;line-height:1.55}
+.help-offer-list{border:1px solid #dfe5ee;border-radius:14px;background:#fff;overflow:hidden}.help-offer-row{min-height:58px;padding:10px 14px;display:flex;align-items:center;gap:12px}.help-offer-row+.help-offer-row{border-top:1px solid #e5e9f0}.help-offer-row>span{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#eef1f8;color:#1E3B8A}.help-offer-row svg{width:17px;height:17px}.help-offer-row div{min-width:0;flex:1}.help-offer-row strong{display:block;font-size:13px}.help-offer-row small{display:block;margin-top:2px;color:#718096;font-size:12px}.help-offer-row b{color:#1E3B8A;font-size:16px}
+.help-bug-form{margin-top:22px;padding:22px;border:1px solid #dfe5ee;border-radius:14px;background:#fff}.help-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.help-field{display:grid;gap:7px}.help-field+.help-field-full{margin-top:14px}.help-field label{font-size:12px;font-weight:650;color:#34455d}.help-field input,.help-field select,.help-field textarea{width:100%;border:1px solid #cbd6e4;border-radius:10px;background:#fff;color:#10243e;font:inherit;font-size:12px;padding:0 12px}.help-field input,.help-field select{height:42px}.help-field textarea{min-height:120px;padding-top:11px;resize:vertical}.help-field input:focus,.help-field select:focus,.help-field textarea:focus{outline:0;border-color:#1E3B8A;box-shadow:0 0 0 3px #e7f0ff}.help-form-actions{display:flex;justify-content:flex-end;margin-top:16px}.help-primary{height:40px;padding:0 16px;border:0;border-radius:10px;background:#1E3B8A;color:#fff;font-size:12px;font-weight:700}.help-primary:hover{background:#173577}
+@media(max-width:1000px){.help-app-body{grid-template-columns:200px minmax(0,1fr)}.help-product-grid,.help-values-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.help-doc{grid-template-columns:1fr}.help-toc{position:relative;top:auto;order:-1}.help-top-search{width:260px}}
+@media(max-width:760px){.help-app-topbar{padding:0 16px}.help-app-title small,.help-top-search{display:none}.help-app-body{display:block}.help-nav{position:relative;top:auto;height:auto;padding:12px;border-right:0;border-bottom:1px solid #e1e6ee;display:flex;gap:6px;overflow-x:auto}.help-nav-label,.help-nav-divider,.help-support-card{display:none}.help-nav-group{display:flex;gap:6px}.help-nav-item{width:auto;white-space:nowrap}.help-content{padding:22px 16px 50px}.help-hero{padding:24px}.help-hero-icon{display:none}.help-hero h1{font-size:28px}.help-product-grid,.help-values-grid,.help-two-col,.help-form-row{grid-template-columns:1fr}}
+</style>
+<script id="help-center-pages">
+const helpPageMeta={
+  'help-center':{title:'Help Center',subtitle:'Guides, answers, and product support',icon:'circle-help'},
+  'about':{title:'About Us',subtitle:'The team and mission behind ZooOffice',icon:'user-round'},
+  'terms':{title:'Terms of Service',subtitle:'The agreement that governs your use of ZooOffice',icon:'file-text'},
+  'privacy':{title:'Privacy Policy',subtitle:'How we collect, use, store, and protect information',icon:'shield-check'},
+  'bug':{title:'Report a Bug',subtitle:'Tell us what went wrong so we can fix it',icon:'bug'}
+};
+function helpOnPage(active){
+  const links={
+    'help-center':[['Browse by product','help-products'],['Account & billing','help-account'],['Common questions','help-faq']],
+    'about':[['Our mission','about-mission'],['What we offer','about-offer'],['Contact us','about-contact']],
+    'terms':[['Overview','terms-1'],['The Service','terms-2'],['Accounts & Eligibility','terms-3'],['Acceptable Use','terms-4'],['Subscriptions & Credits','terms-5'],['Intellectual Property','terms-6'],['Disclaimers & Liability','terms-7'],['Termination','terms-8'],['Changes & Contact','terms-9']],
+    'privacy':[['Introduction','privacy-1'],['Personal Data','privacy-2'],['Tracking & Cookies','privacy-3'],['Use of Data','privacy-4'],['Disclosure','privacy-5'],['Retention','privacy-6'],['Transfers','privacy-7'],['Security','privacy-8'],['Changes','privacy-9']]
+  };
+  return (links[active]||[]).map(([label,id])=>`<a class="help-on-page-link" href="#${id}">${label}</a>`).join('');
+}
+function helpNavMarkup(active){
+  const items=[['help-center','circle-help','Help Center'],['about','user-round','About Us'],['terms','file-text','Terms of Service'],['privacy','shield-check','Privacy Policy']];
+  return `<aside class="help-nav" aria-label="Help navigation"><div class="help-nav-label">Help & resources</div><div class="help-nav-group">${items.map(([id,icon,label])=>`<button class="help-nav-item ${active===id?'active':''}" data-help-page="${id}"><i data-lucide="${icon}"></i><span>${label}</span></button>`).join('')}</div><div class="help-nav-divider"></div><div class="help-on-page"><div class="help-nav-label">On this page</div><nav>${helpOnPage(active)}</nav></div><div class="help-nav-divider"></div><div class="help-support-card"><strong>Need more help?</strong><p>Contact support if you cannot find the answer you need.</p><button type="button" data-report-bug>Contact support</button></div></aside>`;
+}
+function helpHero(meta,eyebrow,description){return `<section class="help-hero"><div class="help-hero-copy"><span class="help-eyebrow"><i data-lucide="${meta.icon}"></i>${eyebrow}</span><h1>${meta.title}</h1><p>${description}</p></div><div class="help-hero-icon"><i data-lucide="${meta.icon}"></i></div></section>`}
+function renderHelpCenter(){
+  const products=[['ZooSlides','presentation','Create, review, and export presentation decks.'],['ZooDocs','file-text','Write, format, and export polished documents.'],['ZooSheets','sheet','Build spreadsheets, formulas, and data views.'],['ZooDesign','palette','Create branded visual assets and layouts.'],['ZooChat','message-circle','Research, write, code, and get quick answers.'],['ZooNotes','notebook-pen','Capture notes and turn meetings into action items.'],['ZooImage','image','Generate and edit images with AI.'],['ZooDrive','folder','Store and manage your ZooOffice files.']];
+  return `${helpHero(helpPageMeta['help-center'],'HELP CENTER','Find product guides, account help, billing answers, and quick troubleshooting without leaving ZooOffice.')}
+  <section class="help-section" id="help-products"><div class="help-section-head"><div><h2>Browse by product</h2><p>Jump directly to the tool you are working in.</p></div></div><div class="help-product-grid">${products.map(([name,icon,desc])=>`<button class="help-product-card" type="button" data-product="${name}"><span class="help-product-icon">${name==='ZooDrive'?'<img class="zoodrive-brand-icon" src="assets/Zoo_Office_ZooDrive-01.png" alt="">':`<i data-lucide="${icon}"></i>`}</span><strong>${name}</strong><small>${desc}</small><span class="help-card-arrow">View guide →</span></button>`).join('')}</div></section>
+  <section class="help-section" id="help-account"><div class="help-section-head"><div><h2>Account & billing</h2><p>Manage your account, plan, credits, and settings.</p></div></div><div class="help-two-col"><div class="help-info-card"><div class="help-info-card-head"><span><i data-lucide="circle-user-round"></i></span><h3>Account management</h3></div><p>Update your profile, username, password, personalization preferences, or account access.</p><button type="button" onclick="openSettingsModal()">Open settings →</button></div><div class="help-info-card"><div class="help-info-card-head"><span><i data-lucide="credit-card"></i></span><h3>Plans, billing & credits</h3></div><p>Review your plan, usage, payment methods, invoices, or upgrade options.</p><button type="button" onclick="openSettingsModal()">View billing settings →</button></div></div></section>
+  <section class="help-section" id="help-faq"><div class="help-section-head"><div><h2>Common questions</h2><p>Fast answers to the things people ask most often.</p></div></div><div class="help-faq">${[
+    ['How do credits work?','Credits are consumed by AI actions based on the selected mode and task complexity. You can review remaining credits and usage from Settings → Usage.'],
+    ['Where can I change my password?','Open Settings → Security. Enter your current password, new password, and confirmation, then select Update password.'],
+    ['Can I upload my own files?','Yes. Supported ZooOffice tools allow you to attach source files or context directly from the composer or within the relevant product.'],
+    ['How do I manage my subscription?','Open Settings → Billing to review your plan. Use Manage to open plan options, or Cancel when you need to end the current subscription.']
+  ].map(([q,a])=>`<div class="help-faq-item"><button class="help-faq-btn" type="button"><span>${q}</span><i data-lucide="chevron-down"></i></button><div class="help-faq-answer">${a}</div></div>`).join('')}</div></section>`;
+}
+function renderAbout(){return `${helpHero(helpPageMeta.about,'COMPANY','ZooOffice is an AI-powered workspace designed to help people create polished work faster, with one consistent experience across every Zoo product.')}
+<section class="help-section" id="about-mission"><div class="help-section-head"><div><h2>Our mission</h2><p>Practical AI for everyday office work.</p></div></div><div class="help-values-grid"><div class="help-value"><span><i data-lucide="zap"></i></span><h3>Speed with quality</h3><p>Start with structured, usable work instead of a blank page.</p></div><div class="help-value"><span><i data-lucide="layout-grid"></i></span><h3>One workspace</h3><p>Slides, docs, sheets, design, chat, and notes stay connected.</p></div><div class="help-value"><span><i data-lucide="shield-check"></i></span><h3>Trust & control</h3><p>Clear settings, predictable plans, and exportable formats keep users in control.</p></div></div></section>
+<section class="help-section" id="about-offer"><div class="help-section-head"><div><h2>What we offer</h2><p>A family of focused tools that share the same ZooOffice experience.</p></div></div><div class="help-offer-list">${[['ZooSlides','presentation','Presentation creation and PowerPoint export'],['ZooDocs','file-text','Document drafting and Word export'],['ZooSheets','sheet','Spreadsheets, formulas, and data views'],['ZooDesign','palette','Visual design and creative assets'],['ZooImage','image','AI image generation and visual editing'],['ZooChat','message-circle','AI research, writing, coding, and answers'],['ZooNotes','notebook-pen','Meeting notes and structured follow-ups'],['ZooDrive','folder-up','Cloud file storage and workspace organization']].map(([name,icon,desc])=>`<div class="help-offer-row" data-product="${name}"><span>${name==='ZooDrive'?'<img class="zoodrive-brand-icon" src="assets/Zoo_Office_ZooDrive-01.png" alt="">':`<i data-lucide="${icon}"></i>`}</span><div><strong>${name}</strong><small>${desc}</small></div><b>→</b></div>`).join('')}</div></section>
+<section class="help-section" id="about-contact"><div class="help-two-col"><div class="help-info-card"><div class="help-info-card-head"><span><i data-lucide="heart-handshake"></i></span><h3>Our values</h3></div><p>User-first design, responsible AI behavior, and continuous improvement guide how we build the workspace.</p></div><div class="help-info-card"><div class="help-info-card-head"><span><i data-lucide="messages-square"></i></span><h3>Contact us</h3></div><p>Have product feedback, partnership ideas, or an account question? Reach the support team from Help.</p><button type="button" data-report-bug>Contact support →</button></div></div></section>`}
+function renderTerms(){return `${helpHero(helpPageMeta.terms,'LEGAL','These Terms of Service explain the rules that apply when you use ZooOffice and the Zoo product family.')}
+<div class="help-doc"><div class="help-doc-main">${[
+['Overview','These Terms of Service govern your access to and use of ZooOffice, including ZooSlides, ZooDocs, ZooSheets, ZooDesign, ZooChat, and related services. By creating an account or using the Service, you agree to these Terms.','Last updated: June 2026.'],
+['The Service','ZooOffice is an AI-powered workspace that helps you create presentations, documents, spreadsheets, designs, and chat responses from natural-language prompts. We may update, improve, or discontinue features at any time.','AI-generated output may contain errors and should be reviewed before business, legal, or public use.'],
+['Accounts & Eligibility','You must provide accurate registration information and keep your login credentials secure. You are responsible for activity under your account.','You must meet the minimum age required in your jurisdiction to use the Service.'],
+['Acceptable Use','You agree not to use ZooOffice to violate laws, abuse the platform, attempt to bypass service controls, misrepresent AI output, or resell access without permission.','Use the Service responsibly and follow applicable laws and organizational policies.'],
+['Subscriptions & Credits','Paid plans may be billed monthly or annually. Credit allocations, plan features, pricing, and renewal terms may vary by plan.','Review Settings → Billing for the details that apply to your current subscription.'],
+['Intellectual Property','ZooOffice, its logos, interface, and underlying technology remain our property or that of our licensors. You retain ownership of prompts and source files you upload.','Your right to use AI-generated output is subject to these Terms and your active subscription tier.'],
+['Disclaimers & Liability','The Service is provided as available and AI output should be independently reviewed where accuracy matters.','To the maximum extent permitted by law, liability may be limited as described in the applicable agreement.'],
+['Termination','You may stop using the Service or delete your account through Settings. We may suspend access for violations of these Terms, abuse, or legal requirements.','Upon termination, your right to use the Service ends.'],
+['Changes & Contact','We may revise these Terms from time to time. Continued use after changes become effective constitutes acceptance of the updated Terms.','Questions about these Terms can be sent through Help → Report a Bug / Contact Support.']
+].map((s,i)=>`<section class="help-doc-card" id="terms-${i+1}"><h2><span class="help-doc-num">${i+1}</span>${s[0]}</h2><p>${s[1]}</p><div class="help-doc-note">${s[2]}</div></section>`).join('')}</div><aside class="help-toc"><strong>On this page</strong>${['Overview','The Service','Accounts & Eligibility','Acceptable Use','Subscriptions & Credits','Intellectual Property','Disclaimers & Liability','Termination','Changes & Contact'].map((x,i)=>`<a href="#terms-${i+1}">${x}</a>`).join('')}</aside></div>`}
+function renderPrivacy(){return `${helpHero(helpPageMeta.privacy,'PRIVACY','A clear summary of how ZooOffice handles personal information, usage data, cookies, retention, and account controls.')}
+<div class="help-doc"><div class="help-doc-main">${[
+['Introduction','This Privacy Policy describes how ZooOffice collects, uses, stores, and protects information when you use our services.','We design privacy controls to be understandable and accessible from the product settings.'],
+['Personal Data','Information may include account details such as email address and username, plus information needed to provide and improve the service.','We only use personal information for legitimate service, account, security, support, and product-improvement purposes described here.'],
+['Tracking Technologies & Cookies','We may use cookies and similar technologies to keep you signed in, remember preferences, understand product usage, and improve performance.','Browser controls can be used to manage or remove cookies, subject to product functionality requirements.'],
+['Use of Your Personal Data','We may use data to maintain and improve the service, manage your account, provide support, contact you about the service, and handle legitimate business operations.','AI data-use preferences can be reviewed under Settings → Personalization.'],
+['Disclosure of Personal Data','Information may be shared with service providers, affiliates, business partners, or as part of a business transaction when needed to operate the service or comply with law.','We expect third parties handling data for us to follow appropriate privacy and security obligations.'],
+['Retention of Your Personal Data','We retain personal information only for as long as needed for the purposes described in this policy, including account, legal, security, and dispute-resolution needs.','Account deletion controls are available under Settings → Account.'],
+['Transfer of Personal Data','Data may be processed in locations outside your region where privacy laws may differ.','We use appropriate safeguards where required for international data transfers.'],
+['Security of Your Personal Data','We use administrative, technical, and organizational safeguards designed to protect information in transit and at rest.','No system can guarantee absolute security, so users should also protect their account credentials.'],
+['Changes to this Privacy Policy','We may update this policy as products, legal requirements, or privacy practices evolve.','The latest version should always be available from Help → Privacy Policy.']
+].map((s,i)=>`<section class="help-doc-card" id="privacy-${i+1}"><h2><span class="help-doc-num">${i+1}</span>${s[0]}</h2><p>${s[1]}</p><div class="help-doc-note">${s[2]}</div></section>`).join('')}</div><aside class="help-toc"><strong>On this page</strong>${['Introduction','Personal Data','Tracking & Cookies','Use of Data','Disclosure','Retention','Transfers','Security','Changes'].map((x,i)=>`<a href="#privacy-${i+1}">${x}</a>`).join('')}</aside></div>`}
+function renderBug(){return `${helpHero(helpPageMeta.bug,'SUPPORT','Share the problem, where it happened, and what you expected. This keeps support requests clear and actionable.')}
+<form class="help-bug-form" onsubmit="event.preventDefault(); start('Support request');"><div class="help-form-row"><div class="help-field"><label for="bugProduct">Product</label><select id="bugProduct"><option>ZooOffice</option><option>ZooSlides</option><option>ZooDocs</option><option>ZooSheets</option><option>ZooDesign</option><option>ZooChat</option><option>ZooNotes</option></select></div><div class="help-field"><label for="bugType">Issue type</label><select id="bugType"><option>Something is not working</option><option>Billing or account</option><option>Feature question</option><option>Feedback</option></select></div></div><div class="help-field help-field-full"><label for="bugTitle">Short summary</label><input id="bugTitle" placeholder="What happened?"></div><div class="help-field help-field-full"><label for="bugDetails">Details</label><textarea id="bugDetails" placeholder="Tell us what you were doing, what you expected, and what happened instead."></textarea></div><div class="help-form-actions"><button class="help-primary" type="submit">Send to support</button></div></form>`}
+function openHelpPage(page='help-center'){
+  if(!helpPageMeta[page]) page='help-center';
+  document.body.classList.add('help-fullscreen');
+  $('#create')?.classList.remove('home-active');
+  $('#searchHistory')?.classList.remove('active');
+  const meta=helpPageMeta[page];
+  const content=page==='help-center'?renderHelpCenter():page==='about'?renderAbout():page==='terms'?renderTerms():page==='privacy'?renderPrivacy():renderBug();
+  const main=$('#main'); main.className='main help-page';
+  main.innerHTML=`<div class="help-app"><header class="help-app-topbar"><div class="help-app-title"><img class="help-zoo-office-logo" src="assets/Zoo_Office_Logo_Horizontal_Blue.png" alt="Zoo Office"></div><div class="help-app-actions"><label class="help-top-search"><i data-lucide="search"></i><input id="helpSearch" type="search" placeholder="Search help" aria-label="Search help"></label><button class="help-back" type="button" id="helpBack"><i data-lucide="arrow-left"></i>Back to workspace</button></div></header><div class="help-app-body">${helpNavMarkup(page)}<section class="help-content"><div class="help-content-inner">${content}</div></section></div></div>`;
+  main.querySelectorAll('[data-help-page]').forEach(btn=>btn.addEventListener('click',()=>openHelpPage(btn.dataset.helpPage)));
+  main.querySelectorAll('[data-report-bug]').forEach(btn=>btn.addEventListener('click',openReportBugModal));
+  main.querySelector('#helpBack')?.addEventListener('click',showNewChat);
+  main.querySelectorAll('.help-faq-btn').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.help-faq-item').classList.toggle('open')));
+  const search=main.querySelector('#helpSearch');
+  if(search) search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();main.querySelectorAll('.help-product-card,.help-faq-item,.help-doc-card,.help-offer-row').forEach(el=>{el.style.display=!q||el.textContent.toLowerCase().includes(q)?'':'none'})});
+  icons(); window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+
+
+<script id="help-final-refinement-script">
+(function(){
+  const iconMap={ZooSlides:'presentation',ZooDocs:'file-text',ZooSheets:'sheet',ZooDesign:'palette',ZooImage:'image',ZooChat:'message-circle',ZooNotes:'notebook-pen'};
+  function syncHelpProductBranding(){
+    document.querySelectorAll('.help-product-card').forEach(card=>{
+      const name=(card.querySelector('strong')?.textContent||'').trim();
+      if(!name) return;
+      card.dataset.product=name;
+      const iconWrap=card.querySelector('.help-product-icon');
+      if(iconWrap && iconMap[name]) iconWrap.innerHTML='<i data-lucide="'+iconMap[name]+'"></i>';
+    });
+    document.querySelectorAll('.help-offer-row').forEach(row=>{
+      const name=(row.querySelector('strong')?.textContent||'').trim();
+      if(!name) return;
+      row.dataset.product=name;
+      const iconWrap=row.querySelector(':scope > span');
+      if(iconWrap && iconMap[name]) iconWrap.innerHTML='<i data-lucide="'+iconMap[name]+'"></i>';
+    });
+    if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}});
+  }
+  document.addEventListener('DOMContentLoaded',syncHelpProductBranding);
+  document.addEventListener('click',()=>setTimeout(syncHelpProductBranding,0));
+  setTimeout(syncHelpProductBranding,0);
+})();
+</script>
+
+<style id="report-bug-popup-styles">
+.report-bug-scrim{position:fixed;inset:0;z-index:1400;background:rgba(8,18,38,.54);backdrop-filter:blur(2px)}
+.report-bug-modal{position:fixed;z-index:1401;left:50%;top:50%;transform:translate(-50%,-50%);width:min(620px,calc(100% - 40px));max-height:calc(100vh - 48px);overflow:auto;background:#fff;border:1px solid #d7dfeb;border-radius:16px;box-shadow:0 28px 80px rgba(16,36,66,.28);color:#10243e}
+.report-bug-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:24px 26px 18px;border-bottom:1px solid #e1e6ee}
+.report-bug-title{display:flex;align-items:flex-start;gap:12px}.report-bug-title-icon{width:38px;height:38px;display:grid;place-items:center;flex:0 0 38px;border-radius:8px;background:#e7f0ff;color:#1E3B8A}.report-bug-title-icon svg{width:19px;height:19px}.report-bug-title h2{margin:0;font-size:20px;font-weight:650}.report-bug-title p{margin:5px 0 0;color:#66788f;font-size:12px;line-height:1.5}
+.report-bug-close{width:34px;height:34px;display:grid;place-items:center;flex:0 0 34px;padding:0;border:0;border-radius:8px;background:transparent;color:#53677f}.report-bug-close:hover{background:#f1f4f8}.report-bug-close svg{width:18px;height:18px}
+.report-bug-body{padding:22px 26px;display:grid;gap:16px}.report-bug-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.report-bug-field{display:grid;gap:7px}.report-bug-field label{font-size:12px;font-weight:650;color:#10243e}.report-bug-field input,.report-bug-field select,.report-bug-field textarea{width:100%;border:1px solid #cbd6e4;border-radius:10px;background:#fff;color:#10243e;font:inherit;font-size:12px;outline:0}.report-bug-field input,.report-bug-field select{height:42px;padding:0 12px}.report-bug-field textarea{min-height:112px;padding:11px 12px;resize:vertical;line-height:1.5}.report-bug-field input:focus,.report-bug-field select:focus,.report-bug-field textarea:focus{border-color:#1E3B8A;box-shadow:0 0 0 3px #e7f0ff}
+.report-bug-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;padding:16px 26px 20px;border-top:1px solid #e1e6ee}.report-bug-actions button{height:40px;padding:0 16px;border-radius:10px;font-size:12px;font-weight:650}.report-bug-cancel{border:1px solid #cbd6e4;background:#fff;color:#53677f}.report-bug-cancel:hover{background:#f7f9fc}.report-bug-submit{border:0;background:#1E3B8A;color:#fff}.report-bug-submit:hover{background:#173577}
+@media(max-width:620px){.report-bug-row{grid-template-columns:1fr}.report-bug-head,.report-bug-body,.report-bug-actions{padding-left:18px;padding-right:18px}}
+</style>
+<script id="report-bug-popup-script">
+function openReportBugModal(){
+  document.querySelector('.report-bug-scrim')?.remove();
+  document.querySelector('.report-bug-modal')?.remove();
+  const scrim=document.createElement('button');
+  scrim.type='button'; scrim.className='report-bug-scrim'; scrim.setAttribute('aria-label','Close report bug dialog');
+  const modal=document.createElement('section');
+  modal.className='report-bug-modal'; modal.setAttribute('role','dialog'); modal.setAttribute('aria-modal','true'); modal.setAttribute('aria-labelledby','reportBugTitle');
+  modal.innerHTML=`<div class="report-bug-head"><div class="report-bug-title"><span class="report-bug-title-icon"><i data-lucide="bug"></i></span><div><h2 id="reportBugTitle">Report a bug</h2><p>Tell us what happened so the ZooOffice team can investigate.</p></div></div><button class="report-bug-close" type="button" aria-label="Close"><i data-lucide="x"></i></button></div><form id="reportBugForm"><div class="report-bug-body"><div class="report-bug-row"><div class="report-bug-field"><label for="reportBugProduct">Product</label><select id="reportBugProduct"><option>ZooOffice</option><option>ZooSlides</option><option>ZooDocs</option><option>ZooSheets</option><option>ZooDesign</option><option>ZooImage</option><option>ZooChat</option><option>ZooNotes</option></select></div><div class="report-bug-field"><label for="reportBugType">Issue type</label><select id="reportBugType"><option>Something is not working</option><option>Performance issue</option><option>Display or layout issue</option><option>Other</option></select></div></div><div class="report-bug-field"><label for="reportBugSummary">Short summary</label><input id="reportBugSummary" required placeholder="What happened?"></div><div class="report-bug-field"><label for="reportBugDetails">Details</label><textarea id="reportBugDetails" required placeholder="Tell us what you were doing, what you expected, and what happened instead."></textarea></div></div><div class="report-bug-actions"><button type="button" class="report-bug-cancel">Cancel</button><button type="submit" class="report-bug-submit">Submit report</button></div></form>`;
+  const close=()=>{scrim.remove();modal.remove()};
+  scrim.addEventListener('click',close); modal.querySelector('.report-bug-close').addEventListener('click',close); modal.querySelector('.report-bug-cancel').addEventListener('click',close);
+  modal.querySelector('#reportBugForm').addEventListener('submit',e=>{e.preventDefault();close();if(typeof start==='function')start('Bug report submitted')});
+  document.body.append(scrim,modal); if(window.lucide)lucide.createIcons({attrs:{'aria-hidden':'true'}}); modal.querySelector('#reportBugSummary')?.focus();
+}
+</script>
+
+<style id="zooslides-guide-page-styles">
+.product-guide-layout{min-height:calc(100vh - 68px);display:grid;grid-template-columns:230px minmax(0,1fr);background:#f7f9fc}
+.product-guide-sidebar{position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto;padding:20px 14px;border-right:1px solid #e1e6ee;background:#fff}
+.product-guide-label{margin:0 8px 8px;color:#8190a5;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.product-guide-nav{display:grid;gap:2px}.product-guide-nav button,.product-guide-onpage a{width:100%;min-height:38px;padding:0 10px;display:flex;align-items:center;gap:10px;border:0;border-radius:8px;background:transparent;color:#334155;text-align:left;text-decoration:none;font-size:12px;font-weight:550}
+.product-guide-nav button:hover,.product-guide-onpage a:hover{background:#f3f6fa}.product-guide-nav button.active{background:#eef1f8;color:#1E3B8A;font-weight:650}
+.product-guide-nav button svg{width:16px;height:16px}.product-guide-divider{height:1px;margin:16px 6px;background:#e1e6ee}.product-guide-onpage{display:grid;gap:2px}
+.product-guide-support{margin-top:14px;padding:14px;border:1px solid #dbe3ee;border-radius:8px;background:#fff}.product-guide-support strong{display:block;font-size:12px}.product-guide-support p{margin:5px 0 12px;color:#718096;font-size:12px;line-height:1.45}.product-guide-support button{width:100%;height:38px;border:0;border-radius:8px;background:#1E3B8A;color:#fff;font-size:12px;font-weight:650}
+.product-guide-content{min-width:0;padding:30px clamp(24px,4vw,56px) 70px}.product-guide-inner{width:min(1080px,100%);margin:0 auto}
+.pg-hero{min-height:260px;padding:34px 42px;display:grid;place-items:center;text-align:center;border:1px solid #dce4ef;border-radius:8px;background:#fff}.pg-hero-icon{width:62px;height:62px;display:grid;place-items:center;margin:0 auto 12px;border:1px solid #cad5e2;border-radius:8px;background:#eef1f8;color:#1E3B8A}.pg-hero-icon svg{width:29px;height:29px}.pg-badge{display:inline-flex;align-items:center;height:24px;padding:0 9px;border:1px solid #d3dce9;border-radius:8px;background:#fff;color:#1E3B8A;font-size:10px;font-weight:700;letter-spacing:.05em}.pg-hero h1{margin:12px 0 8px;font-size:38px;letter-spacing:-.04em;color:#10243e}.pg-hero p{max-width:630px;margin:0 auto;color:#64748b;font-size:13px;line-height:1.6}.pg-primary{margin-top:18px;height:38px;padding:0 16px;border:0;border-radius:8px;background:#1E3B8A;color:#fff;font-size:12px;font-weight:650}
+.pg-section{margin-top:16px;padding:24px;border:1px solid #e0e6ee;border-radius:8px;background:#fff}.pg-section h2{margin:0 0 8px;font-size:18px;color:#10243e}.pg-section>p{margin:0 0 18px;color:#64748b;font-size:12px;line-height:1.6}
+.pg-feature-list{display:grid;gap:12px}.pg-feature{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start}.pg-feature-icon{width:32px;height:32px;display:grid;place-items:center;border-radius:8px;background:#eef1f8;color:#1E3B8A}.pg-feature-icon svg{width:15px;height:15px}.pg-feature strong{display:block;font-size:12px;color:#10243e}.pg-feature small{display:block;margin-top:3px;color:#718096;font-size:12px;line-height:1.45}
+.pg-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.pg-step{min-height:160px;padding:16px;border:1px solid #e0e6ee;border-radius:8px;background:#fff}.pg-step-num{width:24px;height:24px;display:grid;place-items:center;margin-bottom:12px;border-radius:50%;background:#0f2747;color:#fff;font-size:11px;font-weight:700}.pg-step strong{display:block;font-size:12px;color:#10243e;line-height:1.35}.pg-step p{margin:7px 0 0;color:#718096;font-size:12px;line-height:1.5}
+.pg-accordion{display:grid;gap:8px}.pg-acc-item{border:1px solid #dfe6ef;border-radius:8px;overflow:hidden}.pg-acc-btn{width:100%;min-height:46px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;border:0;background:#fff;color:#10243e;font-size:12px;font-weight:650}.pg-acc-btn svg{width:15px;height:15px;transition:.16s}.pg-acc-item.open .pg-acc-btn svg{transform:rotate(180deg)}.pg-acc-panel{display:none;padding:0 14px 15px;color:#64748b;font-size:12px;line-height:1.6}.pg-acc-item.open .pg-acc-panel{display:block}
+.pg-template-demo{margin-top:12px;padding:18px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:14px;border:1px solid #e2e8f0;border-radius:8px;background:#fbfcfe}.pg-template-box{min-height:88px;padding:14px;display:grid;place-items:center;text-align:center;border:1px solid #e0e6ee;border-radius:8px;background:#fff}.pg-template-box strong{font-size:11px}.pg-template-box small{margin-top:3px;color:#718096;font-size:11px}.pg-template-arrow{color:#94a3b8}
+.pg-tips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.pg-tip{padding:16px;border:1px solid #e0e6ee;border-radius:8px;background:#fff}.pg-tip .pg-feature-icon{margin-bottom:10px}.pg-tip strong{font-size:12px}.pg-tip p{margin:6px 0 0;color:#718096;font-size:12px;line-height:1.5}
+@media(max-width:900px){.product-guide-layout{grid-template-columns:1fr}.product-guide-sidebar{position:relative;top:auto;height:auto;border-right:0;border-bottom:1px solid #e1e6ee}.pg-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.pg-tips{grid-template-columns:1fr}.pg-template-demo{grid-template-columns:1fr}.pg-template-arrow{transform:rotate(90deg)}}
+
+.product-guide-helpnav{display:grid;gap:4px}.product-guide-helpnav button{width:100%;min-height:38px;padding:0 10px;display:flex;align-items:center;gap:10px;border:0;border-radius:8px;background:transparent;color:#10243e;text-align:left;font-size:12px;font-weight:600}.product-guide-helpnav button:hover{background:#f4f7fb}.product-guide-helpnav button svg{width:17px;height:17px;color:#526986}.product-guide-helpnav button:first-child{background:#eef1f8;color:#1E3B8A}.product-guide-helpnav button:first-child svg{color:#1E3B8A}
+</style>
+<script id="zooslides-guide-page-script">
+(function(){
+const productIconMap={ZooSlides:'presentation',ZooDocs:'file-text',ZooSheets:'sheet',ZooDesign:'palette',ZooChat:'message-circle',ZooNotes:'notebook-pen',ZooImage:'image',ZooDrive:'folder'};
+function productSidebar(active='ZooSlides'){
+ const helpItems=[['help-center','circle-help','Help Center'],['about','user-round','About Us'],['terms','file-text','Terms of Service'],['privacy','shield-check','Privacy Policy']];
+ const items=[['ZooSlides','presentation'],['ZooDocs','file-text'],['ZooSheets','sheet'],['ZooDesign','palette'],['ZooChat','message-circle'],['ZooNotes','notebook-pen'],['ZooImage','image'],['ZooDrive','folder']];
+ return `<aside class="product-guide-sidebar">
+   <div class="product-guide-label">Help & resources</div>
+   <div class="product-guide-helpnav">${helpItems.map(([id,icon,label])=>`<button type="button" data-help-page="${id}"><i data-lucide="${icon}"></i>${label}</button>`).join('')}</div>
+   <div class="product-guide-divider"></div>
+   <div class="product-guide-label">Product features</div>
+   <div class="product-guide-nav">${items.map(([n,i])=>`<button type="button" class="${n===active?'active':''}" data-product-guide="${n}" data-product="${n}"><span class="product-guide-product-icon">${n==='ZooDrive'?'<img class="zoodrive-brand-icon" src="assets/Zoo_Office_ZooDrive-01.png" alt="">':`<i data-lucide="${i}"></i>`}</span>${n}</button>`).join('')}</div>
+   <div class="product-guide-divider"></div>
+   <div class="product-guide-label">On this page</div>
+   <div class="product-guide-onpage"><a href="#pg-what">What is ZooSlides?</a><a href="#pg-quick">Quick Start</a><a href="#pg-features">Feature Guide</a><a href="#pg-tips">Pro tips</a></div>
+   <div class="product-guide-divider"></div>
+   <div class="product-guide-support"><strong>Need more help?</strong><p>Contact support if you cannot find the answer you need.</p><button type="button" data-report-bug>Contact support</button></div>
+ </aside>`
+}
+function zooSlidesMarkup(){return `<div class="product-guide-layout">${productSidebar('ZooSlides')}<section class="product-guide-content"><div class="product-guide-inner">
+<section class="pg-hero"><div><div class="pg-hero-icon"><i data-lucide="presentation"></i></div><span class="pg-badge">PRODUCT GUIDE</span><h1>ZooSlides</h1><p>Turn a short prompt into a polished presentation. Describe your topic, choose a template, review the outline, and export a ready-to-share PowerPoint deck.</p><button class="pg-primary" type="button">Try now →</button></div></section>
+<section class="pg-section" id="pg-what"><h2>What is ZooSlides?</h2><p>ZooSlides is ZooOffice's presentation builder. It uses AI to plan slide structure, write concise slide copy, and apply visual templates so you spend less time formatting and more time presenting.</p><div class="pg-feature-list">
+${[['zap','Instant professional presentations','Get a complete deck in minutes from a single prompt, including outline, copy, and layout.'],['layout-template','Template-driven design','Browse themed templates or upload your own PPTX so every slide stays on brand.'],['list-tree','Outline before you build','Review and adjust structure before slides render, or skip the outline for a fast one-pass deck.'],['paperclip','Attach source material','Upload notes, CSV, PDF, or Word files so ZooSlides writes from your data and documents.'],['download','Export to PowerPoint','Download a standard PPTX file for PowerPoint, Google Slides, or Keynote.']].map(([i,t,d])=>`<div class="pg-feature"><span class="pg-feature-icon"><i data-lucide="${i}"></i></span><div><strong>${t}</strong><small>${d}</small></div></div>`).join('')}
+</div></section>
+<section class="pg-section" id="pg-quick"><h2>Quick Start</h2><p>Get started in four simple steps:</p><div class="pg-steps">${[['Open ZooSlides and enter your topic','From the home hub or sidebar, open ZooSlides. Type what your presentation is about.'],['Choose a template (optional)','Scroll the template gallery and pick a style that matches your audience, or upload your own PPTX.'],['Generate and review the outline','Zoo proposes an outline first so you can adjust sections before slides are built.'],['Preview and download','When generation finishes, preview slides, rename the deck if needed, and download the PPTX file.']].map((x,i)=>`<div class="pg-step"><span class="pg-step-num">${i+1}</span><strong>${x[0]}</strong><p>${x[1]}</p></div>`).join('')}</div></section>
+<section class="pg-section" id="pg-features"><h2>Feature Guide</h2><div class="pg-accordion"><div class="pg-acc-item open"><button class="pg-acc-btn" type="button">Templates & My Templates <i data-lucide="chevron-down"></i></button><div class="pg-acc-panel">Explore filters for style, theme, and popularity. Select a template before generating to keep colors and layout consistent across every slide.<div class="pg-template-demo"><div class="pg-template-box"><div><strong>My Templates</strong><small>+ Add My Template</small></div></div><span class="pg-template-arrow">→</span><div class="pg-template-box"><div><strong>Upload PPTX file</strong><small>Max 50MB, 20 slides</small></div></div><span class="pg-template-arrow">→</span><div class="pg-template-box"><div><strong>Confirm and import</strong><small>Review thumbnails first</small></div></div></div></div></div>
+${[['Attach files & data','Add source documents before generation so the deck can use your own facts, notes, and data.'],['Outline review','Edit, reorder, add, or remove sections before ZooSlides generates the final presentation.'],['Live preview & AI edit','Review slides as they are generated and use AI to rewrite or refine individual slides.'],['Export PPTX','Export the completed deck as a standard PowerPoint file.']].map(([t,d])=>`<div class="pg-acc-item"><button class="pg-acc-btn" type="button">${t}<i data-lucide="chevron-down"></i></button><div class="pg-acc-panel">${d}</div></div>`).join('')}</div></section>
+<section class="pg-section" id="pg-tips"><h2>Pro tips</h2><div class="pg-tips">${[['sparkles','Plan for clean, balanced layouts','Ask for one main idea per slide and 3–5 bullets max. Shorter prompts with a clear audience and goal produce decks that need fewer edits.'],['text','Name the outcome you want','Phrases like “board update,” “sales pitch,” or “training deck” help Zoo pick tone, depth, and slide count automatically.'],['upload','Reuse templates for brand consistency','Upload a company PPTX once, then generate every new deck against that template so fonts and colors stay on brand.']].map(([i,t,d])=>`<div class="pg-tip"><span class="pg-feature-icon"><i data-lucide="${i}"></i></span><strong>${t}</strong><p>${d}</p></div>`).join('')}</div></section>
+</div></section></div>`}
+window.openZooSlidesGuide=function(){
+ document.body.classList.add('help-fullscreen');
+ const main=document.querySelector('#main'); if(!main) return;
+ main.className='main help-page';
+ main.innerHTML=`<div class="help-app"><header class="help-app-topbar"><div class="help-app-title"><img class="help-zoo-office-logo" src="assets/Zoo_Office_Logo_Horizontal_Blue.png" alt="Zoo Office"></div><div class="help-app-actions"><label class="help-top-search"><i data-lucide="search"></i><input type="search" placeholder="Search help" aria-label="Search help"></label><button class="help-back" type="button" id="helpBack"><i data-lucide="arrow-left"></i>Back to workspace</button></div></header>${zooSlidesMarkup()}</div>`;
+ main.querySelector('#helpBack')?.addEventListener('click',showNewChat);
+ main.querySelectorAll('.pg-acc-btn').forEach(b=>b.addEventListener('click',()=>b.closest('.pg-acc-item').classList.toggle('open')));
+ main.querySelectorAll('[data-report-bug]').forEach(b=>b.addEventListener('click',openReportBugModal));
+ main.querySelectorAll('[data-help-page]').forEach(b=>b.addEventListener('click',()=>openHelpPage(b.dataset.helpPage)));
+ main.querySelectorAll('[data-product-guide]').forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.productGuide==='ZooSlides') openZooSlidesGuide(); }));
+ if(window.lucide) lucide.createIcons({attrs:{'aria-hidden':'true'}}); window.scrollTo(0,0);
+}
+document.addEventListener('click',function(e){
+ const card=e.target.closest('.help-product-card'); if(!card) return;
+ const name=(card.querySelector('strong')?.textContent||'').trim();
+ if(name==='ZooSlides'){e.preventDefault();e.stopPropagation();openZooSlidesGuide();}
+},true);
+})();
+</script>
+
+<style id="product-guide-missing-product-colors">
+.product-guide-nav button[data-product="ZooSlides"] .product-guide-product-icon{color:#F5A623!important;}
+.product-guide-nav button[data-product="ZooDocs"] .product-guide-product-icon{color:#347BE5!important;}
+.product-guide-nav button[data-product="ZooSheets"] .product-guide-product-icon{color:#4C9A5B!important;}
+.product-guide-nav button[data-product="ZooDesign"] .product-guide-product-icon{color:#6C63FF!important;}
+.product-guide-nav button[data-product="ZooChat"] .product-guide-product-icon{color:#5B73FF!important;}
+.product-guide-nav button[data-product="ZooNotes"] .product-guide-product-icon{color:#16BFB8!important;}
+.product-guide-nav button[data-product="ZooImage"] .product-guide-product-icon{color:#B64DFF!important;}
+.product-guide-nav button[data-product="ZooDrive"] .product-guide-product-icon{color:#7B8797!important;}
+.product-guide-nav button .product-guide-product-icon{background:transparent!important;}
+.product-guide-nav button.active .product-guide-product-icon{background:transparent!important;}
+</style>
+
+<script id="help-new-tab-route">
+window.addEventListener('DOMContentLoaded', function(){
+  const requestedHelpPage=new URLSearchParams(window.location.search).get('help');
+  if(requestedHelpPage && typeof openHelpPage==='function'){
+    setTimeout(function(){openHelpPage(requestedHelpPage)},0);
+  }else if(typeof showNewChat==='function'){
+    setTimeout(showNewChat,0);
+  }
+});
+</script>
 </body>
 </html>
+
+<style>
+/* Complete Account + Security settings */
+.settings-panel-subtext{margin:5px 0 0;color:#66788f;font-size:12px;line-height:1.45}
+.account-profile-card,.account-setting-row{display:flex;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid #e1e6ee}
+.account-profile-picture{width:64px;height:64px;flex:0 0 64px;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:#c8e2ff;color:#1E3B8A;font-size:18px;font-weight:800}.account-profile-picture img{width:100%;height:100%;object-fit:cover}
+.account-profile-copy,.account-setting-copy{min-width:0;display:grid;gap:5px;flex:1}.account-profile-copy strong,.account-setting-copy strong{font-size:13px;font-weight:650;color:#10243e}.account-profile-copy small,.account-setting-copy small{font-size:12px;line-height:1.45;color:#66788f}
+.account-action-btn{height:36px!important;padding:0 13px!important;border-radius:10px!important;font-size:12px!important;white-space:nowrap}.account-readonly-label{padding:4px 8px;border-radius:999px;background:#f1f4f8;color:#66788f;font-size:12px;font-weight:600}
+.account-danger-zone{display:flex;align-items:flex-start;gap:18px;margin-top:22px;padding:18px;border:1px solid #f0c8cc;border-radius:12px;background:#fffafa}.account-danger-zone .account-setting-copy strong{color:#b42318}.account-delete-button{height:36px;padding:0 13px;border:1px solid #e3a5aa;border-radius:10px;background:#fff;color:#c62828;font-size:12px;font-weight:650;white-space:nowrap}.account-delete-button:hover{background:#fff1f2}
+.security-info-card{display:flex;align-items:flex-start;gap:12px;margin-top:20px;padding:14px;border-radius:10px;background:#f4f7fb;color:#51647d}.security-info-card svg{width:19px;height:19px;flex:0 0 19px;color:#1E3B8A}.security-info-card div{display:grid;gap:4px}.security-info-card strong{font-size:12px;color:#10243e}.security-info-card small{font-size:12px;line-height:1.45}
+.account-popup-scrim{position:fixed;inset:0;z-index:1400;background:rgba(8,18,38,.54);backdrop-filter:blur(2px)}.account-popup{position:fixed;z-index:1401;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,calc(100% - 32px));overflow:hidden;border:1px solid #d8e0ea;border-radius:18px;background:#fff;box-shadow:0 24px 70px rgba(15,35,60,.28);color:#10243e}
+.account-popup-head{display:flex;align-items:flex-start;gap:14px;padding:22px;border-bottom:1px solid #e1e6ee}.account-popup-head>div:nth-child(2){flex:1}.account-popup-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:10px;background:#eef4ff;color:#1E3B8A}.account-popup-icon svg{width:20px;height:20px}.account-popup-head h3{margin:0;font-size:19px}.account-popup-head p{margin:5px 0 0;color:#66788f;font-size:12px;line-height:1.45}.account-popup-close{width:32px;height:32px;display:grid;place-items:center;padding:0;border:0;border-radius:10px;background:transparent}.account-popup-close:hover{background:#f3f6fa}
+.account-popup-body{padding:20px 22px;display:grid;gap:14px}.account-popup-body label{display:grid;gap:7px;color:#10243e;font-size:12px;font-weight:600}.account-popup-body input{height:42px;padding:0 12px;border:1px solid #ccd6e3;border-radius:10px;background:#fff;color:#10243e;font-size:12px}.account-popup-actions{display:flex;justify-content:flex-end;gap:10px;padding:16px 22px;border-top:1px solid #e1e6ee}.account-popup-actions button{height:38px;padding:0 14px;border-radius:10px;font-size:12px;font-weight:650}.account-popup-cancel{border:1px solid #ccd6e3;background:#fff;color:#10243e}.account-popup-primary{border:1px solid #1E3B8A;background:#1E3B8A;color:#fff}
+@media(max-width:640px){.account-profile-card,.account-setting-row,.account-danger-zone{align-items:flex-start;flex-direction:column}.account-action-btn,.account-delete-button{width:100%}}
+</style>
+
+<style>
+/* Settings radius refinements */
+/* Profile/settings navigation hover surfaces */
+.settings-nav-item,
+.settings-tab,
+.settings-sidebar button,
+.profile-settings-nav button {
+  border-radius: 10px !important;
+}
+
+.settings-nav-item:hover,
+.settings-tab:hover,
+.settings-sidebar button:hover,
+.profile-settings-nav button:hover {
+  border-radius: 20px !important;
+}
+
+/* Active settings navigation stays 10px */
+.settings-nav-item.active,
+.settings-nav-item[aria-selected="true"],
+.settings-tab.active,
+.settings-tab[aria-selected="true"],
+.settings-sidebar button.active,
+.settings-sidebar button[aria-current="page"],
+.profile-settings-nav button.active {
+  border-radius: 10px !important;
+}
+
+/* Buttons/controls inside the Settings popup */
+.settings-modal button,
+.settings-modal .button,
+.settings-modal .btn,
+.settings-modal [role="button"],
+.settings-modal input[type="button"],
+.settings-modal input[type="submit"] {
+  border-radius: 10px !important;
+}
+
+/* Active/selected button states in Settings */
+.settings-modal button.active,
+.settings-modal button[aria-pressed="true"],
+.settings-modal button[aria-selected="true"],
+.settings-modal .button.active,
+.settings-modal .btn.active,
+.settings-modal [role="button"].active,
+.settings-modal [role="button"][aria-pressed="true"],
+.settings-modal [role="button"][aria-selected="true"] {
+  border-radius: 10px !important;
+}
+</style>
+
+<style>
+/* Final radius normalization requested: profile popover + settings navigation */
+.profile-popover button,
+.profile-help-submenu button,
+.settings-nav button,
+.settings-nav-item,
+.settings-sidebar button,
+.settings-sidebar .nav-item {
+  border-radius: 10px !important;
+}
+
+.profile-popover button:hover,
+.profile-popover button:focus-visible,
+.profile-help-submenu button:hover,
+.profile-help-submenu button:focus-visible,
+.settings-nav button:hover,
+.settings-nav button.active,
+.settings-nav-item:hover,
+.settings-nav-item.active,
+.settings-sidebar button:hover,
+.settings-sidebar button.active,
+.settings-sidebar .nav-item:hover,
+.settings-sidebar .nav-item.active {
+  border-radius: 10px !important;
+}
+</style>
+
+<style>
+/* Inline account editing: only account deletion uses a confirmation popup */
+.account-inline-input{width:min(360px,100%);height:40px;margin-top:4px;padding:0 12px;border:1px solid #CBD5E1;border-radius:10px;background:#fff;color:#10243e;font-size:12px;}
+.account-inline-input:focus{border-color:#1E3B8A;box-shadow:0 0 0 3px #e7f0ff;}
+.password-inline-fields{display:grid;gap:12px;margin-top:14px;width:min(420px,100%);}
+.password-inline-fields label{display:grid;gap:6px;color:#33465f;font-size:12px;font-weight:600;}
+.password-inline-fields input{width:100%;height:40px;padding:0 12px;border:1px solid #CBD5E1;border-radius:10px;background:#fff;color:#10243e;font-size:12px;}
+.password-inline-fields input:focus{border-color:#1E3B8A;box-shadow:0 0 0 3px #e7f0ff;}
+.account-action-btn.is-editing{background:#1E3B8A!important;color:#fff!important;border-color:#1E3B8A!important;}
+.account-action-btn.is-editing:hover{background:#173577!important;color:#fff!important;border-color:#173577!important;}
+</style>
+
+<style>
+/* Account + Security card layout inspired by the provided reference, using Zoo Office branding */
+.settings-panel[data-settings-panel="account"],.settings-panel[data-settings-panel="security"]{padding-bottom:34px}
+.account-card{margin-top:14px;padding:18px;border:1px solid #dfe5ee;border-radius:14px;background:#fff;box-shadow:none}
+.account-profile-summary{display:flex;align-items:center;gap:16px}
+.account-summary-copy{min-width:0;display:grid;gap:3px;flex:1}.account-summary-copy strong{font-size:14px;color:#10243e}.account-summary-copy span,.account-summary-copy small{font-size:12px;color:#66788f}
+.account-action-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;height:34px!important;padding:0 12px!important;border-radius:10px!important;font-size:12px!important;font-weight:600!important}.account-action-btn svg{width:15px;height:15px;stroke-width:1.9}
+.account-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}.account-card-head h4,.account-information-card h4{margin:0;color:#10243e;font-size:14px;font-weight:650}.account-card-head p{margin:4px 0 0;color:#66788f;font-size:12px;line-height:1.45}
+.account-detail-grid,.password-preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 34px}.account-detail-field{min-width:0;display:grid;gap:5px}.account-detail-field>span{color:#66788f;font-size:12px}.account-detail-field>small{color:#10243e;font-size:12px;line-height:1.4}.account-inline-input{width:100%;height:38px;padding:0 11px;border:1px solid #cbd6e4;border-radius:10px;background:#fff;color:#10243e;font-size:12px}.account-inline-input:focus{border-color:#1E3B8A;box-shadow:0 0 0 3px #e7f0ff}
+.account-delete-link{margin-top:18px;height:36px;padding:0 12px;display:inline-flex;align-items:center;gap:8px;border:1px solid #efc6ca;border-radius:10px;background:#fff;color:#c62828;font-size:12px;font-weight:600}.account-delete-link:hover{background:#fff6f6}.account-delete-link svg{width:16px;height:16px}
+.security-password-card{margin-top:14px}.password-inline-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}.password-inline-fields label{display:grid;gap:7px;color:#66788f;font-size:12px}.password-inline-fields input{height:40px;padding:0 11px;border:1px solid #cbd6e4;border-radius:10px;background:#fff;color:#10243e;font-size:12px}.password-inline-fields input:focus{border-color:#1E3B8A;box-shadow:0 0 0 3px #e7f0ff}.security-info-card{display:flex!important;align-items:flex-start!important;gap:12px!important;margin-top:14px!important;padding:16px 18px!important;border:1px solid #dfe5ee!important;border-radius:14px!important;background:#f8faff!important}.security-info-card svg{color:#1E3B8A}.security-info-card strong{font-size:12px}.security-info-card small{font-size:12px;color:#66788f;line-height:1.45}
+@media(max-width:640px){.account-profile-summary,.account-card-head{align-items:flex-start;flex-direction:column}.account-action-btn{width:100%}.account-detail-grid,.password-preview-grid,.password-inline-fields{grid-template-columns:1fr}}
+</style>
+
+<style>
+/* Simplified Account/Profile page: no boxed sections, only photo, username, and delete account */
+.settings-panel[data-settings-panel="account"] .account-card{
+  margin-top:0!important;
+  padding:20px 0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.settings-panel[data-settings-panel="account"] .account-profile-summary,
+.settings-panel[data-settings-panel="account"] .account-details-card{
+  border-bottom:1px solid #e1e6ee!important;
+}
+.settings-panel[data-settings-panel="account"] .account-information-card{
+  display:none!important;
+}
+.settings-panel[data-settings-panel="account"] .account-details-card .account-card-head{
+  margin-bottom:14px!important;
+}
+.settings-panel[data-settings-panel="account"] .account-detail-grid{
+  display:block!important;
+}
+.settings-panel[data-settings-panel="account"] .account-detail-field:not(:first-child){
+  display:none!important;
+}
+.settings-panel[data-settings-panel="account"] .account-inline-input{
+  border-radius:10px!important;
+}
+.settings-panel[data-settings-panel="security"] .account-card{
+  margin-top:0!important;
+  padding:20px 0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.settings-panel[data-settings-panel="security"] .security-password-card{
+  border-bottom:1px solid #e1e6ee!important;
+}
+.settings-panel[data-settings-panel="security"] .security-info-card{
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  padding:18px 0!important;
+}
+.settings-panel[data-settings-panel="security"] .password-inline-fields input{
+  border-radius:10px!important;
+}
+.account-delete-link{border-radius:10px!important;}
+</style>
+
+<script>
+/* Remove non-profile account metadata from the Account tab while preserving existing inline interactions. */
+document.addEventListener('DOMContentLoaded', function(){
+  const accountPanel = document.querySelector('[data-settings-panel="account"]');
+  if (!accountPanel) return;
+  const sub = accountPanel.querySelector('.settings-panel-subtext');
+  if (sub) sub.textContent = 'Manage your profile picture, username, and account.';
+  const detailsTitle = accountPanel.querySelector('.account-details-card .account-card-head h4');
+  if (detailsTitle) detailsTitle.textContent = 'Username';
+  const detailsText = accountPanel.querySelector('.account-details-card .account-card-head p');
+  if (detailsText) detailsText.textContent = 'Change the name shown across Zoo Office.';
+});
+</script>
+<style>
+/* Username edit state: hide Edit while editing */
+.account-username-row.is-editing .account-username-edit,
+.account-username-row.is-editing .username-edit,
+.account-username-row.is-editing [data-action="edit-username"],
+.username-row.is-editing .account-username-edit,
+.username-row.is-editing .username-edit,
+.username-row.is-editing [data-action="edit-username"] { display:none !important; }
+</style>
+<script>
+document.addEventListener('click', function(e){
+  const edit=e.target.closest('.account-username-edit,.username-edit,[data-action="edit-username"]');
+  if(edit){
+    const row=edit.closest('.account-username-row,.username-row') || edit.parentElement;
+    if(row){ row.classList.add('is-editing'); edit.style.display='none'; }
+  }
+  const save=e.target.closest('.account-username-save,.username-save,[data-action="save-username"]');
+  const cancel=e.target.closest('.account-username-cancel,.username-cancel,[data-action="cancel-username"]');
+  if(save||cancel){
+    const row=(save||cancel).closest('.account-username-row,.username-row') || (save||cancel).parentElement;
+    if(row){
+      row.classList.remove('is-editing');
+      const btn=row.querySelector('.account-username-edit,.username-edit,[data-action="edit-username"]');
+      if(btn) btn.style.display='';
+    }
+  }
+}, true);
+</script>
+<style id="account-security-final-fixes">
+/* Final Account and Security interaction/layout fixes. */
+#changeUsername.hidden,
+#removeProfilePicture.hidden,
+#accountUsernameDisplay.hidden,
+#usernameEditRow.hidden{display:none!important}
+
+.settings-panel[data-settings-panel="account"],
+.settings-panel[data-settings-panel="security"]{padding-bottom:28px!important}
+.settings-modal:has(.settings-panel[data-settings-panel="account"].active) .settings-content{overflow-y:hidden!important}
+.account-clean-row{min-height:96px!important;padding:18px 0!important}
+.account-photo-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin:0 0 0 auto;flex:0 0 auto}
+.account-profile-picture{overflow:hidden}
+.account-profile-picture img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.account-photo-actions .account-action-btn{width:auto!important}
+.account-photo-remove{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 13px;border:1px solid #e5a4aa;border-radius:12px;background:#fff;color:#b4232d;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:background-color .16s ease,border-color .16s ease}
+.account-photo-remove:hover{background:#fff5f5;border-color:#d97e86}
+#changeUsername,#changeProfilePicture,.username-save-btn,.username-cancel-btn,.security-update-password{border-radius:12px!important}
+#changeUsername{align-self:center!important;margin-left:auto!important;min-width:96px!important;height:36px!important;padding:0 18px!important;font-size:12px!important;gap:8px!important}
+#changeUsername svg,.account-delete-button svg{width:15px!important;height:15px!important;flex:0 0 auto;stroke-width:1.9}
+.account-photo-actions svg{width:15px!important;height:15px!important;flex:0 0 auto;stroke-width:1.9}
+.account-delete-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;height:36px!important;padding:0 16px!important;border-radius:12px!important}
+.billing-manage-btn,#changeUsername,#changeProfilePicture{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:auto!important;min-width:96px!important;height:36px!important;padding:0 16px!important;border:1px solid #d9dfea!important;border-radius:8px!important;background:#fff!important;color:#667085!important;font-family:inherit!important;font-size:12px!important;font-weight:600!important;line-height:1!important;white-space:nowrap;box-shadow:none!important;cursor:pointer;transition:background-color .16s ease,border-color .16s ease,color .16s ease!important}
+.billing-manage-btn:hover,#changeUsername:hover,#changeProfilePicture:hover{background:#f5f5f5!important;border-color:#d9dfea!important;color:#667085!important}
+.billing-manage-btn:focus-visible,#changeUsername:focus-visible,#changeProfilePicture:focus-visible{outline:3px solid rgba(47,128,237,.2)!important;outline-offset:2px!important}
+.billing-manage-btn svg,#changeUsername svg,#changeProfilePicture svg{width:15px!important;height:15px!important;flex:0 0 auto;stroke-width:1.9}
+.account-username-copy{width:100%!important;max-width:none!important}
+.account-username-direct-input{width:100%!important;max-width:none!important;height:42px!important;padding:0 12px!important;border:1px solid #cbd5e1!important;border-radius:12px!important;background:#fff!important;color:#10243e!important;font-family:inherit!important;font-size:13px!important;outline:none}
+.account-username-direct-input:focus{border-color:#2f80ed!important;box-shadow:0 0 0 3px rgba(47,128,237,.12)!important}
+.username-edit-row:not(.hidden){display:flex!important;align-items:center;gap:10px;width:100%!important;max-width:none!important;flex-wrap:nowrap}
+.account-inline-input{min-width:230px;flex:1 1 auto!important;width:auto!important;border-radius:12px!important}
+.username-save-btn,.username-cancel-btn{flex:0 0 92px!important;width:92px!important;min-width:92px!important;height:40px!important;padding:0 14px!important}
+
+.security-clean-section{max-width:720px;padding-top:16px!important}
+.password-clean-fields{display:grid!important;grid-template-columns:1fr 1fr!important;gap:16px!important}
+.password-clean-fields label:first-child{grid-column:1/-1}
+.password-clean-fields label{display:grid;gap:7px;color:#33465f;font-size:12px;font-weight:600}
+.password-clean-fields input{height:42px!important;padding:0 12px!important;border:1px solid #cbd5e1!important;border-radius:12px!important;background:#fff!important;color:#10243e!important;outline:none}
+.password-clean-fields input:focus{border-color:#2f80ed!important;box-shadow:0 0 0 3px rgba(47,128,237,.12)!important}
+.security-actions{justify-content:flex-start!important;margin-top:18px!important;padding-top:0!important;border-top:0!important}
+.security-update-password{min-width:142px;height:40px!important;background:#091e3c!important}
+
+@media(max-width:640px){
+  .settings-modal:has(.settings-panel[data-settings-panel="account"].active) .settings-content{overflow-y:auto!important}
+  .account-photo-actions,.username-edit-row:not(.hidden){width:100%}
+  .account-photo-actions{flex-wrap:wrap}
+  .account-photo-actions .account-action-btn,.account-photo-remove{width:100%!important}
+  .username-edit-row:not(.hidden){flex-wrap:wrap}
+  .account-inline-input{width:100%!important;min-width:0;flex-basis:100%!important}
+  .username-save-btn,.username-cancel-btn{flex:1 1 calc(50% - 5px)!important;width:auto!important;min-width:0!important}
+  #changeUsername{align-self:flex-end!important;margin-left:auto!important;width:auto!important;min-width:88px!important}
+  .password-clean-fields{grid-template-columns:1fr!important}
+  .password-clean-fields label:first-child{grid-column:auto}
+}
+</style>
+<style id="billing-manage-exact-colors">
+.settings-modal button.billing-manage-btn,
+.settings-modal button.billing-manage-btn:visited{
+  background-color:#FFFFFF!important;
+  border:1px solid #D9DFEA!important;
+  color:#667085!important;
+}
+.settings-modal button.billing-manage-btn svg{
+  color:#667085!important;
+  stroke:#667085!important;
+}
+.settings-modal button.billing-manage-btn:hover{
+  background-color:#F5F5F5!important;
+  border-color:#D9DFEA!important;
+  color:#667085!important;
+}
+.settings-modal button.billing-manage-btn,
+.settings-modal button.billing-cancel-btn{
+  border-radius:8px!important;
+}
+</style>
+<style id="billing-button-final-fixes">
+.billing-manage-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:auto!important;min-width:116px!important;height:40px!important;padding:0 18px!important;border:1px solid #d9dfea!important;border-radius:8px!important;background:#fff!important;color:#667085!important;font-family:inherit!important;font-size:13px!important;font-weight:400!important;line-height:1!important;box-shadow:none!important}
+.billing-manage-btn:hover{background:#f5f5f5!important;border-color:#d9dfea!important;color:#667085!important}
+.billing-cancel-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important}
+.billing-manage-btn svg,.billing-cancel-btn svg{width:15px!important;height:15px!important;flex:0 0 auto;stroke-width:1.9}
+</style>
+<style id="delete-dialog-final-style">
+.delete-confirm-modal{width:min(560px,calc(100% - 32px))!important;border:1px solid #e1e6ee!important;border-radius:16px!important;background:#fff!important;box-shadow:0 24px 64px rgba(16,36,62,.22)!important}
+.delete-confirm-head{display:grid!important;grid-template-columns:44px minmax(0,1fr) 32px!important;align-items:start!important;gap:16px!important;padding:24px 24px 18px!important}
+.delete-confirm-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:10px;background:#fde7e9;color:#e52d35}
+.delete-confirm-icon svg{width:21px;height:21px;stroke-width:2}
+.delete-confirm-copy{min-width:0;padding-top:2px}
+.delete-confirm-head .delete-confirm-copy h3{margin:0!important;color:#1f3268!important;font-size:20px!important;font-weight:700!important;line-height:1.2!important}
+.delete-confirm-head .delete-confirm-copy p{margin:8px 0 0!important;color:#667085!important;font-size:13px!important;line-height:1.45!important}
+.delete-account-close{width:36px!important;height:36px!important;border:0!important;border-radius:8px!important;background:transparent!important;color:#667085!important}
+.delete-account-close:hover{background:#f5f5f5!important}
+.delete-confirm-body{padding:0 24px 22px!important}
+.delete-confirm-warning{margin:0 0 12px!important;padding:12px 14px!important;border:1px solid #ffc3c7!important;border-radius:10px!important;background:#fff4f4!important;color:#e52d4f!important;font-size:12px!important;line-height:1.4!important}
+.delete-confirm-input{width:100%!important;height:42px!important;margin:0!important;padding:0 12px!important;border:1px solid #d9dfea!important;border-radius:10px!important;background:#fff!important;color:#10243e!important;font-family:inherit!important;font-size:13px!important;outline:none!important}
+.delete-confirm-input:focus{border-color:#2f80ed!important;box-shadow:0 0 0 3px rgba(47,128,237,.12)!important}
+.delete-account-actions{display:flex!important;justify-content:flex-end!important;gap:10px!important;padding:16px 24px!important;border-top:1px solid #e1e6ee!important;background:#fff!important}
+.delete-account-actions button{min-width:110px!important;height:42px!important;padding:0 18px!important;border-radius:10px!important;font-family:inherit!important;font-size:13px!important;font-weight:700!important}
+.delete-account-cancel{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;border:1px solid #d9dfea!important;background:#fff!important;color:#667085!important}
+.delete-account-cancel svg{width:15px!important;height:15px!important;flex:0 0 auto;stroke-width:1.9}
+.delete-account-cancel:hover{background:#f5f5f5!important;border-color:#d9dfea!important;color:#667085!important}
+.delete-account-confirm{border:1px solid #e52d35!important;background:#e52d35!important;color:#fff!important;cursor:pointer!important}
+.delete-account-confirm:disabled{opacity:.45!important;cursor:not-allowed!important}
+.delete-account-confirm:hover{background:#cf252d!important;border-color:#cf252d!important}
+@media(max-width:620px){
+  .delete-confirm-head{gap:12px!important;padding:20px 18px 16px!important}
+  .delete-confirm-body{padding:0 18px 18px!important}
+  .delete-account-actions{padding:18px 20px!important}
+  .delete-account-actions button{min-width:0!important;flex:1;height:46px!important}
+}
+</style>
+<style>
+/* Report Bug form controls: consistent 10px radius */
+#bugReportModal input,
+#bugReportModal select,
+#bugReportModal textarea,
+.report-bug-modal input,
+.report-bug-modal select,
+.report-bug-modal textarea,
+.bug-report-modal input,
+.bug-report-modal select,
+.bug-report-modal textarea,
+[data-modal="report-bug"] input,
+[data-modal="report-bug"] select,
+[data-modal="report-bug"] textarea {
+  border-radius: 10px !important;
+}
+</style>
+<style id="sidebar-white-content-final">
+.sidebar .create,
+.sidebar .create svg,
+.sidebar .nav-item,
+.sidebar .nav-item svg,
+.sidebar .tool-link,
+.sidebar .tool-link svg{color:#fff!important;stroke:#fff!important}
+.sidebar .history-link,
+.sidebar .history-link:visited{color:#fff!important}
+.sidebar .history-section .label{color:rgba(255,255,255,.68)!important}
+</style>
+<style id="sidebar-states-final">
+.sidebar .create,.sidebar .nav-item,.sidebar .tool-link{border:1px solid transparent!important;border-radius:8px!important;color:#fff!important;background:transparent!important;transition:background-color .15s ease,border-color .15s ease,color .15s ease!important}
+.sidebar .create:hover,.sidebar .nav-item:hover,.sidebar .tool-link:hover{background:#3C506D!important;border-color:transparent!important;color:#fff!important}
+.sidebar .create.home-active,.sidebar .create.active,.sidebar .nav-item.active,.sidebar .nav-item.drawer-open{background:#3C506D!important;border-color:transparent!important;color:#fff!important}
+.sidebar .history-link{color:#fff!important;transition:background-color .15s ease,color .15s ease!important}
+.sidebar .history-section{padding-left:0!important;padding-right:0!important}
+.sidebar .history-row{width:100%!important;height:40px!important;border-radius:8px!important;background:transparent!important}
+.sidebar .history-row:hover{background:#3C506D!important}
+.sidebar .history-row .history-link,.sidebar .history-link:hover{height:40px!important;padding-left:11px!important;padding-right:34px!important;border-radius:8px!important;background:transparent!important;color:#fff!important}
+.sidebar .profile:hover{background:#3C506D!important}
+.sidebar .avatar{background:#7b4ddb!important;color:#fff!important;border:0!important}
+</style>
+<style id="help-brand-assets-final">
+.help-app-topbar .help-app-title{margin-left:-40px}
+.help-zoo-office-logo{display:block;width:174px;max-width:24vw;height:34px;object-fit:contain;object-position:left center}
+.zoodrive-brand-icon{display:block;width:20px;height:20px;object-fit:contain}
+#zooDrive>.zoodrive-brand-icon{width:20px;height:20px;flex:0 0 20px}
+.help-product-icon .zoodrive-brand-icon{width:20px;height:20px}
+.product-guide-product-icon .zoodrive-brand-icon{width:16px;height:16px}
+.tool-icon.drive{background:#7b8797!important;color:#fff!important}
+.tool-icon.drive .zoodrive-brand-icon{width:22px;height:22px}
+.help-offer-row[data-product="ZooDrive"] .zoodrive-brand-icon{width:18px;height:18px}
+@media(max-width:760px){.help-app-topbar .help-app-title{margin-left:0}.help-zoo-office-logo{width:142px;max-width:38vw;height:30px}}
+</style>
+<style id="new-page-equal-cards-final">
+@media(min-width:801px){
+  .main.chat-page{width:100%!important;min-height:100vh!important;padding:40px 32px!important;display:flex!important;align-items:center!important;justify-content:center!important}
+  .chat-page .canvas-inner{width:min(1200px,100%)!important;margin:0 auto!important;padding:0 40px!important}
+  .chat-page .home-composer{width:min(1120px,100%)!important}
+  .chat-page .app-launch-grid{width:min(1120px,100%)!important;display:grid!important;grid-template-columns:repeat(8,minmax(0,112px))!important;grid-template-rows:auto 139px!important;column-gap:0!important;row-gap:9px!important;justify-content:space-between!important;align-items:start!important}
+  .chat-page .app-group,.chat-page .app-group-grid{display:contents!important}
+  .chat-page .app-group:nth-child(1) .app-group-title{grid-column:1 / span 2!important}
+  .chat-page .app-group:nth-child(2) .app-group-title{grid-column:3 / span 2!important}
+  .chat-page .app-group:nth-child(3) .app-group-title{grid-column:5 / span 2!important}
+  .chat-page .app-group:nth-child(4) .app-group-title{grid-column:7 / span 2!important}
+  .chat-page .app-group-title{grid-row:1!important;align-self:end!important}
+  .chat-page .launch-wrap{grid-row:2!important;width:112px!important;min-width:112px!important}
+  .chat-page .launch-card{width:112px!important;min-width:112px!important}
+  .chat-page .launch-card small{display:-webkit-box!important;width:100%!important;max-width:108px!important;min-height:27px!important;overflow:hidden!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;line-clamp:2!important;line-height:1.35!important;text-wrap:balance}
+}
+</style>
